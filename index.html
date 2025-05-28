@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulateur de consommation énergetique d'un smartphone</title>
+
+  <!-- Poppins font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS (CDN pour prototype) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Vos styles personnalisés -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<main class="container mx-auto px-4 py-8">
+    <!-- Pàgina d'Inici -->
+    <section id="home" class="page active">
+        <div class="flex flex-col md:flex-row items-center gap-8 mb-16">
+            <div class="md:w-1/2">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-primary">
+                    Afers Juvenils
+                </h1>
+                <h2 class="text-xl md:text-2xl text-gray-600 mb-6">per Maria Dolors Añon</h2>
+                <p class="text-gray-700 mb-8 text-lg leading-relaxed">
+                    Un recull d'històries autèntiques que reflecteixen les experiències, reptes i triomfs dels joves d'avui. 
+                    Aquest llibre ens submergeix en el món adolescent amb una mirada fresca i honesta, donant veu a aquells 
+                    que sovint no són escoltats.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button class="btn-primary px-6 py-3 text-white rounded-full font-medium" data-page="tastet">
+                        Llegeix un tastet
+                    </button>
+                    <button class="btn-secondary px-6 py-3 text-white rounded-full font-medium" data-page="guia">
+                        Guia didàctica
+                    </button>
+                </div>
+            </div>
+            <div class="md:w-1/2">
+                <div class="relative">
+                    <svg class="w-full h-auto" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="50" y="50" width="300" height="300" rx="8" fill="#e9b19f" />
+                        <rect x="70" y="30" width="300" height="300" rx="8" fill="#f9e8d6" />
+                        <rect x="90" y="10" width="300" height="300" rx="8" fill="#3a3f39" stroke="#333" stroke-width="2" />
+                        <text x="240" y="100" font-family="Montserrat" font-size="24" font-weight="bold" text-anchor="middle" fill="#f9e8d6">AFERS</text>
+                        <text x="240" y="140" font-family="Montserrat" font-size="24" font-weight="bold" text-anchor="middle" fill="#f9e8d6">JUVENILS</text>
+                        <line x1="180" y1="160" x2="300" y2="160" stroke="#e9b19f" stroke-width="3" />
+                        <text x="240" y="200" font-family="Montserrat" font-size="16" text-anchor="middle" fill="#f9e8d6">Maria Dolors Añon</text>
+                        <path d="M150,220 C180,240 200,260 240,280 S280,290 330,270" stroke="#e9b19f" stroke-width="2" fill="none" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-primary">Sobre el llibre</h2>
+            <p class="text-gray-700 mb-6 leading-relaxed">
+                "Afers Juvenils" és una finestra a la realitat dels adolescents d'avui. A través d'entrevistes 
+                profundes i reflexions sinceres, Maria Dolors Añon ha recollit les veus d'una generació que 
+                s'enfronta a reptes únics en un món en constant canvi.
+            </p>
+            <p class="text-gray-700 mb-6 leading-relaxed">
+                El llibre aborda temes com la identitat, les relacions personals, la tecnologia, les pressions 
+                socials i els somnis de futur, tot des de la perspectiva autèntica dels propis joves. És una 
+                eina valuosa tant per a adolescents que busquen sentir-se compresos com per a adults que volen 
+                entendre millor aquest període vital.
+            </p>
+            <div class="quote italic text-gray-600 pl-8 pr-8 py-4 relative">
+                <p class="text-lg">
+                    "Aquest llibre neix de la necessitat d'escoltar realment els joves, de donar-los un espai 
+                    on les seves veus siguin les protagonistes, sense filtres ni prejudicis."
+                </p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center mb-4">
+                        <i class="fas fa-comments text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-primary">Entrevistes</h3>
+                    <p class="text-gray-600">
+                        Entrevistes a l'autora sobre el llibre, el procés de creació i els temes que tracta.
+                    </p>
+                </div>
+            </div>
+            <div class="card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center mb-4">
+                        <i class="fas fa-book-open text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-primary">Guia didàctica</h3>
+                    <p class="text-gray-600">
+                        Materials complementaris: Quadern de l'alumne i Orientacions didàctiques per treballar el llibre.
+                    </p>
+                </div>
+            </div>
+            <div class="card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4">
+                        <i class="fas fa-user-pen text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-primary">Sobre l'autora</h3>
+                    <p class="text-gray-600">
+                        Coneix a Maria Dolors Añon, la seva trajectòria i la motivació darrere d'aquest projecte.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pàgina d'Entrevistes -->
+    <section id="entrevistes" class="page">
+        <h1 class="text-4xl font-bold mb-8 text-primary">
+            Entrevistes
+        </h1>
+        <p class="text-gray-700 mb-8 text-lg">
+            Descobreix les entrevistes realitzades a Maria Dolors Añon sobre el seu llibre "Afers Juvenils", 
+            on comparteix el procés de creació, les motivacions i els temes que tracta l'obra.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center mr-4">
+                            <i class="fas fa-microphone text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-primary">Ràdio Catalunya Cultura</h3>
+                            <p class="text-gray-500">Programa "Llibres i Lletres" - 15/03/2023</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        "El més interessant d'escriure 'Afers Juvenils' ha estat descobrir com els joves 
+                        tenen una visió molt més profunda i madura del món del que sovint els adults reconeixem. 
+                        Les seves preocupacions van molt més enllà dels estereotips."
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-secondary text-primary rounded-full text-sm">Procés creatiu</span>
+                        <span class="px-3 py-1 bg-secondary text-primary rounded-full text-sm">Estereotips</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center mr-4">
+                            <i class="fas fa-newspaper text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-primary">Diari Ara</h3>
+                            <p class="text-gray-500">Suplement de Cultura - 22/04/2023</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        "Vaig començar aquest projecte pensant que seria un llibre sobre adolescents, però 
+                        aviat vaig entendre que havia de ser un llibre amb adolescents, donant-los veu i 
+                        protagonisme real. Això va canviar completament l'enfocament."
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-secondary text-primary rounded-full text-sm">Metodologia</span>
+                        <span class="px-3 py-1 bg-secondary text-primary rounded-full text-sm">Participació</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center mr-4">
+                            <i class="fas fa-video text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-primary">Canal Educació</h3>
+                            <p class="text-gray-500">Programa "Educar Avui" - 10/05/2023</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        "La guia didàctica que acompanya el llibre neix de la demanda dels mateixos docents 
+                        que van llegir els primers esborranys. Volien eines per treballar aquests temes a l'aula 
+                        d'una manera significativa i propera als joves."
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-secondary text-primary rounded-full text-sm">Educació</span>
+                        <span class="px-3 py-1 bg-secondary text-primary rounded-full text-sm">Recursos didàctics</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center mr-4">
+                            <i class="fas fa-podcast text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-primary">Podcast "Entre Llibres"</h3>
+                            <p class="text-gray-500">Episodi 42 - 05/06/2023</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        "Un dels temes que més em va sorprendre durant les entrevistes amb els joves va ser 
+                        la seva preocupació pel futur del planeta. Tenen una consciència ecològica molt més 
+                        desenvolupada que molts adults, i això es reflecteix al llibre."
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-secondary text-primary rounded-full text-sm">Medi ambient</span>
+                        <span class="px-3 py-1 bg-secondary text-primary rounded-full text-sm">Consciència social</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-primary rounded-xl shadow-lg p-8 text-white mb-12">
+            <h2 class="text-2xl font-bold mb-4">Temes destacats a les entrevistes</h2>
+            <p class="mb-6 leading-relaxed">
+                A través de les diverses entrevistes, Maria Dolors Añon ha compartit reflexions sobre:
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white/10 p-4 rounded-lg">
+                    <h3 class="font-bold mb-2">El procés d'escriptura</h3>
+                    <p>Com va néixer la idea del llibre i com es va desenvolupar al llarg de tres anys de treball.</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded-lg">
+                    <h3 class="font-bold mb-2">La relació amb els joves</h3>
+                    <p>L'experiència de treballar directament amb adolescents i guanyar-se la seva confiança.</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded-lg">
+                    <h3 class="font-bold mb-2">L'impacte educatiu</h3>
+                    <p>Com el llibre pot ajudar a millorar la comunicació entre joves i adults en entorns educatius.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-primary">Properes entrevistes i presentacions</h2>
+            <div class="space-y-6">
+                <div class="flex flex-col md:flex-row gap-4 items-start border-b pb-6">
+                    <div class="md:w-1/4">
+                        <div class="bg-secondary text-primary p-3 rounded-lg text-center">
+                            <span class="block text-lg font-bold">15</span>
+                            <span>Setembre</span>
+                            <span class="block">2023</span>
+                        </div>
+                    </div>
+                    <div class="md:w-3/4">
+                        <h3 class="text-lg font-bold text-primary">Biblioteca Central</h3>
+                        <p class="text-gray-600 mb-2">Presentació del llibre i col·loqui amb joves lectors</p>
+                        <p class="text-gray-500"><i class="fas fa-map-marker-alt mr-2"></i>Barcelona, 18:30h</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row gap-4 items-start border-b pb-6">
+                    <div class="md:w-1/4">
+                        <div class="bg-secondary text-primary p-3 rounded-lg text-center">
+                            <span class="block text-lg font-bold">22</span>
+                            <span>Setembre</span>
+                            <span class="block">2023</span>
+                        </div>
+                    </div>
+                    <div class="md:w-3/4">
+                        <h3 class="text-lg font-bold text-primary">Fira del Llibre Educatiu</h3>
+                        <p class="text-gray-600 mb-2">Taula rodona: "Literatura juvenil com a eina educativa"</p>
+                        <p class="text-gray-500"><i class="fas fa-map-marker-alt mr-2"></i>Girona, 12:00h</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row gap-4 items-start">
+                    <div class="md:w-1/4">
+                        <div class="bg-secondary text-primary p-3 rounded-lg text-center">
+                            <span class="block text-lg font-bold">30</span>
+                            <span>Setembre</span>
+                            <span class="block">2023</span>
+                        </div>
+                    </div>
+                    <div class="md:w-3/4">
+                        <h3 class="text-lg font-bold text-primary">Programa "Llibres amb veu"</h3>
+                        <p class="text-gray-600 mb-2">Entrevista en directe a Catalunya Ràdio</p>
+                        <p class="text-gray-500"><i class="fas fa-clock mr-2"></i>11:30h</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-primary">Vols saber-ne més?</h2>
+            <p class="text-gray-600 mb-6">
+                Segueix les xarxes socials de l'autora per estar al dia de totes les entrevistes i presentacions.
+            </p>
+            <button class="btn-primary px-6 py-3 text-white rounded-full font-medium" data-page="autora">
+                Coneix l'autora
+            </button>
+        </div>
+    </section>
+
+    <!-- Pàgina de Guia Didàctica -->
+    <section id="guia" class="page">
+        <h1 class="text-4xl font-bold mb-8 text-primary">
+            Guia Didàctica
+        </h1>
+        <p class="text-gray-700 mb-8 text-lg">
+            La guia didàctica d'"Afers Juvenils" és una eina pensada per a educadors, famílies i professionals 
+            que treballen amb joves. Ofereix recursos per aprofundir en els temes del llibre i facilitar 
+            el diàleg intergeneracional.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-2xl font-bold mb-4 text-primary">Què inclou la guia?</h2>
+                <ul class="space-y-3 text-gray-700">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                        <span>Propostes d'activitats per treballar a l'aula o en grups</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                        <span>Materials complementaris per aprofundir en cada tema</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                        <span>Dinàmiques per fomentar el diàleg entre joves i adults</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                        <span>Recursos bibliogràfics i audiovisuals recomanats</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                        <span>Orientacions per abordar temes sensibles</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="bg-primary rounded-xl shadow-md p-6 text-white">
+                <h2 class="text-2xl font-bold mb-4">Per a qui és útil?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white/10 p-4 rounded-lg">
+                        <h3 class="font-bold mb-2">Professorat</h3>
+                        <p>Recursos per treballar temes d'actualitat a l'aula de manera dinàmica.</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-lg">
+                        <h3 class="font-bold mb-2">Famílies</h3>
+                        <p>Eines per comprendre millor els adolescents i millorar la comunicació.</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-lg">
+                        <h3 class="font-bold mb-2">Educadors socials</h3>
+                        <p>Activitats per a centres juvenils i espais d'educació no formal.</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-lg">
+                        <h3 class="font-bold mb-2">Psicòlegs</h3>
+                        <p>Material de suport per a sessions individuals o grupals amb adolescents.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-primary">Temes que aborda la guia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="card p-4 border-l-4 border-accent bg-secondary/30 rounded">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Identitat digital</h3>
+                    <p class="text-gray-700">Com es construeix la identitat a les xarxes socials i quins riscos comporta.</p>
+                </div>
+                <div class="card p-4 border-l-4 border-accent bg-secondary/30 rounded">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Salut mental</h3>
+                    <p class="text-gray-700">Estratègies per gestionar l'ansietat, l'estrès i promoure el benestar emocional.</p>
+                </div>
+                <div class="card p-4 border-l-4 border-accent bg-secondary/30 rounded">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Relacions afectives</h3>
+                    <p class="text-gray-700">Educació afectivosexual i prevenció de relacions tòxiques.</p>
+                </div>
+                <div class="card p-4 border-l-4 border-accent bg-secondary/30 rounded">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Futur professional</h3>
+                    <p class="text-gray-700">Orientació acadèmica i laboral en un món canviant.</p>
+                </div>
+                <div class="card p-4 border-l-4 border-accent bg-secondary/30 rounded">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Participació ciutadana</h3>
+                    <p class="text-gray-700">Com fomentar l'activisme i el compromís social entre els joves.</p>
+                </div>
+                <div class="card p-4 border-l-4 border-accent bg-secondary/30 rounded">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Diversitat i inclusió</h3>
+                    <p class="text-gray-700">Eines per promoure el respecte a la diversitat en totes les seves formes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white rounded-xl shadow-md p-8">
+                <div class="flex flex-col items-center gap-6">
+                    <div class="relative">
+                        <svg class="w-full h-auto max-w-[200px]" viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="10" y="10" width="180" height="230" rx="5" fill="#fff" stroke="#ddd" stroke-width="2" />
+                            <rect x="20" y="20" width="160" height="40" rx="3" fill="#3a3f39" />
+                            <text x="100" y="45" font-family="Montserrat" font-size="14" font-weight="bold" text-anchor="middle" fill="#f9e8d6">QUADERN DE L'ALUMNE</text>
+                            <line x1="20" y1="70" x2="180" y2="70" stroke="#eee" stroke-width="2" />
+                            <rect x="30" y="80" width="140" height="10" rx="2" fill="#eee" />
+                            <rect x="30" y="100" width="100" height="10" rx="2" fill="#eee" />
+                            <rect x="30" y="120" width="140" height="10" rx="2" fill="#eee" />
+                            <rect x="30" y="140" width="120" height="10" rx="2" fill="#eee" />
+                            <rect x="30" y="170" width="140" height="40" rx="3" fill="#f5f5f5" stroke="#ddd" />
+                            <path d="M85,185 L105,195 L125,185" fill="none" stroke="#e9b19f" stroke-width="3" />
+                        </svg>
+                    </div>
+                    <div class="text-center">
+                        <h2 class="text-2xl font-bold mb-4 text-primary">Quadern de l'alumne</h2>
+                        <p class="text-gray-700 mb-6">
+                            Material de treball per als estudiants amb activitats, reflexions i espais per a l'expressió personal.
+                        </p>
+                        <button id="download-student" class="btn-primary px-6 py-3 text-white rounded-full font-medium flex items-center mx-auto">
+                            <i class="fas fa-download mr-2"></i> Descarregar quadern (PDF)
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-8">
+                <div class="flex flex-col items-center gap-6">
+                    <div class="relative">
+                        <svg class="w-full h-auto max-w-[200px]" viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="10" y="10" width="180" height="230" rx="5" fill="#fff" stroke="#ddd" stroke-width="2" />
+                            <rect x="20" y="20" width="160" height="40" rx="3" fill="#3a3f39" />
+                            <text x="100" y="45" font-family="Montserrat" font-size="12" font-weight="bold" text-anchor="middle" fill="#f9e8d6">ORIENTACIONS DIDÀCTIQUES</text>
+                            <line x1="20" y1="70" x2="180" y2="70" stroke="#eee" stroke-width="2" />
+                            <rect x="30" y="80" width="140" height="10" rx="2" fill="#eee" />
+                            <rect x="30" y="100" width="100" height="10" rx="2" fill="#eee" />
+                            <rect x="30" y="120" width="140" height="10" rx="2" fill="#eee" />
+                            <rect x="30" y="140" width="120" height="10" rx="2" fill="#eee" />
+                            <rect x="30" y="170" width="140" height="40" rx="3" fill="#f5f5f5" stroke="#ddd" />
+                            <path d="M85,185 L105,195 L125,185" fill="none" stroke="#e9b19f" stroke-width="3" />
+                        </svg>
+                    </div>
+                    <div class="text-center">
+                        <h2 class="text-2xl font-bold mb-4 text-primary">Orientacions didàctiques</h2>
+                        <p class="text-gray-700 mb-6">
+                            Guia per a docents i educadors amb propostes metodològiques i recursos complementaris.
+                        </p>
+                        <button id="download-teacher" class="btn-primary px-6 py-3 text-white rounded-full font-medium flex items-center mx-auto">
+                            <i class="fas fa-download mr-2"></i> Descarregar orientacions (PDF)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-secondary rounded-xl shadow-md p-8 mb-12">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-2/3">
+                    <h2 class="text-2xl font-bold mb-4 text-primary">Com utilitzar la guia didàctica</h2>
+                    <p class="text-gray-700 mb-6">
+                        La guia didàctica està dissenyada per ser flexible i adaptable a diferents contextos educatius. 
+                        Es pot utilitzar de manera integral o seleccionant les activitats més adequades per a cada grup.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center mr-3 mt-1">1</div>
+                            <p class="text-gray-700">Llegiu el llibre "Afers Juvenils" amb el grup d'alumnes.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center mr-3 mt-1">2</div>
+                            <p class="text-gray-700">Utilitzeu el Quadern de l'alumne per treballar individualment o en petits grups.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center mr-3 mt-1">3</div>
+                            <p class="text-gray-700">Seguiu les Orientacions didàctiques per dinamitzar debats i activitats complementàries.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/3">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-bold text-lg mb-3 text-primary">Recursos addicionals</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-film text-accent mr-2"></i>
+                                <span>Selecció de curtmetratges</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-music text-accent mr-2"></i>
+                                <span>Playlist temàtica</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-link text-accent mr-2"></i>
+                                <span>Enllaços d'interès</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-chart-simple text-accent mr-2"></i>
+                                <span>Infografies temàtiques</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <h2 class="text-2xl font-bold mb-4 text-primary">Vols més recursos?</h2>
+            <p class="text-gray-600 mb-6">
+                Si ets educador/a i vols materials addicionals o estàs interessat/da en organitzar 
+                un taller amb l'autora, contacta amb nosaltres.
+            </p>
+            <button class="btn-secondary px-6 py-3 text-white rounded-full font-medium">
+                Contactar per a més informació
+            </button>
+        </div>
+    </section>
+
+    <!-- Pàgina de Tastet del Recull -->
+    <section id="tastet" class="page">
+        <h1 class="text-4xl font-bold mb-8 text-primary">
+            Un Tastet del Recull
+        </h1>
+        <p class="text-gray-700 mb-8 text-lg">
+            Descobreix alguns fragments seleccionats del llibre "Afers Juvenils" que et permetran 
+            endinsar-te en les històries i reflexions que recull aquesta obra.
+        </p>
+
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-primary">Del pròleg</h2>
+                <div class="quote pl-6 border-l-4 border-accent italic text-gray-700">
+                    <p class="mb-4">
+                        "Aquest llibre no pretén donar respostes, sinó obrir preguntes. No vol jutjar els joves, 
+                        sinó escoltar-los. No busca simplificar la seva realitat, sinó mostrar-la en tota la seva 
+                        complexitat i riquesa."
+                    </p>
+                    <p>
+                        "Quan vaig començar aquest projecte, pensava que coneixia bé els adolescents després d'anys 
+                        treballant amb ells. Aviat vaig descobrir que tenia molt més per aprendre que per ensenyar."
+                    </p>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-primary">Capítol 1: Identitats en construcció</h2>
+                <p class="text-gray-700 mb-4">
+                    La identitat adolescent és un trencaclosques en constant evolució. Les peces canvien de forma, 
+                    de color, de posició. El que ahir semblava essencial, avui pot ser qüestionat. El que avui és 
+                    una certesa, demà pot convertir-se en un dubte.
+                </p>
+                <div class="quote pl-6 border-l-4 border-accent italic text-gray-700">
+                    <p>
+                        "Em pregunteu qui sóc i no sé què respondre. Sóc moltes coses alhora i cap d'elles em 
+                        defineix completament. Sóc el que escolto, el que llegeixo, el que comparteixo a Instagram, 
+                        però també el que amago, el que somio, el que temo. Sóc un esborrany constant de mi mateixa."
+                    </p>
+                    <p class="text-right mt-2">— Clara, 16 anys</p>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-primary">Capítol 3: Navegant en la incertesa</h2>
+                <p class="text-gray-700 mb-4">
+                    Els joves d'avui creixen en un món on l'única constant és el canvi. Les certeses que van guiar 
+                    generacions anteriors s'han esvaït. Estudiar ja no garanteix una feina estable. Formar una família 
+                    ja no és l'únic camí vàlid. El futur és un territori inexplorat i sovint intimidant.
+                </p>
+                <div class="quote pl-6 border-l-4 border-accent italic text-gray-700">
+                    <p>
+                        "Els adults sempre em pregunten què vull ser de gran, com si hagués de triar una sola cosa 
+                        per a tota la vida. Jo no vull ser una cosa, vull ser moltes. Vull provar, equivocar-me, 
+                        canviar d'opinió. No entenc per què això els sembla tan estrany."
+                    </p>
+                    <p class="text-right mt-2">— Marc, 17 anys</p>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-bold mb-4 text-primary">Capítol 5: Relacions en l'era digital</h2>
+                <p class="text-gray-700 mb-4">
+                    Les relacions personals s'han transformat amb la tecnologia. L'amistat, l'amor, la família... 
+                    tot es viu a través de múltiples canals simultanis. Un missatge no contestat pot desencadenar 
+                    una crisi. Un like pot ser interpretat de mil maneres diferents.
+                </p>
+                <div class="quote pl-6 border-l-4 border-accent italic text-gray-700">
+                    <p>
+                        "La gent de la meva edat no distingeix entre el món virtual i el real, perquè per a nosaltres 
+                        tot és real. Els sentiments que experimento quan algú em deixa en vist són tan reals com els 
+                        que sento quan algú m'ignora cara a cara. La diferència és que en línia tot queda registrat, 
+                        documentat, i això pot ser tant un consol com una tortura."
+                    </p>
+                    <p class="text-right mt-2">— Júlia, 15 anys</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-primary rounded-xl shadow-lg p-8 text-white">
+                <h2 class="text-2xl font-bold mb-4">Temes destacats</h2>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <i class="fas fa-star text-accent mr-2 mt-1"></i>
+                        <span>La pressió acadèmica i l'ansietat per rendiment</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-star text-accent mr-2 mt-1"></i>
+                        <span>La construcció de la identitat a les xarxes socials</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-star text-accent mr-2 mt-1"></i>
+                        <span>Les noves formes de relacions afectives</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-star text-accent mr-2 mt-1"></i>
+                        <span>El compromís social i l'activisme juvenil</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-star text-accent mr-2 mt-1"></i>
+                        <span>La salut mental i l'autocura</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold mb-4 text-primary">Opinions sobre el llibre</h2>
+                <div class="space-y-4">
+                    <div class="border-b pb-4">
+                        <div class="flex items-center mb-2">
+                            <div class="text-accent flex">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-gray-600 font-medium">Carme R., professora</span>
+                        </div>
+                        <p class="text-gray-600">
+                            "Una lectura imprescindible per a qualsevol persona que treballi amb adolescents. 
+                            M'ha ajudat a entendre millor els meus alumnes."
+                        </p>
+                    </div>
+                    <div class="border-b pb-4">
+                        <div class="flex items-center mb-2">
+                            <div class="text-accent flex">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="ml-2 text-gray-600 font-medium">Joan P., pare</span>
+                        </div>
+                        <p class="text-gray-600">
+                            "Llegir aquest llibre ha millorat la comunicació amb la meva filla adolescent. 
+                            Ara entenc millor el seu món."
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex items-center mb-2">
+                            <div class="text-accent flex">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-gray-600 font-medium">Marta S., 16 anys</span>
+                        </div>
+                        <p class="text-gray-600">
+                            "Per fi un llibre que parla de nosaltres sense tractar-nos com a aliens. 
+                            Em sento identificada amb moltes de les històries."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <h2 class="text-2xl font-bold mb-4 text-primary">T'ha agradat el que has llegit?</h2>
+            <p class="text-gray-600 mb-6">
+                Aquests són només alguns fragments del llibre "Afers Juvenils". 
+                Descobreix totes les històries i reflexions completes.
+            </p>
+            <div class="flex justify-center gap-4">
+                <button class="btn-primary px-6 py-3 text-white rounded-full font-medium">
+                    On comprar el llibre
+                </button>
+                <button class="btn-secondary px-6 py-3 text-white rounded-full font-medium" data-page="autora">
+                    Conèixer l'autora
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pàgina de l'Autora -->
+    <section id="autora" class="page">
+        <h1 class="text-4xl font-bold mb-8 text-primary">
+            L'Autora
+        </h1>
+
+        <div class="flex flex-col md:flex-row gap-8 mb-12">
+            <div class="md:w-1/3">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="p-4">
+                        <svg class="w-full h-auto" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="300" height="400" fill="#f8f9fa" />
+                            <circle cx="150" cy="150" r="100" fill="#3a3f39" />
+                            <circle cx="150" cy="130" r="50" fill="#f9e8d6" />
+                            <path d="M100,200 Q150,250 200,200 Q150,350 100,200" fill="#f9e8d6" />
+                            <rect x="50" y="320" width="200" height="30" rx="5" fill="#e9b19f" />
+                            <text x="150" y="342" font-family="Montserrat" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Maria Dolors Añon</text>
+                        </svg>
+                    </div>
+                    <div class="p-4 bg-gray-50">
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-gray-600 hover:text-primary">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-primary">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-accent">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-primary">
+                                <i class="fas fa-globe text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-2/3">
+                <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                    <h2 class="text-2xl font-bold mb-4 text-primary">Qui és Maria Dolors Añon?</h2>
+                    <p class="text-gray-700 mb-4">
+                        Maria Dolors Añon és escriptora, educadora i investigadora especialitzada en adolescència 
+                        i joventut. Amb més de quinze anys d'experiència treballant amb joves en diferents contextos 
+                        educatius, ha desenvolupat una mirada profunda i respectuosa cap al món adolescent.
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        Llicenciada en Psicologia i amb un màster en Educació Social, ha combinat la seva tasca 
+                        docent amb la recerca i l'escriptura. "Afers Juvenils" és el resultat de tres anys 
+                        d'entrevistes i treball de camp amb adolescents de diversos entorns socials i culturals.
+                    </p>
+                    <p class="text-gray-700">
+                        La seva aproximació es caracteritza per defugir els estereotips sobre la joventut i 
+                        per donar veu als propis joves, considerant-los experts en la seva pròpia experiència.
+                    </p>
+                </div>
+                <div class="quote pl-6 border-l-4 border-accent italic text-gray-700 mb-6">
+                    <p>
+                        "Escriure aquest llibre ha estat un viatge d'aprenentatge constant. Els joves m'han obert 
+                        les portes del seu món amb una generositat que m'ha sorprès i emocionat. El mínim que podia 
+                        fer era escoltar-los sense prejudicis i transmetre les seves veus amb la màxima fidelitat possible."
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-primary">Trajectòria professional</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-xl font-bold mb-3 text-primary">Experiència</h3>
+                    <ul class="space-y-4">
+                        <li class="flex">
+                            <div class="mr-4">
+                                <div class="w-3 h-3 rounded-full bg-accent mt-2"></div>
+                                <div class="w-0.5 h-full bg-accent/30 ml-1.5"></div>
+                            </div>
+                            <div>
+                                <p class="font-medium">Professora d'Educació Secundària</p>
+                                <p class="text-gray-600 text-sm">2010 - Actualitat</p>
+                                <p class="text-gray-700 mt-1">Docent de l'àrea d'humanitats i tutora d'ESO i Batxillerat.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="mr-4">
+                                <div class="w-3 h-3 rounded-full bg-accent mt-2"></div>
+                                <div class="w-0.5 h-full bg-accent/30 ml-1.5"></div>
+                            </div>
+                            <div>
+                                <p class="font-medium">Investigadora associada</p>
+                                <p class="text-gray-600 text-sm">2015 - Actualitat</p>
+                                <p class="text-gray-700 mt-1">Col·laboradora en projectes de recerca sobre joventut i educació.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="mr-4">
+                                <div class="w-3 h-3 rounded-full bg-accent mt-2"></div>
+                            </div>
+                            <div>
+                                <p class="font-medium">Educadora social</p>
+                                <p class="text-gray-600 text-sm">2005 - 2010</p>
+                                <p class="text-gray-700 mt-1">Treball amb joves en risc d'exclusió social en centres juvenils.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-3 text-primary">Formació</h3>
+                    <ul class="space-y-4">
+                        <li class="flex">
+                            <div class="mr-4">
+                                <div class="w-3 h-3 rounded-full bg-accent mt-2"></div>
+                                <div class="w-0.5 h-full bg-accent/30 ml-1.5"></div>
+                            </div>
+                            <div>
+                                <p class="font-medium">Màster en Educació Social</p>
+                                <p class="text-gray-600 text-sm">Universitat de Barcelona, 2008</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="mr-4">
+                                <div class="w-3 h-3 rounded-full bg-accent mt-2"></div>
+                                <div class="w-0.5 h-full bg-accent/30 ml-1.5"></div>
+                            </div>
+                            <div>
+                                <p class="font-medium">Llicenciatura en Psicologia</p>
+                                <p class="text-gray-600 text-sm">Universitat Autònoma de Barcelona, 2005</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="mr-4">
+                                <div class="w-3 h-3 rounded-full bg-accent mt-2"></div>
+                            </div>
+                            <div>
+                                <p class="font-medium">Postgrau en Escriptura Creativa</p>
+                                <p class="text-gray-600 text-sm">Escola d'Escriptura de l'Ateneu Barcelonès, 2012</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-primary">Altres publicacions</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-book text-accent mt-1 mr-2"></i>
+                            <span>"Educar en temps d'incertesa" (2018)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-book text-accent mt-1 mr-2"></i>
+                            <span>"Diàlegs intergeneracionals" (2020)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-book-open text-accent mt-1 mr-2"></i>
+                            <span>Articles en revistes especialitzades</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-primary">Conferències i tallers</h3>
+                    <p class="text-gray-700 mb-4">
+                        Maria Dolors Añon ofereix xerrades i tallers sobre:
+                    </p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-chalkboard-teacher text-accent mt-1 mr-2"></i>
+                            <span>Comunicació amb adolescents</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-chalkboard-teacher text-accent mt-1 mr-2"></i>
+                            <span>Educació emocional</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-chalkboard-teacher text-accent mt-1 mr-2"></i>
+                            <span>Acompanyament en l'adolescència</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-primary">Contacte</h3>
+                    <p class="text-gray-700 mb-4">
+                        Per a consultes, xerrades o col·laboracions:
+                    </p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-accent mt-1 mr-2"></i>
+                            <span>info@mariadolorsanon.cat</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone text-accent mt-1 mr-2"></i>
+                            <span>+34 93 XXX XX XX</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-globe text-accent mt-1 mr-2"></i>
+                            <span>www.mariadolorsanon.cat</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-primary rounded-xl shadow-lg p-8 text-white text-center">
+            <h2 class="text-2xl font-bold mb-4">Reserva una xerrada o taller</h2>
+            <p class="mb-6">
+                Maria Dolors Añon ofereix xerrades i tallers per a centres educatius, 
+                associacions de famílies, biblioteques i altres entitats.
+            </p>
+            <button class="bg-accent text-white px-6 py-3 rounded-full font-medium hover:bg-accent/90 transition">
+                Sol·licitar informació
+            </button>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-primary text-white py-8">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <div class="text-2xl font-bold text-secondary mb-2">Afers Juvenils</div>
+                <p class="text-gray-400">© 2023 Maria Dolors Añon. Tots els drets reservats.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-400 hover:text-accent">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-accent">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-accent">
+                    <i class="fab fa-facebook text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-accent">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Navegació
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('[data-page]');
+        const pages = document.querySelectorAll('.page');
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const downloadStudent = document.getElementById('download-student');
+        const downloadTeacher = document.getElementById('download-teacher');
+
+        // Funció per canviar de pàgina
+        function navigateTo(pageId) {
+            // Amagar totes les pàgines
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Mostrar la pàgina seleccionada
+            document.getElementById(pageId).classList.add('active');
+            
+            // Actualitzar classes actives als enllaços
+            navLinks.forEach(link => {
+                if (link.getAttribute('data-page') === pageId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            // Tancar el menú mòbil si està obert
+            mobileMenu.classList.add('hidden');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Event listeners per als enllaços de navegació
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('data-page');
+                navigateTo(pageId);
+            });
+        });
+        
+        // Menú mòbil toggle
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Descarregar guies
+        if (downloadStudent) {
+            downloadStudent.addEventListener('click', function() {
+                alert('Aquesta és una versió de mostra. El Quadern de l\'alumne estaria disponible per a descarregar aquí.');
+            });
+        }
+        
+        if (downloadTeacher) {
+            downloadTeacher.addEventListener('click', function() {
+                alert('Aquesta és una versió de mostra. Les Orientacions didàctiques estarien disponibles per a descarregar aquí.');
+            });
+        }
+    });
+</script>
