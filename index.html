@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simulateur de consommation énergetique d'un smartphone</title>
+  <title>Afers juvenils</title>
 
   <!-- Poppins font -->
   <link
@@ -16,7 +16,28 @@
 
   <!-- Vos styles personnalisés -->
   <link rel="stylesheet" href="style.css" />
+
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
+
+<body class="bg-gray-50 font-poppins text-gray-800">
+  <!-- Barra superior -->
+  <header class="bg-white shadow-sm">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-primary">Afers Juvenils</h1>
+      <nav class="space-x-6 text-sm font-medium">
+       <a href="#" data-page="home" class="relative inline-block text-gray-700 hover:text-primary after:transition-all after:duration-300 after:content-[''] after:block after:h-[2px] after:bg-accent after:scale-x-0 hover:after:scale-x-100 after:origin-left">
+          Inici</a>
+        <a href="#" data-page="entrevistes" class="text-gray-700 hover:text-primary">Entrevistes</a>
+        <a href="#" data-page="guia" class="text-gray-700 hover:text-primary">Guia didàctica</a>
+        <a href="#" data-page="tastet" class="text-gray-700 hover:text-primary">Un tastet del recull</a>
+        <a href="#" data-page="autora" class="text-gray-700 hover:text-primary">L'autora</a>
+      </nav>
+    </div>
+  </header>
+
 
 <main class="container mx-auto px-4 py-8">
     <!-- Pàgina d'Inici -->
@@ -915,27 +936,24 @@
             <div class="mb-6 md:mb-0">
                 <div class="text-2xl font-bold text-secondary mb-2">Afers Juvenils</div>
                 <p class="text-gray-400">© 2023 Maria Dolors Añon. Tots els drets reservats.</p>
-            </div>
-            <div class="flex space-x-6">
-                <a href="#" class="text-gray-400 hover:text-accent">
-                    <i class="fab fa-twitter text-xl"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-accent">
+                </div>
+                <div class="flex space-x-6">
+                <a href="https://www.instagram.com/anondolors" target="_blank" class="text-gray-400 hover:text-accent">
                     <i class="fab fa-instagram text-xl"></i>
                 </a>
-                <a href="#" class="text-gray-400 hover:text-accent">
+                <a href="https://www.facebook.com/dolors.anon" target="_blank" class="text-gray-400 hover:text-accent">
                     <i class="fab fa-facebook text-xl"></i>
                 </a>
-                <a href="#" class="text-gray-400 hover:text-accent">
+                <a href="mailto:manon@xtec.cat" class="text-gray-400 hover:text-accent">
                     <i class="fas fa-envelope text-xl"></i>
                 </a>
-            </div>
+                </div>
+
         </div>
     </div>
 </footer>
 
 <script>
-    // Navegació
     document.addEventListener('DOMContentLoaded', function() {
         const navLinks = document.querySelectorAll('[data-page]');
         const pages = document.querySelectorAll('.page');
@@ -946,15 +964,9 @@
 
         // Funció per canviar de pàgina
         function navigateTo(pageId) {
-            // Amagar totes les pàgines
-            pages.forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            // Mostrar la pàgina seleccionada
-            document.getElementById(pageId).classList.add('active');
-            
-            // Actualitzar classes actives als enllaços
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId)?.classList.add('active');
+
             navLinks.forEach(link => {
                 if (link.getAttribute('data-page') === pageId) {
                     link.classList.add('active');
@@ -962,39 +974,50 @@
                     link.classList.remove('active');
                 }
             });
-            
-            // Tancar el menú mòbil si està obert
-            mobileMenu.classList.add('hidden');
-            
-            // Scroll to top
+
+            if (mobileMenu) mobileMenu.classList.add('hidden');
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        
-        // Event listeners per als enllaços de navegació
+
+        // Navegació per clic
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const pageId = this.getAttribute('data-page');
                 navigateTo(pageId);
+                window.location.hash = pageId;
             });
         });
-        
-        // Menú mòbil toggle
-        menuToggle.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Descarregar guies
-        if (downloadStudent) {
-            downloadStudent.addEventListener('click', function() {
-                alert('Aquesta és una versió de mostra. El Quadern de l\'alumne estaria disponible per a descarregar aquí.');
+
+        // Navegació si hi ha hash a la URL
+        const initialHash = window.location.hash.replace('#', '');
+        const validPage = Array.from(pages).some(page => page.id === initialHash);
+        if (initialHash && validPage) {
+            navigateTo(initialHash);
+        } else {
+            navigateTo('home'); // Per defecte, mostra "Inici"
+        }
+
+        // Menú mòbil
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
             });
         }
-        
+
+        // Descarregar arxius
+        if (downloadStudent) {
+            downloadStudent.addEventListener('click', function() {
+                alert("Aquesta és una versió de mostra. El Quadern de l'alumne estaria disponible per a descarregar aquí.");
+            });
+        }
+
         if (downloadTeacher) {
             downloadTeacher.addEventListener('click', function() {
-                alert('Aquesta és una versió de mostra. Les Orientacions didàctiques estarien disponibles per a descarregar aquí.');
+                alert("Aquesta és una versió de mostra. Les Orientacions didàctiques estarien disponibles per a descarregar aquí.");
             });
         }
     });
+
 </script>
