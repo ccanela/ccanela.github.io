@@ -21,22 +21,39 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
-
-<body class="bg-gray-50 font-poppins text-gray-800">
-  <!-- Barra superior -->
-  <header class="bg-white shadow-sm">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-primary">Afers Juvenils</h1>
-      <nav class="space-x-6 text-sm font-medium">
-       <a href="#" data-page="home" class="relative inline-block text-gray-700 hover:text-primary after:transition-all after:duration-300 after:content-[''] after:block after:h-[2px] after:bg-accent after:scale-x-0 hover:after:scale-x-100 after:origin-left">
-          Inici</a>
-        <a href="#" data-page="entrevistes" class="text-gray-700 hover:text-primary">Entrevistes</a>
-        <a href="#" data-page="guia" class="text-gray-700 hover:text-primary">Guia didàctica</a>
-        <a href="#" data-page="tastet" class="text-gray-700 hover:text-primary">Un tastet del recull</a>
-        <a href="#" data-page="autora" class="text-gray-700 hover:text-primary">L'autora</a>
-      </nav>
-    </div>
-  </header>
+<body>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-primary">Afers Juvenils</div>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="nav-link active text-gray-800 hover:text-gray-600 font-medium" data-page="home">Inici</a>
+                    <a href="#" class="nav-link text-gray-800 hover:text-gray-600 font-medium" data-page="entrevistes">Entrevistes</a>
+                    <a href="#" class="nav-link text-gray-800 hover:text-gray-600 font-medium" data-page="guia">Guia Didàctica</a>
+                    <a href="#" class="nav-link text-gray-800 hover:text-gray-600 font-medium" data-page="activitats">Activitats</a>
+                    <a href="#" class="nav-link text-gray-800 hover:text-gray-600 font-medium" data-page="tastet">Un Tastet</a>
+                    <a href="#" class="nav-link text-gray-800 hover:text-gray-600 font-medium" data-page="autora">L'Autora</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-800 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-4 py-3 space-y-3">
+                <a href="#" class="block text-gray-800 hover:text-gray-600 font-medium" data-page="home">Inici</a>
+                <a href="#" class="block text-gray-800 hover:text-gray-600 font-medium" data-page="entrevistes">Entrevistes</a>
+                <a href="#" class="block text-gray-800 hover:text-gray-600 font-medium" data-page="guia">Guia Didàctica</a>
+                <a href="#" class="block text-gray-800 hover:text-gray-600 font-medium" data-page="activitats">Activitats</a>
+                <a href="#" class="block text-gray-800 hover:text-gray-600 font-medium" data-page="tastet">Un Tastet</a>
+                <a href="#" class="block text-gray-800 hover:text-gray-600 font-medium" data-page="autora">L'Autora</a>
+            </div>
+        </div>
+    </header>
 
 
 <main class="container mx-auto px-4 py-8">
@@ -47,14 +64,14 @@
                 <h1 class="text-4xl md:text-5xl font-bold mb-6 text-primary">
                     Afers Juvenils
                 </h1>
-                <h2 class="text-xl md:text-2xl text-gray-600 mb-6">per Maria Dolors Añón</h2>
+                <h2 class="text-xl md:text-2xl text-gray-600 mb-6">per Maria Dolors Añon</h2>
                 <p class="text-gray-700 mb-8 text-lg leading-relaxed">
                     Un recull d'històries autèntiques que reflecteixen les experiències, reptes i triomfs dels joves d'avui. 
                     Aquest llibre ens submergeix en el món adolescent amb una mirada fresca i honesta, donant veu a aquells 
                     que sovint no són escoltats.
                 </p>
                 <p class="text-gray-700 mb-8 text-lg leading-relaxed">
-                    El llibre inclou una <span class="font-semibold text-primary">guia didàctica que està composta d'un quadern de l’alumne i d'orientacions didàctiques per al professorat</span> per treballar-lo a l’aula. 
+                    El llibre inclou una <span class="font-semibold text-primary">guia didàctica i un quadern de l’alumne</span> per treballar-lo a l’aula. 
                     Està pensat per fomentar la lectura crítica, la reflexió i el diàleg en català.
                 </p>
                 <div class="flex flex-wrap gap-4">
@@ -88,8 +105,8 @@
         <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
             <h2 class="text-2xl font-bold mb-6 text-primary">Sobre el llibre</h2>
             <p class="text-gray-700 mb-6 leading-relaxed">
-                <i>Afers Juvenils</i> és una finestra a la realitat dels adolescents d'avui. A través d'entrevistes 
-                profundes i reflexions sinceres, Maria Dolors Añón ha recollit les veus d'una generació que 
+                "Afers Juvenils" és una finestra a la realitat dels adolescents d'avui. A través d'entrevistes 
+                profundes i reflexions sinceres, Maria Dolors Añon ha recollit les veus d'una generació que 
                 s'enfronta a reptes únics en un món en constant canvi.
             </p>
             <p class="text-gray-700 mb-6 leading-relaxed">
@@ -106,9 +123,10 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="card bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="p-6">
+                    <a href="#" class="text-gray-700 hover:text-primary" data-page="entrevistes"></a>
                     <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center mb-4">
                         <i class="fas fa-comments text-white text-xl"></i>
                     </div>
@@ -116,10 +134,25 @@
                     <p class="text-gray-600">
                         Entrevistes a l'autora sobre el llibre, el procés de creació i els temes que tracta.
                     </p>
+                    </a>
                 </div>
             </div>
             <div class="card bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <a href="#" class="text-gray-700 hover:text-primary" data-page="activitats"></a>
+                        <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4">
+                            <i class="fas fa-tasks text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-primary">Activitats</h3>
+                        <p class="text-gray-600">
+                            Activitats interactives basades en els relats del llibre per aprendre català i literatura.
+                        </p>
+                        </a>
+                    </div>
+            </div>
+            <div class="card bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="p-6">
+                    <a href="#" class="text-gray-700 hover:text-primary" data-page="guia"></a>
                     <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center mb-4">
                         <i class="fas fa-book-open text-white text-xl"></i>
                     </div>
@@ -127,17 +160,20 @@
                     <p class="text-gray-600">
                         Materials complementaris: Quadern de l'alumne i Orientacions didàctiques per treballar el llibre.
                     </p>
+                    </a>
                 </div>
             </div>
             <div class="card bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="p-6">
+                    <a href="#" class="text-gray-700 hover:text-primary" data-page="autora">
                     <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4">
                         <i class="fas fa-user-pen text-primary text-xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-primary">Sobre l'autora</h3>
                     <p class="text-gray-600">
-                        Coneix a Maria Dolors Añón, la seva trajectòria i la motivació darrere d'aquest projecte.
+                        Coneix a Maria Dolors Añon, la seva trajectòria i la motivació darrere d'aquest projecte.
                     </p>
+                    </a>
                 </div>
             </div>
         </div>
@@ -149,7 +185,7 @@
             Entrevistes
         </h1>
         <p class="text-gray-700 mb-8 text-lg">
-            Descobreix les entrevistes realitzades a Maria Dolors Añón sobre el seu llibre <i>Afers Juvenils</i>, 
+            Descobreix les entrevistes realitzades a Maria Dolors Añon sobre el seu llibre "Afers Juvenils", 
             on comparteix el procés de creació, les motivacions i els temes que tracta l'obra.
         </p>
 
@@ -250,7 +286,7 @@
         <div class="bg-primary rounded-xl shadow-lg p-8 text-white mb-12">
             <h2 class="text-2xl font-bold mb-4">Temes destacats a les entrevistes</h2>
             <p class="mb-6 leading-relaxed">
-                A través de les diverses entrevistes, Maria Dolors Añón ha compartit reflexions sobre:
+                A través de les diverses entrevistes, Maria Dolors Añon ha compartit reflexions sobre:
             </p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="bg-white/10 p-4 rounded-lg">
@@ -335,7 +371,7 @@
             Guia Didàctica
         </h1>
         <p class="text-gray-700 mb-8 text-lg">
-            La guia didàctica d'<i>Afers Juvenils</i> és una eina pensada per a educadors, famílies i professionals 
+            La guia didàctica d'"Afers Juvenils" és una eina pensada per a educadors, famílies i professionals 
             que treballen amb joves. Ofereix recursos per aprofundir en els temes del llibre i facilitar 
             el diàleg intergeneracional.
         </p>
@@ -473,7 +509,7 @@
                     <div class="space-y-4">
                         <div class="flex items-start">
                             <div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center mr-3 mt-1">1</div>
-                            <p class="text-gray-700">Llegiu el llibre <i>Afers Juvenils</i> amb el grup d'alumnes.</p>
+                            <p class="text-gray-700">Llegiu el llibre "Afers Juvenils" amb el grup d'alumnes.</p>
                         </div>
                         <div class="flex items-start">
                             <div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center mr-3 mt-1">2</div>
@@ -522,7 +558,7 @@
             </button>
         </div>
     </section>
-
+    
     <!-- Pàgina de Tastet del Recull -->
     <section id="tastet" class="page">
         <h1 class="text-4xl font-bold mb-8 text-primary">
@@ -556,7 +592,492 @@
     </div>
     </section>
 
+    <!-- Pàgina d'Activitats Interactives -->
+    <section id="activitats" class="page">
+        <h1 class="text-4xl font-bold mb-8 text-primary">
+            Activitats Interactives
+        </h1>
+        <p class="text-gray-700 mb-8 text-lg">
+            Descobreix les activitats interactives basades en els relats d'"Afers Juvenils". 
+            Aquestes activitats estan dissenyades per aprendre i millorar el català, 
+            potenciar l'ús de la llengua i aprofundir en la comprensió literària.
+        </p>
 
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-primary">Com funcionen les activitats?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-secondary/30 p-4 rounded-lg">
+                    <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center mb-4">
+                        <span class="text-white font-bold text-xl">1</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 text-primary">Tria un relat</h3>
+                    <p class="text-gray-700">
+                        Selecciona un dels dotze relats del llibre "Afers Juvenils" per començar.
+                    </p>
+                </div>
+                <div class="bg-secondary/30 p-4 rounded-lg">
+                    <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center mb-4">
+                        <span class="text-white font-bold text-xl">2</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 text-primary">Escull el nivell</h3>
+                    <p class="text-gray-700">
+                        Cada relat té activitats de tres nivells: principiant, mitjà i avançat.
+                    </p>
+                </div>
+                <div class="bg-secondary/30 p-4 rounded-lg">
+                    <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center mb-4">
+                        <span class="text-white font-bold text-xl">3</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 text-primary">Completa les activitats</h3>
+                    <p class="text-gray-700">
+                        Realitza exercicis de vocabulari, comprensió lectora i reflexió literària.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-primary">Selecciona un relat</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="story-card bg-white rounded-lg shadow-md p-4 border-2 border-transparent" data-story="nouvinguda">
+                    <h3 class="font-bold text-lg mb-2 text-primary">La nouvinguda</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Un relat sobre integració, identitat i pertinença en un nou entorn.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Relat 1</span>
+                        <i class="fas fa-chevron-right text-accent"></i>
+                    </div>
+                </div>
+                
+                <div class="story-card bg-white rounded-lg shadow-md p-4 border-2 border-transparent" data-story="graduacio">
+                    <h3 class="font-bold text-lg mb-2 text-primary">La graduació</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Un moment de transició i reflexió sobre el passat i el futur.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Relat 2</span>
+                        <i class="fas fa-chevron-right text-accent"></i>
+                    </div>
+                </div>
+                
+                <div class="story-card bg-white rounded-lg shadow-md p-4 border-2 border-transparent" data-story="promeses">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Joves promeses</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Les expectatives i pressions sobre els joves amb talent.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Relat 3</span>
+                        <i class="fas fa-chevron-right text-accent"></i>
+                    </div>
+                </div>
+                
+                <div class="story-card bg-white rounded-lg shadow-md p-4 border-2 border-transparent" data-story="ronda">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Una altra ronda?</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Els límits, les decisions i les conseqüències en l'oci nocturn.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Relat 4</span>
+                        <i class="fas fa-chevron-right text-accent"></i>
+                    </div>
+                </div>
+                
+                <div class="story-card bg-white rounded-lg shadow-md p-4 border-2 border-transparent" data-story="declarare">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Què declararé?</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Dilemes ètics i morals en situacions compromeses.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Relat 5</span>
+                        <i class="fas fa-chevron-right text-accent"></i>
+                    </div>
+                </div>
+                
+                <div class="story-card bg-white rounded-lg shadow-md p-4 border-2 border-transparent" data-story="youtuber">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Iaia, jo vull ser youtuber</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        El xoc generacional i les noves aspiracions professionals.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Relat 6</span>
+                        <i class="fas fa-chevron-right text-accent"></i>
+                    </div>
+                </div>
+                
+                <div class="story-card bg-white rounded-lg shadow-md p-4 border-2 border-transparent" data-story="mirall">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Un mirall singular</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        La imatge personal, l'autoestima i la percepció dels altres.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Relat 7</span>
+                        <i class="fas fa-chevron-right text-accent"></i>
+                    </div>
+                </div>
+                
+                <div class="story-card bg-white rounded-lg shadow-md p-4 border-2 border-transparent" data-story="jocs">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Jocs perillosos</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Els riscos de certes conductes i la pressió de grup.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Relat 8</span>
+                        <i class="fas fa-chevron-right text-accent"></i>
+                    </div>
+                </div>
+                
+                <div class="story-card bg-white rounded-lg shadow-md p-4 border-2 border-transparent" data-story="futur">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Un futur hipotecat</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Les preocupacions sobre el futur laboral i econòmic.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Relat 9</span>
+                        <i class="fas fa-chevron-right text-accent"></i>
+                    </div>
+                </div>
+                
+                <div class="story-card bg-white rounded-lg shadow-md p-4 border-2 border-transparent" data-story="mare">
+                    <h3 class="font-bold text-lg mb-2 text-primary">De tant que t'estima la mare...</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Les relacions familiars i la cerca d'autonomia.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Relat 10</span>
+                        <i class="fas fa-chevron-right text-accent"></i>
+                    </div>
+                </div>
+                
+                <div class="story-card bg-white rounded-lg shadow-md p-4 border-2 border-transparent" data-story="paradisos">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Paradisos a la xarxa</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        La realitat i la ficció en el món digital.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Relat 11</span>
+                        <i class="fas fa-chevron-right text-accent"></i>
+                    </div>
+                </div>
+                
+                <div class="story-card bg-white rounded-lg shadow-md p-4 border-2 border-transparent" data-story="fugitiva">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Fugitiva</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        La recerca d'identitat i la fugida de les pròpies circumstàncies.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Relat 12</span>
+                        <i class="fas fa-chevron-right text-accent"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="level-selection" class="hidden mb-12">
+            <div class="flex justify-between items-center mb-6">
+                <button id="back-to-stories" class="flex items-center text-primary font-medium">
+                    <i class="fas fa-arrow-left mr-2"></i> Tornar als relats
+                </button>
+                <h2 id="selected-story-title" class="text-2xl font-bold text-primary"></h2>
+            </div>
+            
+            <p id="selected-story-desc" class="text-gray-700 mb-8"></p>
+            
+            <h3 class="text-xl font-bold mb-4 text-primary">Tria un nivell</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="level-btn bg-white rounded-lg shadow-md p-6 border-2 border-transparent cursor-pointer" data-level="principiant">
+                    <div class="flex justify-between items-center mb-4">
+                        <h4 class="font-bold text-lg text-primary">Principiant</h4>
+                        <div class="flex">
+                            <i class="fas fa-star text-accent"></i>
+                            <i class="fas fa-star text-gray-300"></i>
+                            <i class="fas fa-star text-gray-300"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Activitats bàsiques de vocabulari i comprensió lectora. Ideal per a estudiants que s'inicien en l'aprenentatge del català.
+                    </p>
+                    <div class="flex justify-end">
+                        <i class="fas fa-chevron-right text-accent"></i>
+                    </div>
+                </div>
+                
+                <div class="level-btn bg-white rounded-lg shadow-md p-6 border-2 border-transparent cursor-pointer" data-level="mitja">
+                    <div class="flex justify-between items-center mb-4">
+                        <h4 class="font-bold text-lg text-primary">Mitjà</h4>
+                        <div class="flex">
+                            <i class="fas fa-star text-accent"></i>
+                            <i class="fas fa-star text-accent"></i>
+                            <i class="fas fa-star text-gray-300"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Activitats de nivell intermedi amb exercicis de gramàtica, comprensió i expressió escrita.
+                    </p>
+                    <div class="flex justify-end">
+                        <i class="fas fa-chevron-right text-accent"></i>
+                    </div>
+                </div>
+                
+                <div class="level-btn bg-white rounded-lg shadow-md p-6 border-2 border-transparent cursor-pointer" data-level="avancat">
+                    <div class="flex justify-between items-center mb-4">
+                        <h4 class="font-bold text-lg text-primary">Avançat</h4>
+                        <div class="flex">
+                            <i class="fas fa-star text-accent"></i>
+                            <i class="fas fa-star text-accent"></i>
+                            <i class="fas fa-star text-accent"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Activitats complexes d'anàlisi literària, reflexió crítica i creació de textos.
+                    </p>
+                    <div class="flex justify-end">
+                        <i class="fas fa-chevron-right text-accent"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenidor d'activitats -->
+        <div id="activity-container" class="hidden mb-12">
+            <div class="flex justify-between items-center mb-6">
+                <button id="back-to-levels" class="flex items-center text-primary font-medium">
+                    <i class="fas fa-arrow-left mr-2"></i> Tornar als nivells
+                </button>
+                <div>
+                    <h2 id="activity-story-title" class="text-2xl font-bold text-primary"></h2>
+                    <p id="activity-level" class="text-right text-accent"></p>
+                </div>
+            </div>
+
+            <!-- Activitats per "La nouvinguda" - Principiant -->
+            <div class="activity-container" id="nouvinguda-principiant">
+                <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                    <h3 class="text-xl font-bold mb-4 text-primary">Vocabulari: Paraules clau</h3>
+                    <p class="text-gray-700 mb-6">
+                        Relaciona cada paraula amb la seva definició correcta:
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="bg-secondary/30 p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">Paraules</h4>
+                            <div class="space-y-2">
+                                <div class="drag-item bg-white p-3 rounded border border-gray-200 shadow-sm" draggable="true" data-word="nouvinguda">Nouvinguda</div>
+                                <div class="drag-item bg-white p-3 rounded border border-gray-200 shadow-sm" draggable="true" data-word="acollida">Acollida</div>
+                                <div class="drag-item bg-white p-3 rounded border border-gray-200 shadow-sm" draggable="true" data-word="integrar">Integrar</div>
+                                <div class="drag-item bg-white p-3 rounded border border-gray-200 shadow-sm" draggable="true" data-word="pertinença">Pertinença</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-secondary/30 p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">Definicions</h4>
+                            <div class="space-y-2">
+                                <div class="drop-zone p-3 rounded border border-dashed border-gray-400 bg-white" data-definition="nouvinguda">Persona que ha arribat recentment a un lloc</div>
+                                <div class="drop-zone p-3 rounded border border-dashed border-gray-400 bg-white" data-definition="acollida">Rebuda que es fa a algú que arriba a un lloc</div>
+                                <div class="drop-zone p-3 rounded border border-dashed border-gray-400 bg-white" data-definition="integrar">Incorporar algú a un grup o comunitat</div>
+                                <div class="drop-zone p-3 rounded border border-dashed border-gray-400 bg-white" data-definition="pertinença">Sentiment de formar part d'un grup</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button id="check-vocab-nouvinguda" class="btn-primary px-6 py-2 text-white rounded-full font-medium">
+                            Comprovar respostes
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                    <h3 class="text-xl font-bold mb-4 text-primary">Comprensió lectora</h3>
+                    <p class="text-gray-700 mb-6">
+                        Llegeix el fragment del relat "La nouvinguda" i respon les preguntes:
+                    </p>
+                    
+                    <div class="bg-secondary/20 p-6 rounded-lg mb-6 italic">
+                        <p class="mb-4">
+                            "El primer dia d'institut sempre és difícil, però per a la Fàtima ho era encara més. 
+                            Feia només tres mesos que havia arribat a Catalunya des del Marroc i, tot i que 
+                            entenia força bé el català, encara li costava expressar-se amb fluïdesa. 
+                            Davant la porta de l'aula, va respirar fondo i va recordar les paraules de la seva mare: 
+                            'Sigues tu mateixa i tot anirà bé'."
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <p class="font-medium mb-2">1. D'on ve la Fàtima?</p>
+                            <div class="space-y-2">
+                                <div class="quiz-option p-3 rounded border border-gray-200" data-correct="true">
+                                    <span>Del Marroc</span>
+                                </div>
+                                <div class="quiz-option p-3 rounded border border-gray-200">
+                                    <span>De França</span>
+                                </div>
+                                <div class="quiz-option p-3 rounded border border-gray-200">
+                                    <span>D'Algèria</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p class="font-medium mb-2">2. Quant temps fa que la Fàtima ha arribat a Catalunya?</p>
+                            <div class="space-y-2">
+                                <div class="quiz-option p-3 rounded border border-gray-200">
+                                    <span>Un any</span>
+                                </div>
+                                <div class="quiz-option p-3 rounded border border-gray-200" data-correct="true">
+                                    <span>Tres mesos</span>
+                                </div>
+                                <div class="quiz-option p-3 rounded border border-gray-200">
+                                    <span>Sis mesos</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p class="font-medium mb-2">3. Com se sent la Fàtima amb el català?</p>
+                            <div class="space-y-2">
+                                <div class="quiz-option p-3 rounded border border-gray-200">
+                                    <span>No l'entén gens</span>
+                                </div>
+                                <div class="quiz-option p-3 rounded border border-gray-200">
+                                    <span>El parla perfectament</span>
+                                </div>
+                                <div class="quiz-option p-3 rounded border border-gray-200" data-correct="true">
+                                    <span>L'entén bé però li costa parlar-lo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-6">
+                        <button id="check-reading-nouvinguda" class="btn-primary px-6 py-2 text-white rounded-full font-medium">
+                            Comprovar respostes
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold mb-4 text-primary">Expressió escrita</h3>
+                    <p class="text-gray-700 mb-6">
+                        Completa les frases amb les paraules adequades:
+                    </p>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div>
+                            <p class="mb-2">La Fàtima és una <input type="text" class="border-b-2 border-accent bg-transparent px-2 w-32 focus:outline-none" data-answer="nouvinguda"> a l'institut.</p>
+                        </div>
+                        <div>
+                            <p class="mb-2">Els companys de classe li van fer una bona <input type="text" class="border-b-2 border-accent bg-transparent px-2 w-32 focus:outline-none" data-answer="acollida">.</p>
+                        </div>
+                        <div>
+                            <p class="mb-2">La professora l'ajuda a <input type="text" class="border-b-2 border-accent bg-transparent px-2 w-32 focus:outline-none" data-answer="integrar">-se al grup.</p>
+                        </div>
+                        <div>
+                            <p class="mb-2">Amb el temps, la Fàtima va desenvolupar un sentiment de <input type="text" class="border-b-2 border-accent bg-transparent px-2 w-32 focus:outline-none" data-answer="pertinença"> a la seva nova escola.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button id="check-writing-nouvinguda" class="btn-primary px-6 py-2 text-white rounded-full font-medium">
+                            Comprovar respostes
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activitats per "La nouvinguda" - Mitjà -->
+            <div class="activity-container" id="nouvinguda-mitja">
+                <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                    <h3 class="text-xl font-bold mb-4 text-primary">Anàlisi de vocabulari</h3>
+                    <p class="text-gray-700 mb-6">
+                        Classifica les següents paraules segons la seva categoria gramatical:
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div class="bg-secondary/30 p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">Paraules</h4>
+                            <div class="space-y-2">
+                                <div class="drag-item bg-white p-3 rounded border border-gray-200 shadow-sm" draggable="true" data-type="substantiu">Integració</div>
+                                <div class="drag-item bg-white p-3 rounded border border-gray-200 shadow-sm" draggable="true" data-type="adjectiu">Nouvingut</div>
+                                <div class="drag-item bg-white p-3 rounded border border-gray-200 shadow-sm" draggable="true" data-type="verb">Acollir</div>
+                                <div class="drag-item bg-white p-3 rounded border border-gray-200 shadow-sm" draggable="true" data-type="substantiu">Diversitat</div>
+                                <div class="drag-item bg-white p-3 rounded border border-gray-200 shadow-sm" draggable="true" data-type="adjectiu">Multicultural</div>
+                                <div class="drag-item bg-white p-3 rounded border border-gray-200 shadow-sm" draggable="true" data-type="verb">Adaptar-se</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-secondary/30 p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">Substantius</h4>
+                            <div class="drop-zone p-3 rounded border border-dashed border-gray-400 bg-white min-h-[150px]" data-type="substantiu"></div>
+                        </div>
+                        
+                        <div class="bg-secondary/30 p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">Adjectius</h4>
+                            <div class="drop-zone p-3 rounded border border-dashed border-gray-400 bg-white min-h-[150px]" data-type="adjectiu"></div>
+                        </div>
+                        
+                        <div class="bg-secondary/30 p-4 rounded-lg md:col-start-2 md:col-span-2">
+                            <h4 class="font-bold mb-2">Verbs</h4>
+                            <div class="drop-zone p-3 rounded border border-dashed border-gray-400 bg-white min-h-[100px]" data-type="verb"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button id="check-grammar-nouvinguda" class="btn-primary px-6 py-2 text-white rounded-full font-medium">
+                            Comprovar respostes
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                    <h3 class="text-xl font-bold mb-4 text-primary">Comprensió i anàlisi</h3>
+                    <p class="text-gray-700 mb-6">
+                        Llegeix el fragment del relat "La nouvinguda" i respon les preguntes:
+                    </p>
+                    
+                    <div class="bg-secondary/20 p-6 rounded-lg mb-6 italic">
+                        <p class="mb-4">
+                            "El primer dia d'institut sempre és difícil, però per a la Fàtima ho era encara més. 
+                            Feia només tres mesos que havia arribat a Catalunya des del Marroc i, tot i que 
+                            entenia força bé el català, encara li costava expressar-se amb fluïdesa. 
+                            Davant la porta de l'aula, va respirar fondo i va recordar les paraules de la seva mare: 
+                            'Sigues tu mateixa i tot anirà bé'."
+                        </p>
+                        <p>
+                            "A l'entrar, totes les mirades es van dirigir cap a ella. Algunes curioses, altres indiferents. 
+                            La professora la va presentar i li va indicar un lloc lliure al costat d'una noia de cabells 
+                            arrissats que li va somriure. Potser no seria tan difícil trobar el seu lloc en aquest nou món."
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <p class="font-medium mb-2">1. Quins sentiments experimenta la Fàtima en aquest fragment? (Selecciona totes les que corresponguin)</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                <div class="quiz-option p-3 rounded border border-gray-200" data-correct="true">
+                                    <span>Nerviosisme</span>
+                                </div>
+                                <div class="quiz-option p-3 rounded border border-gray-200">
+                                    <span>Tristesa</span>
+                                </div>
+                                <div class="quiz-option p-3 rounded border border-gray-200" data-correct="true">
+                                    <span>Expectativa</span>
+                                </div>
+                                <div class="quiz-option p-3 rounded border border-gray-200">
+                                    <span>Felicitat</span>
+                                </div>
+                                </div>
+                                </div>
+
+                                <div class="text-center mt-6">
+                                    <button id="check-comprensio-nouvinguda" class="btn-primary px-6 py-2 text-white rounded-full font-medium">
+                                        Comprovar respostes
+                                    </button>
+                                </div>
+                                </div>
+                                </div>
+                            </section>
     <!-- Pàgina de l'Autora -->
     <section id="autora" class="page">
         <h1 class="text-4xl font-bold mb-8 text-primary">
@@ -568,10 +1089,10 @@
                 <div class="bg-white rounded-xl shadow-md overflow-hidden">
                     <div class="p-4">
                         <div class="relative bg-[#f8f9fa] border border-gray-200 rounded-lg overflow-hidden shadow-inner">
-                            <img src="images/dolors.jpg" alt="Maria Dolors Añón"
+                            <img src="images/dolors.jpg" alt="Maria Dolors Añon"
                                 class="w-full h-auto object-contain mx-auto" />
                         </div>
-                        <h2 class="text-xl font-bold mt-4 text-primary text-center">Maria Dolors Añón</h2>
+                        <h2 class="text-xl font-bold mt-4 text-primary text-center">Maria Dolors Añon</h2>
                         <p class="text-gray-600 mt-2">
                     </div>
                     <!-- <div class="p-4 bg-gray-50">
@@ -594,7 +1115,7 @@
             </div>
                 <div class="md:w-2/3">
                 <div class="bg-white rounded-xl shadow-md p-6 mb-6">
-                    <h2 class="text-2xl font-bold mb-4 text-primary">Qui és Maria Dolors Añón?</h2>
+                    <h2 class="text-2xl font-bold mb-4 text-primary">Qui és Maria Dolors Añon?</h2>
                     <p class="text-gray-700 mb-4">
                     Balaguer (1966). Professora de llengua catalana i literatura a l’INS Almatà de Balaguer. 
                     Llicenciada en Filologia Catalana per la UB, a l’Estudi General de Lleida, i amb estudis de 
@@ -737,7 +1258,7 @@
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-3 text-primary">Conferències i tallers</h3>
                     <p class="text-gray-700 mb-4">
-                        Maria Dolors Añón ofereix xerrades i tallers sobre:
+                        Maria Dolors Añon ofereix xerrades i tallers sobre:
                     </p>
                     <ul class="space-y-2 text-gray-700">
                         <li class="flex items-start">
@@ -787,7 +1308,7 @@
         <div class="bg-primary rounded-xl shadow-lg p-8 text-white text-center">
             <h2 class="text-2xl font-bold mb-4">Reserva una xerrada o taller</h2>
             <p class="mb-6">
-                Maria Dolors Añón ofereix xerrades i tallers per a centres educatius, 
+                Maria Dolors Añon ofereix xerrades i tallers per a centres educatius, 
                 associacions de famílies, biblioteques i altres entitats.
             </p>
             <button class="bg-accent text-white px-6 py-3 rounded-full font-medium hover:bg-accent/90 transition">
@@ -802,7 +1323,7 @@
         <div class="flex flex-col md:flex-row justify-between items-center">
             <div class="mb-6 md:mb-0">
                 <div class="text-2xl font-bold text-secondary mb-2">Afers Juvenils</div>
-                <p class="text-gray-400">© 2025 Maria Dolors Añón. Tots els drets reservats.</p>
+                <p class="text-gray-400">© 2025 Maria Dolors Añon. Tots els drets reservats.</p>
                 </div>
                 <div class="flex space-x-6">
                 <a href="https://www.instagram.com/anondolors" target="_blank" class="text-gray-400 hover:text-accent">
@@ -819,71 +1340,4 @@
         </div>
     </div>
 </footer>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const navLinks = document.querySelectorAll('[data-page]');
-        const pages = document.querySelectorAll('.page');
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const downloadStudent = document.getElementById('download-student');
-        const downloadTeacher = document.getElementById('download-teacher');
-
-        // Funció per canviar de pàgina
-        function navigateTo(pageId) {
-            pages.forEach(page => page.classList.remove('active'));
-            document.getElementById(pageId)?.classList.add('active');
-
-            navLinks.forEach(link => {
-                if (link.getAttribute('data-page') === pageId) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
-            });
-
-            if (mobileMenu) mobileMenu.classList.add('hidden');
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Navegació per clic
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const pageId = this.getAttribute('data-page');
-                navigateTo(pageId);
-                window.location.hash = pageId;
-            });
-        });
-
-        // Navegació si hi ha hash a la URL
-        const initialHash = window.location.hash.replace('#', '');
-        const validPage = Array.from(pages).some(page => page.id === initialHash);
-        if (initialHash && validPage) {
-            navigateTo(initialHash);
-        } else {
-            navigateTo('home'); // Per defecte, mostra "Inici"
-        }
-
-        // Menú mòbil
-        if (menuToggle && mobileMenu) {
-            menuToggle.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-
-        // Descarregar arxius
-        if (downloadStudent) {
-            downloadStudent.addEventListener('click', function() {
-                alert("Aquesta és una versió de mostra. El Quadern de l'alumne estaria disponible per a descarregar aquí.");
-            });
-        }
-
-        if (downloadTeacher) {
-            downloadTeacher.addEventListener('click', function() {
-                alert("Aquesta és una versió de mostra. Les Orientacions didàctiques estarien disponibles per a descarregar aquí.");
-            });
-        }
-    });
-</script> 
+<script src="script.js"></script> 
