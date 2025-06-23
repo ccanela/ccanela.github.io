@@ -142,6 +142,52 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+     function initSwiper(selector) {
+            return new Swiper(selector, {
+                // Paràmetres del carrusel
+                loop: true,
+                grabCursor: true,
+                autoplay: {
+                    delay: 5000, // Canvia de slide cada 5 segons
+                    disableOnInteraction: false,
+                },
+                
+                // Vistes per diferents mides de pantalla
+                slidesPerView: 1,
+                spaceBetween: 20,
+                breakpoints: {
+                    // quan la pantalla és >= 768px
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    // quan la pantalla és >= 1024px
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    }
+                },
+                
+                // Paginació (els punts de sota)
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+
+                // Botons de navegació (fletxes)
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+        }
+
+        // Inicialitzar el carrusel de Ràdio
+        const swiperRadio = initSwiper('.swiper-radio');
+
+        // Inicialitzar el carrusel de TV
+        const swiperTv = initSwiper('.swiper-tv');
+
     document.getElementById("check-reading-nouvinguda")?.addEventListener("click", () => {
         checkQuiz("nouvinguda-principiant");
     });
