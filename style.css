@@ -1,6 +1,7 @@
 
 :root {
     --color-dark: #3a3f39;
+    --color-primary: #602f1a;
     --color-light: #f9e8d6;
     --color-accent: #e9b19f;
 }
@@ -69,6 +70,18 @@ main > section {
 .btn-secondary:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(58, 63, 57, 0.4);
+}
+
+.btn-comprar {
+  background-color: #9ec0c6;
+  color: #000000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+.btn-comprar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(58, 63, 57, 0.4);
 }
 
 .quote {
@@ -197,3 +210,60 @@ main > section {
 .quiz-option.incorrect {
     background-color: #f87171;
     color: white;
+
+.swiper-button-next,
+.swiper-button-prev {
+    background-color: white;
+    width: 44px;  /* Amplada del cercle */
+    height: 44px; /* Alçada del cercle */
+    border-radius: 50%; /* Fa que sigui un cercle perfecte */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ombra suau per donar profunditat */
+    color: var(--color-primary); /* Color de la icona de la fletxa */
+    transition: all 0.2s ease-in-out;
+}
+
+/* Canvi de color en passar el ratolí per sobre */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: #f7fafc; /* Un blanc una mica més fosc */
+    transform: scale(1.05); /* Efecte d'ampliació subtil */
+}
+
+/* Ajustem la mida de la icona (la fletxa en si) */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 18px; /* Fa la fletxa una mica més petita i elegant */
+    font-weight: 900; /* Fa la fletxa més gruixuda */
+}
+
+/* === LA PART CLAU: Moure les fletxes fora del contenidor === */
+.swiper-button-prev {
+    left: -22px; /* Mou la fletxa esquerra cap a fora. La meitat de la seva amplada. */
+}
+.swiper-button-next {
+    right: -22px; /* Mou la fletxa dreta cap a fora. La meitat de la seva amplada. */
+}
+
+/* Per a pantalles petites, les fletxes es mouen una mica més endins per no sortir de la pantalla */
+@media (max-width: 767px) {
+    .swiper-button-prev {
+        left: 5px;
+    }
+    .swiper-button-next {
+        right: 5px;
+    }
+}
+
+/* --- ESTILS PER A LA PAGINACIÓ (els punts) --- */
+
+/* Color dels punts inactius */
+.swiper-pagination-bullet {
+    background: #d1d5db; /* Un gris clar */
+    opacity: 0.8;
+}
+
+/* Color del punt actiu, utilitzant el color d'accent */
+.swiper-pagination-bullet-active {
+    background-color: var(--color-accent);
+    transform: scale(1.2); /* Fem el punt actiu una mica més gran */
+}
