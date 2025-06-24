@@ -211,8 +211,7 @@ main > section {
     background-color: #f87171;
     color: white;
 
-.swiper-button-next,
-.swiper-button-prev {
+.swiper-button-next, .swiper-button-prev {
     background-color: white;
     width: 44px;  /* Amplada del cercle */
     height: 44px; /* Alçada del cercle */
