@@ -212,58 +212,75 @@ main > section {
     color: white;
 }
 
-.swiper-button-next, .swiper-button-prev {
-    background-color: white;
-    width: 44px;  /* Amplada del cercle */
-    height: 44px; /* Alçada del cercle */
-    border-radius: 50%; /* Fa que sigui un cercle perfecte */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ombra suau per donar profunditat */
-    color: var(--color-primary); /* Color de la icona de la fletxa */
-    transition: all 0.2s ease-in-out;
-}
-
-/* Canvi de color en passar el ratolí per sobre */
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-    background-color: #f7fafc; /* Un blanc una mica més fosc */
-    transform: scale(1.05); /* Efecte d'ampliació subtil */
-}
-
-/* Ajustem la mida de la icona (la fletxa en si) */
-.swiper-button-next::after,
-.swiper-button-prev::after {
-    font-size: 18px; /* Fa la fletxa una mica més petita i elegant */
-    font-weight: 900; /* Fa la fletxa més gruixuda */
-}
-
-/* === LA PART CLAU: Moure les fletxes fora del contenidor === */
+/* Estil general per a les dues fletxes de navegació */
+.swiper-button-next,
 .swiper-button-prev {
-    left: -22px; /* Mou la fletxa esquerra cap a fora. La meitat de la seva amplada. */
+    background-color: white;
+    width: 40px;  /* Mida del cercle una mica més petita */
+    height: 40px;
+    border-radius: 9999px; /* Cercle perfecte */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: var(--color-dark); /* Color de la fletxa, agafat del teu :root */
+    transition: all 0.2s ease-in-out;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Posicionament de les fletxes dins l'espai de padding */
+.swiper-button-prev {
+    left: 0;
 }
 .swiper-button-next {
-    right: -22px; /* Mou la fletxa dreta cap a fora. La meitat de la seva amplada. */
+    right: 0;
 }
 
-/* Per a pantalles petites, les fletxes es mouen una mica més endins per no sortir de la pantalla */
+/* Efecte en passar el ratolí per sobre */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: var(--color-light); /* Color de fons del teu tema */
+    color: var(--color-primary);
+    transform: translateY(-50%) scale(1.05); /* Mantenim el centrat vertical */
+}
+
+/* Ajustem la mida de la icona (la fletxa en si) per fer-la més fina */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* Amaguem les fletxes en pantalles petites per no sobrecarregar */
 @media (max-width: 767px) {
+    .swiper-button-next,
     .swiper-button-prev {
-        left: 5px;
+        display: none;
     }
-    .swiper-button-next {
-        right: 5px;
+    .swiper {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 }
+
 
 /* --- ESTILS PER A LA PAGINACIÓ (els punts) --- */
 
-/* Color dels punts inactius */
-.swiper-pagination-bullet {
-    background: #d1d5db; /* Un gris clar */
-    opacity: 0.8;
+/* Canviem la posició dels punts una mica més avall */
+.swiper-pagination {
+    bottom: 0px !important;
 }
 
-/* Color del punt actiu, utilitzant el color d'accent */
+/* Color dels punts inactius */
+.swiper-pagination-bullet {
+    background: #d1d5db;
+    opacity: 0.8;
+    width: 8px;
+    height: 8px;
+    transition: all 0.2s ease;
+}
+
+/* Color i mida del punt actiu, utilitzant el teu color d'accent */
 .swiper-pagination-bullet-active {
     background-color: var(--color-accent);
-    transform: scale(1.2); /* Fem el punt actiu una mica més gran */
+    width: 24px;
+    border-radius: 8px;
 }

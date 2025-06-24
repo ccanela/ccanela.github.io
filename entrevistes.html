@@ -15,6 +15,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Vos styles personnalisés -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="style.css" />
 
   <link
@@ -66,9 +67,6 @@
             Un recull de les converses a mitjans de comunicació on explico el procés de creació, les motivacions i els temes que tracta el llibre <i>Afers Juvenils</i>. Navega per les diferents entrevistes per conèixer més a fons el projecte.
         </p>
 
-        <!-- Swiper.js CSS -->
-        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
         <!-- SECCIÓ RÀDIO I PODCASTS -->
         <div class="mb-16">
             <h2 class="text-3xl font-bold mb-6 text-primary flex items-center">
@@ -76,7 +74,8 @@
                 Ràdio i Podcasts
             </h2>
             <!-- Swiper -->
-            <div class="swiper swiper-radio relative">
+            <!-- CANVI IMPORTANT: He afegit 'relative' i 'px-12' per crear espai per a les fletxes -->
+            <div class="swiper swiper-radio relative px-12">
                 <div class="swiper-wrapper pb-12">
                     <!-- Targeta 1: LANOVA Ràdio de Reus -->
                     <div class="swiper-slide h-auto">
@@ -221,8 +220,8 @@
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
                 <!-- Add Navigation -->
-                <div class="swiper-button-prev text-primary"></div>
-                <div class="swiper-button-next text-primary"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
         </div>
 
@@ -232,7 +231,8 @@
                 <i class="fas fa-tv mr-3 text-accent"></i>
                 Televisió
             </h2>
-            <div class="swiper swiper-tv relative">
+            <!-- CANVI IMPORTANT: He afegit 'relative' i 'px-12' per crear espai per a les fletxes -->
+            <div class="swiper swiper-tv relative px-12">
                 <div class="swiper-wrapper pb-12">
                     <!-- Targeta 1: Comarques Nord TV -->
                     <div class="swiper-slide h-auto">
@@ -297,8 +297,8 @@
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
                 <!-- Add Navigation -->
-                <div class="swiper-button-prev text-primary"></div>
-                <div class="swiper-button-next text-primary"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
         </div>
         
