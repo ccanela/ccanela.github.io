@@ -210,6 +210,7 @@ main > section {
 .quiz-option.incorrect {
     background-color: #f87171;
     color: white;
+}
 
 .swiper-button-next, .swiper-button-prev {
     background-color: white;
