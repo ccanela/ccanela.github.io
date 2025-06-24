@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Afers juvenils</title>
+
+  <!-- Poppins font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS (CDN pour prototype) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Vos styles personnalisés -->
+  <link rel="stylesheet" href="style.css" />
+
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-primary">Afers Juvenils</div>
+                </div>
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="index.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Inici</a>
+                        <a href="entrevistes.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
+                        <a href="guia.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
+                        <a href="activitats.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Activitats</a>
+                        <a href="tastet.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
+                        <a href="autora.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
+                    </nav>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-800 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-4 py-3 space-y-3">
+                <a href="index.html" class="block text-gray-800 hover:text-gray-600 font-medium">Inici</a>
+                <a href="entrevistes.html" class="block text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
+                <a href="guia.html" class="block text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
+                <a href="activitats.html" class="block text-gray-800 hover:text-gray-600 font-medium">Activitats</a>
+                <a href="tastet.html" class="block text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
+                <a href="autora.html" class="block text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
+            </div>
+        </div>
+    </header>
+
+
+<main class="container mx-auto px-4 py-8">
+    <!-- Pàgina de Guia Didàctica -->
+    <section id="guia" class="page">
+        <h1 class="text-4xl font-bold mb-8 text-primary">
+            Guia Didàctica
+        </h1>
+        <p class="text-gray-700 mb-8 text-lg">
+            La guia didàctica d'"Afers Juvenils" és una eina pensada per a educadors, famílies i professionals 
+            que treballen amb joves. Ofereix recursos per aprofundir en els temes del llibre i facilitar 
+            el diàleg intergeneracional.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-2xl font-bold mb-4 text-primary">Què inclou la guia?</h2>
+                <ul class="space-y-3 text-gray-700">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                        <span>Propostes d'activitats per treballar a l'aula o en grups</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                        <span>Materials complementaris per aprofundir en cada tema</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                        <span>Dinàmiques per fomentar el diàleg entre joves i adults</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                        <span>Recursos bibliogràfics i audiovisuals recomanats</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                        <span>Orientacions per abordar temes sensibles</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="bg-primary rounded-xl shadow-md p-6 text-white">
+                <h2 class="text-2xl font-bold mb-4">Per a qui és útil?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white/10 p-4 rounded-lg">
+                        <h3 class="font-bold mb-2">Professorat</h3>
+                        <p>Recursos per treballar temes d'actualitat a l'aula de manera dinàmica.</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-lg">
+                        <h3 class="font-bold mb-2">Famílies</h3>
+                        <p>Eines per comprendre millor els adolescents i millorar la comunicació.</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-lg">
+                        <h3 class="font-bold mb-2">Educadors socials</h3>
+                        <p>Activitats per a centres juvenils i espais d'educació no formal.</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-lg">
+                        <h3 class="font-bold mb-2">Psicòlegs</h3>
+                        <p>Material de suport per a sessions individuals o grupals amb adolescents.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-primary">Temes que aborda la guia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="card p-4 border-l-4 border-accent bg-secondary/30 rounded">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Identitat digital</h3>
+                    <p class="text-gray-700">Com es construeix la identitat a les xarxes socials i quins riscos comporta.</p>
+                </div>
+                <div class="card p-4 border-l-4 border-accent bg-secondary/30 rounded">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Salut mental</h3>
+                    <p class="text-gray-700">Estratègies per gestionar l'ansietat, l'estrès i promoure el benestar emocional.</p>
+                </div>
+                <div class="card p-4 border-l-4 border-accent bg-secondary/30 rounded">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Relacions afectives</h3>
+                    <p class="text-gray-700">Educació afectivosexual i prevenció de relacions tòxiques.</p>
+                </div>
+                <div class="card p-4 border-l-4 border-accent bg-secondary/30 rounded">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Futur professional</h3>
+                    <p class="text-gray-700">Orientació acadèmica i laboral en un món canviant.</p>
+                </div>
+                <div class="card p-4 border-l-4 border-accent bg-secondary/30 rounded">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Participació ciutadana</h3>
+                    <p class="text-gray-700">Com fomentar l'activisme i el compromís social entre els joves.</p>
+                </div>
+                <div class="card p-4 border-l-4 border-accent bg-secondary/30 rounded">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Diversitat i inclusió</h3>
+                    <p class="text-gray-700">Eines per promoure el respecte a la diversitat en totes les seves formes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <!-- Targeta Quadern de l'alumne -->
+            <div class="bg-white rounded-xl shadow-md p-8">
+                <div class="flex flex-col items-center gap-6">
+                <div class="relative">
+                    <img src="images/quadern_alumne.jpg" alt="Portada Quadern de l'alumne"
+                        class="w-full max-w-[200px] rounded shadow-md" />
+                </div>
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold mb-4 text-primary">Quadern de l'alumne</h2>
+                    <p class="text-gray-700 mb-6">
+                    Material de treball per als estudiants amb activitats, reflexions i espais per a l'expressió personal.
+                    </p>
+                    <a href="https://drive.google.com/file/d/1Nh2Ntjyxjj6PN_2gBN9wmP8em5alXkCd/view" target="_blank"
+                    class="btn-primary px-6 py-3 text-white rounded-full font-medium flex items-center justify-center mx-auto transition hover:scale-105">
+                    <i class="fas fa-download mr-2"></i> Descarregar quadern (PDF)
+                    </a>
+                </div>
+                </div>
+            </div>
+
+            <!-- Targeta Orientacions didàctiques -->
+            <div class="bg-white rounded-xl shadow-md p-8">
+                <div class="flex flex-col items-center gap-6">
+                <div class="relative">
+                    <img src="images/guia.png" alt="Portada Orientacions didàctiques"
+                        class="w-full max-w-[200px] rounded shadow-md" />
+                </div>
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold mb-4 text-primary">Orientacions didàctiques</h2>
+                    <p class="text-gray-700 mb-6">
+                    Guia per a docents i educadors amb propostes metodològiques i recursos complementaris.
+                    </p>
+                    <a href="https://drive.google.com/file/d/1DPS8uz4W3ihSkoVPvk3ehRPbOCqd3a7l/view?usp=sharing" target="_blank"
+                    class="btn-primary px-6 py-3 text-white rounded-full font-medium flex items-center justify-center mx-auto transition hover:scale-105">
+                    <i class="fas fa-download mr-2"></i> Descarregar orientacions (PDF)
+                    </a>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="bg-secondary rounded-xl shadow-md p-8 mb-12">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-2/3">
+                    <h2 class="text-2xl font-bold mb-4 text-primary">Com utilitzar la guia didàctica</h2>
+                    <p class="text-gray-700 mb-6">
+                        La guia didàctica està dissenyada per ser flexible i adaptable a diferents contextos educatius. 
+                        Es pot utilitzar de manera integral o seleccionant les activitats més adequades per a cada grup.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center mr-3 mt-1">1</div>
+                            <p class="text-gray-700">Llegiu el llibre "Afers Juvenils" amb el grup d'alumnes.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center mr-3 mt-1">2</div>
+                            <p class="text-gray-700">Utilitzeu el Quadern de l'alumne per treballar individualment o en petits grups.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center mr-3 mt-1">3</div>
+                            <p class="text-gray-700">Seguiu les Orientacions didàctiques per dinamitzar debats i activitats complementàries.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/3">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-bold text-lg mb-3 text-primary">Recursos addicionals</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-film text-accent mr-2"></i>
+                                <span>Selecció de curtmetratges</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-music text-accent mr-2"></i>
+                                <span>Playlist temàtica</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-link text-accent mr-2"></i>
+                                <span>Enllaços d'interès</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-chart-simple text-accent mr-2"></i>
+                                <span>Infografies temàtiques</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <h2 class="text-2xl font-bold mb-4 text-primary">Vols més recursos?</h2>
+            <p class="text-gray-600 mb-6">
+                Si ets educador/a i vols materials addicionals o estàs interessat/da en organitzar 
+                un taller amb l'autora, contacta amb nosaltres.
+            </p>
+            <button class="btn-secondary px-6 py-3 text-white rounded-full font-medium">
+                Contactar per a més informació
+            </button>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-primary text-white py-8">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <div class="text-2xl font-bold text-secondary mb-2">Afers Juvenils</div>
+                <p class="text-gray-400">© 2025 Maria Dolors Añon. Tots els drets reservats.</p>
+                </div>
+                <div class="flex space-x-6">
+                <a href="https://www.instagram.com/anondolors" target="_blank" class="text-gray-400 hover:text-accent">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="https://www.facebook.com/dolors.anon" target="_blank" class="text-gray-400 hover:text-accent">
+                    <i class="fab fa-facebook text-xl"></i>
+                </a>
+                <a href="mailto:manon@xtec.cat" class="text-gray-400 hover:text-accent">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+                </div>
+
+        </div>
+    </div>
+</footer>
+<script src="script.js"></script> 

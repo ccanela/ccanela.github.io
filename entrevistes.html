@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Afers juvenils</title>
+
+  <!-- Poppins font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS (CDN pour prototype) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Vos styles personnalisés -->
+  <link rel="stylesheet" href="style.css" />
+
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-primary">Afers Juvenils</div>
+                </div>
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="index.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Inici</a>
+                        <a href="entrevistes.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
+                        <a href="guia.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
+                        <a href="activitats.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Activitats</a>
+                        <a href="tastet.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
+                        <a href="autora.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
+                    </nav>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-800 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-4 py-3 space-y-3">
+                <a href="index.html" class="block text-gray-800 hover:text-gray-600 font-medium">Inici</a>
+                <a href="entrevistes.html" class="block text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
+                <a href="guia.html" class="block text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
+                <a href="activitats.html" class="block text-gray-800 hover:text-gray-600 font-medium">Activitats</a>
+                <a href="tastet.html" class="block text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
+                <a href="autora.html" class="block text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
+            </div>
+        </div>
+    </header>
+
+
+<main class="container mx-auto px-4 py-8">
+    <!-- Pàgina d'Entrevistes -->
+    <section id="entrevistes" class="page">
+        <h1 class="text-4xl font-bold mb-8 text-primary">
+            Entrevistes
+        </h1>
+        <p class="text-gray-700 mb-8 text-lg">
+            Descobreix les entrevistes realitzades a Maria Dolors Añon sobre el seu llibre "Afers Juvenils", 
+            on comparteix el procés de creació, les motivacions i els temes que tracta l'obra.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center mr-4">
+                            <i class="fas fa-microphone text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-primary">Ràdio Catalunya Cultura</h3>
+                            <p class="text-gray-500">Programa "Llibres i Lletres" - 15/03/2023</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        "El més interessant d'escriure 'Afers Juvenils' ha estat descobrir com els joves 
+                        tenen una visió molt més profunda i madura del món del que sovint els adults reconeixem. 
+                        Les seves preocupacions van molt més enllà dels estereotips."
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-secondary text-primary rounded-full text-sm">Procés creatiu</span>
+                        <span class="px-3 py-1 bg-secondary text-primary rounded-full text-sm">Estereotips</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center mr-4">
+                            <i class="fas fa-newspaper text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-primary">Diari Ara</h3>
+                            <p class="text-gray-500">Suplement de Cultura - 22/04/2023</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        "Vaig començar aquest projecte pensant que seria un llibre sobre adolescents, però 
+                        aviat vaig entendre que havia de ser un llibre amb adolescents, donant-los veu i 
+                        protagonisme real. Això va canviar completament l'enfocament."
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-secondary text-primary rounded-full text-sm">Metodologia</span>
+                        <span class="px-3 py-1 bg-secondary text-primary rounded-full text-sm">Participació</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center mr-4">
+                            <i class="fas fa-video text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-primary">Canal Educació</h3>
+                            <p class="text-gray-500">Programa "Educar Avui" - 10/05/2023</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        "La guia didàctica que acompanya el llibre neix de la demanda dels mateixos docents 
+                        que van llegir els primers esborranys. Volien eines per treballar aquests temes a l'aula 
+                        d'una manera significativa i propera als joves."
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-secondary text-primary rounded-full text-sm">Educació</span>
+                        <span class="px-3 py-1 bg-secondary text-primary rounded-full text-sm">Recursos didàctics</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center mr-4">
+                            <i class="fas fa-podcast text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-primary">Podcast "Entre Llibres"</h3>
+                            <p class="text-gray-500">Episodi 42 - 05/06/2023</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        "Un dels temes que més em va sorprendre durant les entrevistes amb els joves va ser 
+                        la seva preocupació pel futur del planeta. Tenen una consciència ecològica molt més 
+                        desenvolupada que molts adults, i això es reflecteix al llibre."
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-secondary text-primary rounded-full text-sm">Medi ambient</span>
+                        <span class="px-3 py-1 bg-secondary text-primary rounded-full text-sm">Consciència social</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-primary rounded-xl shadow-lg p-8 text-white mb-12">
+            <h2 class="text-2xl font-bold mb-4">Temes destacats a les entrevistes</h2>
+            <p class="mb-6 leading-relaxed">
+                A través de les diverses entrevistes, Maria Dolors Añon ha compartit reflexions sobre:
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white/10 p-4 rounded-lg">
+                    <h3 class="font-bold mb-2">El procés d'escriptura</h3>
+                    <p>Com va néixer la idea del llibre i com es va desenvolupar al llarg de tres anys de treball.</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded-lg">
+                    <h3 class="font-bold mb-2">La relació amb els joves</h3>
+                    <p>L'experiència de treballar directament amb adolescents i guanyar-se la seva confiança.</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded-lg">
+                    <h3 class="font-bold mb-2">L'impacte educatiu</h3>
+                    <p>Com el llibre pot ajudar a millorar la comunicació entre joves i adults en entorns educatius.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-primary">Properes entrevistes i presentacions</h2>
+            <div class="space-y-6">
+                <div class="flex flex-col md:flex-row gap-4 items-start border-b pb-6">
+                    <div class="md:w-1/4">
+                        <div class="bg-secondary text-primary p-3 rounded-lg text-center">
+                            <span class="block text-lg font-bold">15</span>
+                            <span>Setembre</span>
+                            <span class="block">2023</span>
+                        </div>
+                    </div>
+                    <div class="md:w-3/4">
+                        <h3 class="text-lg font-bold text-primary">Biblioteca Central</h3>
+                        <p class="text-gray-600 mb-2">Presentació del llibre i col·loqui amb joves lectors</p>
+                        <p class="text-gray-500"><i class="fas fa-map-marker-alt mr-2"></i>Barcelona, 18:30h</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row gap-4 items-start border-b pb-6">
+                    <div class="md:w-1/4">
+                        <div class="bg-secondary text-primary p-3 rounded-lg text-center">
+                            <span class="block text-lg font-bold">22</span>
+                            <span>Setembre</span>
+                            <span class="block">2023</span>
+                        </div>
+                    </div>
+                    <div class="md:w-3/4">
+                        <h3 class="text-lg font-bold text-primary">Fira del Llibre Educatiu</h3>
+                        <p class="text-gray-600 mb-2">Taula rodona: "Literatura juvenil com a eina educativa"</p>
+                        <p class="text-gray-500"><i class="fas fa-map-marker-alt mr-2"></i>Girona, 12:00h</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row gap-4 items-start">
+                    <div class="md:w-1/4">
+                        <div class="bg-secondary text-primary p-3 rounded-lg text-center">
+                            <span class="block text-lg font-bold">30</span>
+                            <span>Setembre</span>
+                            <span class="block">2023</span>
+                        </div>
+                    </div>
+                    <div class="md:w-3/4">
+                        <h3 class="text-lg font-bold text-primary">Programa "Llibres amb veu"</h3>
+                        <p class="text-gray-600 mb-2">Entrevista en directe a Catalunya Ràdio</p>
+                        <p class="text-gray-500"><i class="fas fa-clock mr-2"></i>11:30h</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-primary">Vols saber-ne més?</h2>
+            <p class="text-gray-600 mb-6">
+                Segueix les xarxes socials de l'autora per estar al dia de totes les entrevistes i presentacions.
+            </p>
+            <button class="btn-primary px-6 py-3 text-white rounded-full font-medium" data-page="autora">
+                Coneix l'autora
+            </button>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-primary text-white py-8">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <div class="text-2xl font-bold text-secondary mb-2">Afers Juvenils</div>
+                <p class="text-gray-400">© 2025 Maria Dolors Añon. Tots els drets reservats.</p>
+                </div>
+                <div class="flex space-x-6">
+                <a href="https://www.instagram.com/anondolors" target="_blank" class="text-gray-400 hover:text-accent">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="https://www.facebook.com/dolors.anon" target="_blank" class="text-gray-400 hover:text-accent">
+                    <i class="fab fa-facebook text-xl"></i>
+                </a>
+                <a href="mailto:manon@xtec.cat" class="text-gray-400 hover:text-accent">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+                </div>
+
+        </div>
+    </div>
+</footer>
+<script src="script.js"></script> 

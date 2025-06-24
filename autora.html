@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Afers juvenils</title>
+
+  <!-- Poppins font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS (CDN pour prototype) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Vos styles personnalisés -->
+  <link rel="stylesheet" href="style.css" />
+
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-primary">Afers Juvenils</div>
+                </div>
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="index.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Inici</a>
+                        <a href="entrevistes.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
+                        <a href="guia.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
+                        <a href="activitats.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Activitats</a>
+                        <a href="tastet.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
+                        <a href="autora.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
+                    </nav>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-800 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-4 py-3 space-y-3">
+                <a href="index.html" class="block text-gray-800 hover:text-gray-600 font-medium">Inici</a>
+                <a href="entrevistes.html" class="block text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
+                <a href="guia.html" class="block text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
+                <a href="activitats.html" class="block text-gray-800 hover:text-gray-600 font-medium">Activitats</a>
+                <a href="tastet.html" class="block text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
+                <a href="autora.html" class="block text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
+            </div>
+        </div>
+    </header>
+
+
+<main class="container mx-auto px-4 py-8">
+    <!-- Pàgina de l'Autora -->
+    <section id="autora" class="page">
+        <h1 class="text-4xl font-bold mb-8 text-primary">
+            L'Autora
+        </h1>
+
+        <div class="flex flex-col md:flex-row gap-8 mb-12">
+            <div class="md:w-1/3">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="p-4">
+                        <div class="relative bg-[#f8f9fa] border border-gray-200 rounded-lg overflow-hidden shadow-inner">
+                            <img src="images/dolors.jpg" alt="Maria Dolors Añon"
+                                class="w-full h-auto object-contain mx-auto" />
+                        </div>
+                        <h2 class="text-xl font-bold mt-4 text-primary text-center">Maria Dolors Añon</h2>
+                        <p class="text-gray-600 mt-2">
+                    </div>
+                    <!-- <div class="p-4 bg-gray-50">
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-gray-600 hover:text-primary">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-primary">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-accent">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-primary">
+                                <i class="fas fa-globe text-xl"></i>
+                            </a>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+                <div class="md:w-2/3">
+                <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                    <h2 class="text-2xl font-bold mb-4 text-primary">Qui és Maria Dolors Añon?</h2>
+                    <p class="text-gray-700 mb-4">
+                    Balaguer (1966). Professora de llengua catalana i literatura a l’INS Almatà de Balaguer. 
+                    Llicenciada en Filologia Catalana per la UB, a l’Estudi General de Lleida, i amb estudis de 
+                    Psicologia per la UNED, equivalents a una diplomatura universitària.
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                    Apassionada de la docència i de la literatura, ha estat formadora del professorat en competències 
+                    bàsiques, gestió d’aula i competència literària, i també sotscoordinadora de literatura catalana a les PAU.
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                    Ha publicat articles a la revista <em>Llengua Nacional</em> sobre Josep Vallverdú, en la commemoració 
+                    del seu centenari. És autora de material didàctic dins del programa <em>El gust per la lectura</em>, 
+                    en concret sobre l’obra <em>El meu germà es diu Jessica</em>, de John Boyne.
+                    </p>
+                    <p class="text-gray-700">
+                    I ara també d’<strong>Afers Juvenils</strong>, un recull de dotze contes fruit de la seva experiència docent, 
+                    i de la guia didàctica per treballar aquesta obra a l’aula.
+                    </p>
+                </div>
+
+                <div class="quote pl-6 border-l-4 border-accent italic text-gray-700 mb-6">
+                    <p>
+                    "Escriure i compartir experiències amb adolescents no només ha estat enriquidor des del punt de vista 
+                    educatiu, sinó també personal. És una manera de donar veu als que sovint no la tenen i fer visible 
+                    la seva realitat diversa i potent."
+                    </p>
+                </div>
+                </div>
+            </div>
+
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-primary">Trajectòria professional</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- EXPERIÈNCIA -->
+                <div>
+                    <h3 class="text-xl font-semibold text-primary mb-4">Experiència</h3>
+                    <ul class="space-y-5 text-gray-700">
+                        <li>
+                            <div class="flex items-start">
+                                <span class="mt-1 mr-3 text-accent text-sm">●</span>
+                                <div>
+                                    <p class="font-medium">Professora dels cursos de català per a adults en diferents administracions i entitats.</p>
+                                    <p class="text-sm text-gray-500">1991 – 2002</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-start">
+                                <span class="mt-1 mr-3 text-accent text-sm">●</span>
+                                <div>
+                                    <p class="font-medium">Professora d'Educació Secundària de llengua catalana i literatura</p>
+                                    <p class="text-sm text-gray-500">1994 – Actualitat</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-start">
+                                <span class="mt-1 mr-3 text-accent text-sm">●</span>
+                                <div>
+                                    <p class="font-medium">Cap de departament, coordinadora de qualitat i tutora d'ESO i Batxillerat</p>
+                                    <p class="text-sm text-gray-500">2005 – Actualitat</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-start">
+                                <span class="mt-1 mr-3 text-accent text-sm">●</span>
+                                <div>
+                                    <p class="font-medium">Formadora del professorat en competències bàsiques, gestió d’aula, acció tutorial i competència literària.</p>
+                                    <p class="text-sm text-gray-500">2014 – Actualitat</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-start">
+                                <span class="mt-1 mr-3 text-accent text-sm">●</span>
+                                <div>
+                                    <p class="font-medium">Coordinadora d’un club de lectura de novel·la contemporània de la Biblioteca Margarida de Montferrat a Balaguer</p>
+                                    <p class="text-sm text-gray-500">2025</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- FORMACIÓ -->
+                <div>
+                    <h3 class="text-xl font-semibold text-primary mb-4">Formació</h3>
+                    <ul class="space-y-5 text-gray-700">
+                        <li>
+                            <div class="flex items-start">
+                                <span class="mt-1 mr-3 text-accent text-sm">●</span>
+                                <div>
+                                    <p class="font-medium">Llicenciada en Filologia Catalana</p>
+                                    <p class="text-sm text-gray-500">Universitat de Barcelona (Estudi General de Lleida), 1991</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-start">
+                                <span class="mt-1 mr-3 text-accent text-sm">●</span>
+                                <div>
+                                    <p class="font-medium">Estudis de Psicologia a la UNED equivalent a una diplomatura universitària</p>
+                                    <p class="text-sm text-gray-500">UNED, 2004</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-start">
+                                <span class="mt-1 mr-3 text-accent text-sm">●</span>
+                                <div>
+                                    <p class="font-medium">Curs de Narrativa</p>
+                                    <p class="text-sm text-gray-500">Escola d'Escriptura de l'Ateneu Barcelonès, 2024</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-primary">Altres publicacions</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-book text-accent mt-1 mr-2"></i>
+                                <span>“Josep Vallverdú, un combatent incansable per la llengua” — Revista <em>Llengua Nacional</em> 124, 4t trimestre 2023</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-book text-accent mt-1 mr-2"></i>
+                                <span>Entrevista a Josep Vallverdú: «Hi ha molts catalans que no són militants per la llengua» — Revista <em>Llengua Nacional</em> 124, 4t trimestre 2023</span>
+                            </li>
+                        </ul>
+                </div>
+            </div>
+            <div class="card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-primary">Conferències i tallers</h3>
+                    <p class="text-gray-700 mb-4">
+                        Maria Dolors Añon ofereix xerrades i tallers sobre:
+                    </p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-chalkboard-teacher text-accent mt-1 mr-2"></i>
+                            <span>Creació literària</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-chalkboard-teacher text-accent mt-1 mr-2"></i>
+                            <span>Comunicació amb adolescents</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-chalkboard-teacher text-accent mt-1 mr-2"></i>
+                            <span>Educació emocional</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-chalkboard-teacher text-accent mt-1 mr-2"></i>
+                            <span>Acompanyament en l'adolescència</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-primary">Contacte</h3>
+                    <p class="text-gray-700 mb-4">
+                        Per a consultes, xerrades o col·laboracions:
+                    </p>
+                    <!-- Contacte -->
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-accent mt-1 mr-2"></i>
+                            <span><a href="mailto:manon@xtec.cat" class="hover:underline" target="_blank">manon@xtec.cat</a></span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone text-accent mt-1 mr-2"></i>
+                            <span>+34 628 89 69 40</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fab fa-whatsapp text-accent mt-1 mr-2"></i>
+                            <span><a href="https://wa.me/34628896940" class="hover:underline" target="_blank">Contacte per WhatsApp</a></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-primary rounded-xl shadow-lg p-8 text-white text-center">
+            <h2 class="text-2xl font-bold mb-4">Reserva una xerrada o taller</h2>
+            <p class="mb-6">
+                Maria Dolors Añon ofereix xerrades i tallers per a centres educatius, 
+                associacions de famílies, biblioteques i altres entitats.
+            </p>
+            <button class="bg-accent text-white px-6 py-3 rounded-full font-medium hover:bg-accent/90 transition">
+                Sol·licitar informació
+            </button>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-primary text-white py-8">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <div class="text-2xl font-bold text-secondary mb-2">Afers Juvenils</div>
+                <p class="text-gray-400">© 2025 Maria Dolors Añon. Tots els drets reservats.</p>
+                </div>
+                <div class="flex space-x-6">
+                <a href="https://www.instagram.com/anondolors" target="_blank" class="text-gray-400 hover:text-accent">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="https://www.facebook.com/dolors.anon" target="_blank" class="text-gray-400 hover:text-accent">
+                    <i class="fab fa-facebook text-xl"></i>
+                </a>
+                <a href="mailto:manon@xtec.cat" class="text-gray-400 hover:text-accent">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+                </div>
+
+        </div>
+    </div>
+</footer>
+<script src="script.js"></script> 

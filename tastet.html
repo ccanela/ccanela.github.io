@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Afers juvenils</title>
+
+  <!-- Poppins font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS (CDN pour prototype) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Vos styles personnalisés -->
+  <link rel="stylesheet" href="style.css" />
+
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-primary">Afers Juvenils</div>
+                </div>
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="index.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Inici</a>
+                        <a href="entrevistes.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
+                        <a href="guia.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
+                        <a href="activitats.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Activitats</a>
+                        <a href="tastet.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
+                        <a href="autora.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
+                    </nav>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-800 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-4 py-3 space-y-3">
+                <a href="index.html" class="block text-gray-800 hover:text-gray-600 font-medium">Inici</a>
+                <a href="entrevistes.html" class="block text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
+                <a href="guia.html" class="block text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
+                <a href="activitats.html" class="block text-gray-800 hover:text-gray-600 font-medium">Activitats</a>
+                <a href="tastet.html" class="block text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
+                <a href="autora.html" class="block text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
+            </div>
+        </div>
+    </header>
+
+
+<main class="container mx-auto px-4 py-8">
+    <!-- Pàgina de Tastet del Recull -->
+    <section id="tastet" class="page">
+        <h1 class="text-4xl font-bold mb-8 text-primary">
+            Un tastet del recull
+        </h1>
+
+    <div class="bg-secondary rounded-xl shadow-lg p-8 mb-12">
+        <div class="flex flex-col md:flex-row gap-8 items-center">
+        <!-- Imatge clicable -->
+        <div class="md:w-1/2">
+            <a href="https://drive.google.com/file/d/1_jVSq_b1VAWhVp6_qHZ5PM77WOdWqUpQ/view" target="_blank">
+            <img src="images/nouvinguda.jpg" alt="La nouvinguda - primer conte"
+                class="rounded shadow-md hover:opacity-90 transition duration-300 w-full max-w-md mx-auto" />
+            </a>
+        </div>
+
+        <!-- Text explicatiu -->
+        <div class="md:w-1/2">
+            <h2 class="text-2xl font-bold mb-4 text-primary">La nouvinguda</h2>
+            <p class="text-gray-700 mb-4 text-lg leading-relaxed">
+            Llegiu el primer conte del recull, <strong>“La nouvinguda”</strong>, que retrata l’arribada d’una nova alumna a l’institut i 
+            els seus primers dies en un entorn desconegut. Una història sobre mirades, silencis, incomoditats i noves connexions.
+            </p>
+            <p class="text-gray-700 text-base">
+            Podeu llegir-lo sencer fent clic a la imatge o <a href="https://drive.google.com/file/d/1_jVSq_b1VAWhVp6_qHZ5PM77WOdWqUpQ/view" 
+            target="_blank" class="font-medium underline hover:text-accent transition text-black">descarregar-lo aquí</a>. 
+            Forma part del recull <em>Afers Juvenils</em>, i és una porta d’entrada al to i l’enfocament de tota l’obra.
+            </p>
+        </div>
+        </div>
+    </div>
+    </section>
+</main>
+
+<footer class="bg-primary text-white py-8">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <div class="text-2xl font-bold text-secondary mb-2">Afers Juvenils</div>
+                <p class="text-gray-400">© 2025 Maria Dolors Añon. Tots els drets reservats.</p>
+                </div>
+                <div class="flex space-x-6">
+                <a href="https://www.instagram.com/anondolors" target="_blank" class="text-gray-400 hover:text-accent">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="https://www.facebook.com/dolors.anon" target="_blank" class="text-gray-400 hover:text-accent">
+                    <i class="fab fa-facebook text-xl"></i>
+                </a>
+                <a href="mailto:manon@xtec.cat" class="text-gray-400 hover:text-accent">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+                </div>
+
+        </div>
+    </div>
+</footer>
+<script src="script.js"></script> 

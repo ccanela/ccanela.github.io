@@ -30,14 +30,12 @@ body {
     width: 100%;
 }
 
-.page {
-    display: none;
+
+main > section {
+    /* This keeps the nice fade-in effect on page load */
     animation: fadeIn 0.5s ease;
 }
 
-.page.active {
-    display: block;
-}
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
