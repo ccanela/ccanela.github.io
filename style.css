@@ -146,46 +146,62 @@ main > section {
 .story-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-accent);
 }
 
 .story-card.active {
     border-color: var(--color-accent);
     background-color: var(--color-light);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-.level-btn {
-    transition: all 0.3s ease;
+.level-btn:hover, .level-btn.active {
+    border-color: var(--color-accent);
+    transform: translateY(-5px);
+}
+.level-btn.active h4 {
+    color: var(--color-accent);
 }
 
-.level-btn.active {
-    background-color: var(--color-accent);
-    color: white;
+.activity-set.hidden, .activity-step.hidden {
+    display: none !important;
 }
 
-.activity-container {
-    display: none;
-}
-
-.activity-container.active {
-    display: block;
+.activity-set, .activity-step {
     animation: fadeIn 0.5s ease;
 }
 
-.drag-item {
+.drag-item, .drag-item-vocab {
     cursor: grab;
     transition: all 0.2s ease;
 }
 
-.drag-item:active {
+.drag-item:active, .drag-item-vocab:active {
     cursor: grabbing;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-.drop-zone {
+.drop-zone, .drop-zone-vocab {
     transition: all 0.2s ease;
 }
 
-.drop-zone.highlight {
+.drop-zone.highlight, .drop-zone-vocab.highlight {
     background-color: rgba(233, 177, 159, 0.2);
+    border-style: solid;
+}
+
+.drop-zone.correct-drop, .drop-zone-vocab.correct-drop {
+    border-color: #4ade80; /* green-400 */
+    background-color: #f0fdf4; /* green-50 */
+    border-style: solid;
+}
+
+.drop-zone.incorrect-drop, .drop-zone-vocab.incorrect-drop {
+    border-color: #f87171; /* red-400 */
+    background-color: #fef2f2; /* red-50 */
+    border-style: solid;
 }
 
 .quiz-option {
@@ -195,21 +211,39 @@ main > section {
 
 .quiz-option:hover {
     background-color: rgba(233, 177, 159, 0.1);
+    border-color: var(--color-accent);
 }
 
 .quiz-option.selected {
-    background-color: var(--color-accent);
-    color: white;
+    background-color: var(--color-light);
+    border-color: var(--color-accent);
 }
 
 .quiz-option.correct {
-    background-color: #4ade80;
-    color: white;
+    background-color: #dcfce7; /* green-100 */
+    border-color: #22c55e; /* green-500 */
+    color: #15803d; /* green-700 */
+}
+.quiz-option.correct.selected {
+    background-color: #bbf7d0; /* green-200 */
 }
 
 .quiz-option.incorrect {
-    background-color: #f87171;
-    color: white;
+    background-color: #fee2e2; /* red-100 */
+    border-color: #ef4444; /* red-500 */
+    color: #b91c1c; /* red-700 */
+}
+
+.progress-bar-inner {
+    transition: width 0.4s ease-in-out;
+}
+
+/* NOU: Estil pel botó de saltar activitat */
+.skip-btn {
+    background-color: #6b7280; /* gray-500 */
+}
+.skip-btn:hover {
+    background-color: #4b5563; /* gray-600 */
 }
 
 /* Estil general per a les dues fletxes de navegació */

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="cat">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Afers juvenils</title>
+  <title>Afers juvenils - Activitats</title>
 
   <!-- Poppins font -->
   <link
@@ -32,7 +32,7 @@
                         <a href="index.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Inici</a>
                         <a href="entrevistes.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
                         <a href="guia.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
-                        <a href="activitats.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Activitats</a>
+                        <a href="activitats.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium active">Activitats</a>
                         <a href="tastet.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
                         <a href="autora.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
                     </nav>
@@ -101,7 +101,7 @@
             </div>
         </div>
 
-        <div class="mb-12">
+        <div id="story-selection" class="mb-12">
             <h2 class="text-2xl font-bold mb-6 text-primary">Selecciona un relat</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <div class="story-card bg-white rounded-lg shadow-md p-4 border-2 border-transparent" data-story="nouvinguda">
@@ -240,7 +240,7 @@
 
         <div id="level-selection" class="hidden mb-12">
             <div class="flex justify-between items-center mb-6">
-                <button id="back-to-stories" class="flex items-center text-primary font-medium">
+                <button id="back-to-stories" class="flex items-center text-primary font-medium hover:text-accent transition">
                     <i class="fas fa-arrow-left mr-2"></i> Tornar als relats
                 </button>
                 <h2 id="selected-story-title" class="text-2xl font-bold text-primary"></h2>
@@ -250,7 +250,7 @@
             
             <h3 class="text-xl font-bold mb-4 text-primary">Tria un nivell</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="level-btn bg-white rounded-lg shadow-md p-6 border-2 border-transparent cursor-pointer" data-level="principiant">
+                <div class="level-btn bg-white rounded-lg shadow-md p-6 border-2 border-transparent cursor-pointer hover:border-accent" data-level="principiant">
                     <div class="flex justify-between items-center mb-4">
                         <h4 class="font-bold text-lg text-primary">Principiant</h4>
                         <div class="flex">
@@ -267,7 +267,7 @@
                     </div>
                 </div>
                 
-                <div class="level-btn bg-white rounded-lg shadow-md p-6 border-2 border-transparent cursor-pointer" data-level="mitja">
+                <div class="level-btn bg-white rounded-lg shadow-md p-6 border-2 border-transparent cursor-pointer hover:border-accent" data-level="mitja">
                     <div class="flex justify-between items-center mb-4">
                         <h4 class="font-bold text-lg text-primary">Mitjà</h4>
                         <div class="flex">
@@ -284,7 +284,7 @@
                     </div>
                 </div>
                 
-                <div class="level-btn bg-white rounded-lg shadow-md p-6 border-2 border-transparent cursor-pointer" data-level="avancat">
+                <div class="level-btn bg-white rounded-lg shadow-md p-6 border-2 border-transparent cursor-pointer hover:border-accent" data-level="avancat">
                     <div class="flex justify-between items-center mb-4">
                         <h4 class="font-bold text-lg text-primary">Avançat</h4>
                         <div class="flex">
@@ -303,247 +303,147 @@
             </div>
         </div>
 
-        <!-- Contenidor d'activitats -->
         <div id="activity-container" class="hidden mb-12">
-            <div class="flex justify-between items-center mb-6">
-                <button id="back-to-levels" class="flex items-center text-primary font-medium">
+            <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-6 gap-4">
+                <button id="back-to-levels" class="flex items-center text-primary font-medium hover:text-accent transition">
                     <i class="fas fa-arrow-left mr-2"></i> Tornar als nivells
                 </button>
-                <div>
+                <div class="text-left sm:text-right">
                     <h2 id="activity-story-title" class="text-2xl font-bold text-primary"></h2>
-                    <p id="activity-level" class="text-right text-accent"></p>
+                    <p id="activity-level" class="text-accent font-medium"></p>
                 </div>
             </div>
 
-            <!-- Activitats per "La nouvinguda" - Principiant -->
-            <div class="activity-container" id="nouvinguda-principiant">
-                <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-                    <h3 class="text-xl font-bold mb-4 text-primary">Vocabulari: Paraules clau</h3>
-                    <p class="text-gray-700 mb-6">
-                        Relaciona cada paraula amb la seva definició correcta:
-                    </p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                        <div class="bg-secondary/30 p-4 rounded-lg">
-                            <h4 class="font-bold mb-2">Paraules</h4>
-                            <div class="space-y-2">
-                                <div class="drag-item bg-white p-3 rounded border border-gray-200 shadow-sm" draggable="true" data-word="nouvinguda">Nouvinguda</div>
-                                <div class="drag-item bg-white p-3 rounded border border-gray-200 shadow-sm" draggable="true" data-word="acollida">Acollida</div>
-                                <div class="drag-item bg-white p-3 rounded border border-gray-200 shadow-sm" draggable="true" data-word="integrar">Integrar</div>
-                                <div class="drag-item bg-white p-3 rounded border border-gray-200 shadow-sm" draggable="true" data-word="pertinença">Pertinença</div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-secondary/30 p-4 rounded-lg">
-                            <h4 class="font-bold mb-2">Definicions</h4>
-                            <div class="space-y-2">
-                                <div class="drop-zone p-3 rounded border border-dashed border-gray-400 bg-white" data-definition="nouvinguda">Persona que ha arribat recentment a un lloc</div>
-                                <div class="drop-zone p-3 rounded border border-dashed border-gray-400 bg-white" data-definition="acollida">Rebuda que es fa a algú que arriba a un lloc</div>
-                                <div class="drop-zone p-3 rounded border border-dashed border-gray-400 bg-white" data-definition="integrar">Incorporar algú a un grup o comunitat</div>
-                                <div class="drop-zone p-3 rounded border border-dashed border-gray-400 bg-white" data-definition="pertinença">Sentiment de formar part d'un grup</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="text-center">
-                        <button id="check-vocab-nouvinguda" class="btn-primary px-6 py-2 text-white rounded-full font-medium">
-                            Comprovar respostes
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-                    <h3 class="text-xl font-bold mb-4 text-primary">Comprensió lectora</h3>
-                    <p class="text-gray-700 mb-6">
-                        Llegeix el fragment del relat "La nouvinguda" i respon les preguntes:
-                    </p>
-                    
-                    <div class="bg-secondary/20 p-6 rounded-lg mb-6 italic">
-                        <p class="mb-4">
-                            "El primer dia d'institut sempre és difícil, però per a la Fàtima ho era encara més. 
-                            Feia només tres mesos que havia arribat a Catalunya des del Marroc i, tot i que 
-                            entenia força bé el català, encara li costava expressar-se amb fluïdesa. 
-                            Davant la porta de l'aula, va respirar fondo i va recordar les paraules de la seva mare: 
-                            'Sigues tu mateixa i tot anirà bé'."
-                        </p>
-                    </div>
-                    
-                    <div class="space-y-6">
-                        <div>
-                            <p class="font-medium mb-2">1. D'on ve la Fàtima?</p>
-                            <div class="space-y-2">
-                                <div class="quiz-option p-3 rounded border border-gray-200" data-correct="true">
-                                    <span>Del Marroc</span>
-                                </div>
-                                <div class="quiz-option p-3 rounded border border-gray-200">
-                                    <span>De França</span>
-                                </div>
-                                <div class="quiz-option p-3 rounded border border-gray-200">
-                                    <span>D'Algèria</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <p class="font-medium mb-2">2. Quant temps fa que la Fàtima ha arribat a Catalunya?</p>
-                            <div class="space-y-2">
-                                <div class="quiz-option p-3 rounded border border-gray-200">
-                                    <span>Un any</span>
-                                </div>
-                                <div class="quiz-option p-3 rounded border border-gray-200" data-correct="true">
-                                    <span>Tres mesos</span>
-                                </div>
-                                <div class="quiz-option p-3 rounded border border-gray-200">
-                                    <span>Sis mesos</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <p class="font-medium mb-2">3. Com se sent la Fàtima amb el català?</p>
-                            <div class="space-y-2">
-                                <div class="quiz-option p-3 rounded border border-gray-200">
-                                    <span>No l'entén gens</span>
-                                </div>
-                                <div class="quiz-option p-3 rounded border border-gray-200">
-                                    <span>El parla perfectament</span>
-                                </div>
-                                <div class="quiz-option p-3 rounded border border-gray-200" data-correct="true">
-                                    <span>L'entén bé però li costa parlar-lo</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="text-center mt-6">
-                        <button id="check-reading-nouvinguda" class="btn-primary px-6 py-2 text-white rounded-full font-medium">
-                            Comprovar respostes
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-lg p-8">
-                    <h3 class="text-xl font-bold mb-4 text-primary">Expressió escrita</h3>
-                    <p class="text-gray-700 mb-6">
-                        Completa les frases amb les paraules adequades:
-                    </p>
-                    
-                    <div class="space-y-4 mb-6">
-                        <div>
-                            <p class="mb-2">La Fàtima és una <input type="text" class="border-b-2 border-accent bg-transparent px-2 w-32 focus:outline-none" data-answer="nouvinguda"> a l'institut.</p>
-                        </div>
-                        <div>
-                            <p class="mb-2">Els companys de classe li van fer una bona <input type="text" class="border-b-2 border-accent bg-transparent px-2 w-32 focus:outline-none" data-answer="acollida">.</p>
-                        </div>
-                        <div>
-                            <p class="mb-2">La professora l'ajuda a <input type="text" class="border-b-2 border-accent bg-transparent px-2 w-32 focus:outline-none" data-answer="integrar">-se al grup.</p>
-                        </div>
-                        <div>
-                            <p class="mb-2">Amb el temps, la Fàtima va desenvolupar un sentiment de <input type="text" class="border-b-2 border-accent bg-transparent px-2 w-32 focus:outline-none" data-answer="pertinença"> a la seva nova escola.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="text-center">
-                        <button id="check-writing-nouvinguda" class="btn-primary px-6 py-2 text-white rounded-full font-medium">
-                            Comprovar respostes
-                        </button>
-                    </div>
-                </div>
+            <!-- NOU: Contenidor per demanar el nom -->
+            <div id="name-input-container" class="bg-white rounded-xl shadow-lg p-8 text-center">
+                <h3 class="text-2xl font-bold mb-4 text-primary">Abans de començar...</h3>
+                <p class="text-gray-700 mb-6">Si us plau, introdueix el teu nom i cognoms per poder generar el justificant al final.</p>
+                <input type="text" id="student-name" placeholder="El teu nom i cognoms" class="w-full max-w-md mx-auto p-3 border-2 border-gray-300 rounded-lg focus:border-accent focus:outline-none transition">
+                <button id="start-activities-btn" class="mt-4 bg-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition disabled:bg-gray-400 disabled:cursor-not-allowed">Començar Activitats</button>
             </div>
 
-            <!-- Activitats per "La nouvinguda" - Mitjà -->
-            <div class="activity-container" id="nouvinguda-mitja">
-                <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-                    <h3 class="text-xl font-bold mb-4 text-primary">Anàlisi de vocabulari</h3>
-                    <p class="text-gray-700 mb-6">
-                        Classifica les següents paraules segons la seva categoria gramatical:
-                    </p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                        <div class="bg-secondary/30 p-4 rounded-lg">
-                            <h4 class="font-bold mb-2">Paraules</h4>
-                            <div class="space-y-2">
-                                <div class="drag-item bg-white p-3 rounded border border-gray-200 shadow-sm" draggable="true" data-type="substantiu">Integració</div>
-                                <div class="drag-item bg-white p-3 rounded border border-gray-200 shadow-sm" draggable="true" data-type="adjectiu">Nouvingut</div>
-                                <div class="drag-item bg-white p-3 rounded border border-gray-200 shadow-sm" draggable="true" data-type="verb">Acollir</div>
-                                <div class="drag-item bg-white p-3 rounded border border-gray-200 shadow-sm" draggable="true" data-type="substantiu">Diversitat</div>
-                                <div class="drag-item bg-white p-3 rounded border border-gray-200 shadow-sm" draggable="true" data-type="adjectiu">Multicultural</div>
-                                <div class="drag-item bg-white p-3 rounded border border-gray-200 shadow-sm" draggable="true" data-type="verb">Adaptar-se</div>
+            <!-- NOU: Contenidor principal de les activitats (inicialment ocult) -->
+            <div id="main-activity-content" class="hidden">
+                <!-- NOU: Barra de Progrés -->
+                <div class="mb-8">
+                    <div class="flex justify-between mb-1">
+                        <span class="text-base font-medium text-primary">Progrés</span>
+                        <span id="progress-text" class="text-sm font-medium text-primary">Pas 0 / 3</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div id="progress-bar" class="bg-accent h-2.5 rounded-full" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- START: La Nouvinguda - Principiant Activities -->
+                <div id="activity-nouvinguda-principiant" class="activity-set">
+                    <!-- Activity 1: Narrator Types -->
+                    <div class="activity-step" data-step-id="narradors" data-step-title="Tipus de narradors">
+                        <div class="bg-white rounded-xl shadow-lg p-8">
+                            <h4 class="text-xl font-bold mb-1 text-primary">Activitat 1: Tipus de narradors</h4>
+                            <p class="text-gray-600 mb-6">Arrossega cada paraula al seu lloc correcte per completar la frase.</p>
+                            <p class="text-lg leading-loose bg-secondary/30 p-6 rounded-lg mb-6">
+                                Si utilitzem el punt de vista intern, al narrador l'anomenarem 
+                                <span class="drop-zone inline-block bg-white border-2 border-dashed border-gray-400 rounded px-2 py-1 align-bottom min-w-[140px] h-[42px]" data-accept="intradiegetic"></span>
+                                i serà un 
+                                <span class="drop-zone inline-block bg-white border-2 border-dashed border-gray-400 rounded px-2 py-1 align-bottom min-w-[140px] h-[42px]" data-accept="personatge"></span>
+                                de la història. Si expliquem la història des d'un punt de vista extern, tindrem un narrador
+                                <span class="drop-zone inline-block bg-white border-2 border-dashed border-gray-400 rounded px-2 py-1 align-bottom min-w-[140px] h-[42px]" data-accept="extradiegetic"></span>.
+                            </p>
+                            <div id="words-1" class="flex flex-wrap gap-4 justify-center mb-6 min-h-[50px]">
+                                <div class="drag-item bg-accent text-white font-medium px-4 py-2 rounded-lg shadow" draggable="true" data-word="personatge">personatge</div>
+                                <div class="drag-item bg-accent text-white font-medium px-4 py-2 rounded-lg shadow" draggable="true" data-word="extradiegetic">extradiegètic</div>
+                                <div class="drag-item bg-accent text-white font-medium px-4 py-2 rounded-lg shadow" draggable="true" data-word="intradiegetic">intradiegètic</div>
+                            </div>
+                            <div class="flex items-center gap-4 mt-6">
+                                <button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Verificar</button>
+                                <button class="skip-btn hidden bg-gray-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Saltar Activitat</button>
+                                <p class="feedback-msg font-medium h-6"></p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Activity 2: Vocabulary -->
+                    <div class="activity-step bg-white rounded-xl shadow-lg p-8 mb-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 2: Vocabulari de "La nouvinguda"</h4>
+                        <p class="text-gray-600 mb-6">Relaciona cada paraula amb la seva definició arrossegant-la a la casella corresponent.</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Definitions -->
+                            <div class="space-y-4">
+                                <div class="flex items-center bg-secondary/30 p-4 rounded-lg">
+                                    <span class="drop-zone-vocab bg-white border-2 border-dashed border-gray-400 rounded-lg w-40 h-12 mr-4 flex-shrink-0 flex items-center justify-center" data-accept="nouvinguda"></span>
+                                    <p class="text-gray-700">Persona que acaba d'arribar a un lloc.</p>
+                                </div>
+                                <div class="flex items-center bg-secondary/30 p-4 rounded-lg">
+                                    <span class="drop-zone-vocab bg-white border-2 border-dashed border-gray-400 rounded-lg w-40 h-12 mr-4 flex-shrink-0 flex items-center justify-center" data-accept="integracio"></span>
+                                    <p class="text-gray-700">Procés d'incorporar-se a un grup o societat.</p>
+                                </div>
+                                <div class="flex items-center bg-secondary/30 p-4 rounded-lg">
+                                    <span class="drop-zone-vocab bg-white border-2 border-dashed border-gray-400 rounded-lg w-40 h-12 mr-4 flex-shrink-0 flex items-center justify-center" data-accept="identitat"></span>
+                                    <p class="text-gray-700">Conjunt de trets propis que caracteritzen una persona.</p>
+                                </div>
+                            </div>
+                            <!-- Words to drag -->
+                            <div id="words-2" class="flex flex-col gap-4 justify-center items-center bg-gray-50 p-4 rounded-lg">
+                                <div class="drag-item-vocab bg-accent text-white font-medium px-4 py-2 rounded-lg shadow w-full text-center" draggable="true" data-word="integracio">Integració</div>
+                                <div class="drag-item-vocab bg-accent text-white font-medium px-4 py-2 rounded-lg shadow w-full text-center" draggable="true" data-word="identitat">Identitat</div>
+                                <div class="drag-item-vocab bg-accent text-white font-medium px-4 py-2 rounded-lg shadow w-full text-center" draggable="true" data-word="nouvinguda">Nouvinguda</div>
                             </div>
                         </div>
                         
-                        <div class="bg-secondary/30 p-4 rounded-lg">
-                            <h4 class="font-bold mb-2">Substantius</h4>
-                            <div class="drop-zone p-3 rounded border border-dashed border-gray-400 bg-white min-h-[150px]" data-type="substantiu"></div>
-                        </div>
-                        
-                        <div class="bg-secondary/30 p-4 rounded-lg">
-                            <h4 class="font-bold mb-2">Adjectius</h4>
-                            <div class="drop-zone p-3 rounded border border-dashed border-gray-400 bg-white min-h-[150px]" data-type="adjectiu"></div>
-                        </div>
-                        
-                        <div class="bg-secondary/30 p-4 rounded-lg md:col-start-2 md:col-span-2">
-                            <h4 class="font-bold mb-2">Verbs</h4>
-                            <div class="drop-zone p-3 rounded border border-dashed border-gray-400 bg-white min-h-[100px]" data-type="verb"></div>
-                        </div>
+                        <button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition mt-6">Verificar</button>
+                        <p class="feedback-msg mt-4 font-medium h-6"></p>
                     </div>
-                    
-                    <div class="text-center">
-                        <button id="check-grammar-nouvinguda" class="btn-primary px-6 py-2 text-white rounded-full font-medium">
-                            Comprovar respostes
-                        </button>
+                
+                    <!-- Activity 3: Multiple Choice -->
+                    <div class="activity-step bg-white rounded-xl shadow-lg p-8 mb-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 3: Comprensió del relat</h4>
+                        <p class="text-gray-600 mb-6">Quin és el tema principal que explora el relat "La nouvinguda"?</p>
+                        
+                        <div class="space-y-4 quiz-options">
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg" data-correct="false">
+                                Les dificultats de trobar feina en un país nou.
+                            </div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg" data-correct="true">
+                                El procés d'adaptació i la cerca de pertinença en un nou entorn escolar.
+                            </div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg" data-correct="false">
+                                Un conflicte familiar causat per un canvi de ciutat.
+                            </div>
+                        </div>
+                
+                        <button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition mt-6">Verificar</button>
+                        <p class="feedback-msg mt-4 font-medium h-6"></p>
+                    </div>
+                
+                    <!-- Completion Message -->
+                    <div id="completion-message" class="hidden text-center bg-green-100 border-l-4 border-green-500 text-green-700 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-2">Enhorabona!</h3>
+                        <p class="text-lg">Has completat totes les activitats del nivell principiant per a "La nouvinguda".</p>
+                        <button id="restart-level" class="mt-4 bg-accent text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Tornar a intentar</button>
                     </div>
                 </div>
+                <!-- END: La Nouvinguda - Principiant Activities -->
                 
-                <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-                    <h3 class="text-xl font-bold mb-4 text-primary">Comprensió i anàlisi</h3>
-                    <p class="text-gray-700 mb-6">
-                        Llegeix el fragment del relat "La nouvinguda" i respon les preguntes:
-                    </p>
-                    
-                    <div class="bg-secondary/20 p-6 rounded-lg mb-6 italic">
-                        <p class="mb-4">
-                            "El primer dia d'institut sempre és difícil, però per a la Fàtima ho era encara més. 
-                            Feia només tres mesos que havia arribat a Catalunya des del Marroc i, tot i que 
-                            entenia força bé el català, encara li costava expressar-se amb fluïdesa. 
-                            Davant la porta de l'aula, va respirar fondo i va recordar les paraules de la seva mare: 
-                            'Sigues tu mateixa i tot anirà bé'."
-                        </p>
-                        <p>
-                            "A l'entrar, totes les mirades es van dirigir cap a ella. Algunes curioses, altres indiferents. 
-                            La professora la va presentar i li va indicar un lloc lliure al costat d'una noia de cabells 
-                            arrissats que li va somriure. Potser no seria tan difícil trobar el seu lloc en aquest nou món."
-                        </p>
+                    <!-- Completion Message -->
+                    <div id="completion-message" class="hidden text-center bg-green-100 border-l-4 border-green-500 text-green-700 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-2">Enhorabona!</h3>
+                        <p class="text-lg mb-4">Has completat totes les activitats. Ja pots descarregar el teu justificant.</p>
+                        <div class="flex justify-center gap-4">
+                            <button id="download-pdf-btn" class="bg-accent text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">
+                                <i class="fas fa-file-pdf mr-2"></i>Descarregar PDF
+                            </button>
+                            <button id="restart-level" class="bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Tornar a començar</button>
+                        </div>
                     </div>
-                    
-                    <div class="space-y-6">
-                        <div>
-                            <p class="font-medium mb-2">1. Quins sentiments experimenta la Fàtima en aquest fragment? (Selecciona totes les que corresponguin)</p>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                                <div class="quiz-option p-3 rounded border border-gray-200" data-correct="true">
-                                    <span>Nerviosisme</span>
-                                </div>
-                                <div class="quiz-option p-3 rounded border border-gray-200">
-                                    <span>Tristesa</span>
-                                </div>
-                                <div class="quiz-option p-3 rounded border border-gray-200" data-correct="true">
-                                    <span>Expectativa</span>
-                                </div>
-                                <div class="quiz-option p-3 rounded border border-gray-200">
-                                    <span>Felicitat</span>
-                                </div>
-                                </div>
-                                </div>
+                </div>
+                <!-- ... resta de .activity-set anirien aquí ... -->
+            </div>
+            
+        </div>
 
-                                <div class="text-center mt-6">
-                                    <button id="check-comprensio-nouvinguda" class="btn-primary px-6 py-2 text-white rounded-full font-medium">
-                                        Comprovar respostes
-                                    </button>
-                                </div>
-                                </div>
-                                </div>
-                            </section>
-    
+    </section>
 </main>
 
 <footer class="bg-primary text-white py-8">
@@ -568,4 +468,6 @@
         </div>
     </div>
 </footer>
-<script src="script.js"></script> 
+<script src="script.js"></script>
+</body>
+</html>
