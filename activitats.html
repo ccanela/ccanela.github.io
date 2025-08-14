@@ -224,7 +224,7 @@
 
             // Defineix quins enllaços estan actius
             const activeLinks = {
-                'nouvinguda': ['principiant'], // Afegir 'mitja', 'avancat' quan estiguin llestos
+                'nouvinguda': ['principiant', 'mitja', 'avancat'], 
                 'graduacio': [] // Cap nivell actiu per a aquest relat encara
             };
 
@@ -232,7 +232,7 @@
 
             levels.forEach(level => {
                 const isAvailable = availableLevels.includes(level.id);
-                const href = isAvailable ? `activitats-${storyId}-${level.id}.html` : '#';
+                const href = isAvailable ? `activitats/${storyId}/${level.id}.html` : '#';
                 const cursorClass = isAvailable ? 'cursor-pointer' : 'cursor-not-allowed';
                 const hoverClass = isAvailable ? 'hover:border-accent' : '';
                 const disabledClasses = !isAvailable ? 'opacity-50 bg-gray-100' : 'bg-white';
