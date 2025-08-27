@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="cat">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Afers juvenils</title>
+  <title>Un Tastet - Afers Juvenils</title>
+
+  <link rel="icon" type="image/png" href="images/icon.png" />
 
   <!-- Poppins font -->
   <link
@@ -11,12 +13,13 @@
     rel="stylesheet"
   />
 
-  <!-- Tailwind CSS (CDN pour prototype) -->
+  <!-- Tailwind CSS (CDN per a prototip) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Vos styles personnalisés -->
+  <!-- Els teus estils personalitzats -->
   <link rel="stylesheet" href="style.css" />
 
+  <!-- Font Awesome -->
   <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -63,29 +66,42 @@
             Un tastet del recull
         </h1>
 
-    <div class="bg-secondary rounded-xl shadow-lg p-8 mb-12">
+    <div class="bg-secondary/20 rounded-xl shadow-lg p-8 mb-12">
         <div class="flex flex-col md:flex-row gap-8 items-center">
-        <!-- Imatge clicable -->
-        <div class="md:w-1/2">
-            <a href="https://drive.google.com/file/d/1_jVSq_b1VAWhVp6_qHZ5PM77WOdWqUpQ/view" target="_blank">
-            <img src="images/nouvinguda.jpg" alt="La nouvinguda - primer conte"
-                class="rounded shadow-md hover:opacity-90 transition duration-300 w-full max-w-md mx-auto" />
-            </a>
-        </div>
+            <!-- Imatge clicable -->
+            <div class="md:w-1/2 lg:w-2/5">
+                <a href="https://drive.google.com/file/d/1_jVSq_b1VAWhVp6_qHZ5PM77WOdWqUpQ/view" target="_blank">
+                <img src="images/nouvinguda.jpg" alt="La nouvinguda - primer conte"
+                    class="rounded shadow-md hover:opacity-90 transition duration-300 w-full max-w-sm mx-auto" />
+                </a>
+            </div>
 
-        <!-- Text explicatiu -->
-        <div class="md:w-1/2">
-            <h2 class="text-2xl font-bold mb-4 text-primary">La nouvinguda</h2>
-            <p class="text-gray-700 mb-4 text-lg leading-relaxed">
-            Llegiu el primer conte del recull, <strong>“La nouvinguda”</strong>, que retrata l’arribada d’una nova alumna a l’institut i 
-            els seus primers dies en un entorn desconegut. Una història sobre mirades, silencis, incomoditats i noves connexions.
-            </p>
-            <p class="text-gray-700 text-base">
-            Podeu llegir-lo sencer fent clic a la imatge o <a href="https://drive.google.com/file/d/1_jVSq_b1VAWhVp6_qHZ5PM77WOdWqUpQ/view" 
-            target="_blank" class="font-medium underline hover:text-accent transition text-black">descarregar-lo aquí</a>. 
-            Forma part del recull <em>Afers Juvenils</em>, i és una porta d’entrada al to i l’enfocament de tota l’obra.
-            </p>
-        </div>
+            <!-- Text explicatiu i reproductor d'àudio -->
+            <div class="md:w-1/2 lg:w-3/5">
+                <h2 class="text-3xl font-bold mb-4 text-primary">La nouvinguda</h2>
+                <p class="text-gray-700 mb-4 text-lg leading-relaxed">
+                Llegiu el primer conte del recull, <strong>“La nouvinguda”</strong>, que retrata l’arribada d’una nova alumna a l’institut i 
+                els seus primers dies en un entorn desconegut. Una història sobre mirades, silencis, incomoditats i noves connexions.
+                </p>
+                <p class="text-gray-700 text-base mb-6">
+                Podeu llegir-lo sencer fent clic a la imatge o <a href="https://drive.google.com/file/d/1_jVSq_b1VAWhVp6_qHZ5PM77WOdWqUpQ/view" 
+                target="_blank" class="font-medium underline hover:text-accent transition text-primary">descarregar-lo aquí</a>. 
+                Forma part del recull <em>Afers Juvenils</em>, i és una porta d’entrada al to i l’enfocament de tota l’obra.
+                </p>
+
+                <!-- ===== NOU BLOC D'ÀUDIO ===== -->
+                <div class="mt-6 pt-6 border-t border-gray-300">
+                    <h3 class="text-xl font-bold text-primary mb-3">
+                        <i class="fas fa-headphones-alt mr-2 text-accent"></i>Escolta el relat en veu de l'autora
+                    </h3>
+                    <audio controls class="w-full">
+                        <source src="audio/nouvinguda.mp4" type="audio/mp4">
+                        El teu navegador no suporta l'element d'àudio.
+                    </audio>
+                </div>
+                <!-- ===== FI DEL BLOC D'ÀUDIO ===== -->
+
+            </div>
         </div>
     </div>
     </section>
@@ -113,4 +129,31 @@
         </div>
     </div>
 </footer>
-<script src="script.js"></script> 
+
+<script>
+// Aquest script gestiona el menú mòbil i l'estat actiu dels enllaços de navegació
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Funcionalitat del menú mòbil (hamburguesa)
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+
+    // Marcar l'enllaç de la pàgina actual com a "actiu"
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('header nav a.nav-link, #mobile-menu a').forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active'); // La teva classe 'active' de style.css s'aplicarà aquí
+        } else {
+            link.classList.remove('active');
+        }
+    });
+});
+</script>
+
+</body>
+</html>
