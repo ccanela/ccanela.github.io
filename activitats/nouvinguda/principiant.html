@@ -25,12 +25,12 @@
                     <div class="text-2xl font-bold text-primary">Afers Juvenils</div>
                 </div>
                 <nav class="hidden md:flex space-x-8">
-                    <a href="index.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Inici</a>
-                    <a href="entrevistes.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
-                    <a href="guia.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
-                    <a href="activitats.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium active">Activitats</a>
-                    <a href="tastet.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
-                    <a href="autora.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
+                    <a href="../../index.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Inici</a>
+                    <a href="../../entrevistes.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
+                    <a href="../../guia.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
+                    <a href="../../activitats.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium active">Activitats</a>
+                    <a href="../../tastet.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
+                    <a href="../../autora.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
                 </nav>
                 <div class="md:hidden">
                     <button id="menu-toggle" class="text-gray-800 focus:outline-none">
@@ -41,12 +41,12 @@
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
             <div class="px-4 py-3 space-y-3">
-                <a href="index.html" class="block text-gray-800 hover:text-gray-600 font-medium">Inici</a>
-                <a href="entrevistes.html" class="block text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
-                <a href="guia.html" class="block text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
-                <a href="activitats.html" class="block text-gray-800 hover:text-gray-600 font-medium">Activitats</a>
-                <a href="tastet.html" class="block text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
-                <a href="autora.html" class="block text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
+                <a href="../../index.html" class="block text-gray-800 hover:text-gray-600 font-medium">Inici</a>
+                <a href="../../entrevistes.html" class="block text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
+                <a href="../../guia.html" class="block text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
+                <a href="../../activitats.html" class="block text-gray-800 hover:text-gray-600 font-medium">Activitats</a>
+                <a href="../../tastet.html" class="block text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
+                <a href="../../autora.html" class="block text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
             </div>
         </div>
     </header>
@@ -214,7 +214,7 @@
             levelText: activityWrapper.dataset.levelText,
             currentStepIndex: 0,
             totalSteps: 0,
-            activityResults: []
+            activityResults: [] // Cada element contindrà { title, userAnswer, isCorrect, attempts }
         };
 
         // --- Elements del DOM ---
@@ -238,27 +238,60 @@
 
         const initializeActivitySet = () => {
             activityState.currentStepIndex = 0;
-            activityState.activityResults = [];
+            activityState.activityResults = Array.from({ length: steps.length }, () => ({
+                title: '', // Es definirà en saveResult
+                userAnswer: "No s'ha respost",
+                isCorrect: false,
+                attempts: 0
+            }));
             activityState.totalSteps = steps.length;
 
             steps.forEach((step, index) => {
                 step.classList.toggle('hidden', index !== 0);
-                step.querySelector('.feedback-msg').textContent = '';
-                const checkBtn = step.querySelector('.check-btn');
-                if (checkBtn) checkBtn.disabled = false;
-                const skipBtn = step.querySelector('.skip-btn');
-                if (skipBtn) skipBtn.classList.add('hidden');
-                
-                if (step.querySelector('.quiz-options')) initializeQuiz(step);
-                if (step.querySelector('.drop-zone, .drop-zone-vocab')) initializeDragAndDrop(step);
+                resetActivityStep(step); // Reseteja cada activitat al començament
             });
             updateProgressBar();
+        };
+
+        const resetActivityStep = (step) => {
+            const feedbackMsg = step.querySelector('.feedback-msg');
+            const checkBtn = step.querySelector('.check-btn');
+            const skipBtn = step.querySelector('.skip-btn');
+            
+            feedbackMsg.textContent = '';
+            feedbackMsg.className = 'feedback-msg font-medium h-6'; // Reseteja classes de color
+            
+            checkBtn.textContent = 'Verificar';
+            checkBtn.classList.remove('bg-yellow-500', 'hover:bg-yellow-600', 'hidden'); // Elimina classes de "Tornar a intentar-ho" i hidden
+            checkBtn.classList.add('bg-primary', 'hover:bg-opacity-90'); // Restaura classes de "Verificar"
+            checkBtn.disabled = false;
+            
+            skipBtn.classList.add('hidden'); // Oculta el botó de saltar per defecte
+            
+            // Eliminar els botons de retry, next i next-correct si existeixen
+            const retryBtn = step.querySelector('.retry-btn');
+            const nextBtn = step.querySelector('.next-btn');
+            const nextCorrectBtn = step.querySelector('.next-correct-btn');
+            if (retryBtn) retryBtn.remove();
+            if (nextBtn) nextBtn.remove();
+            if (nextCorrectBtn) nextCorrectBtn.remove();
+            
+            // Restaurar el click handler original del botó check
+            checkBtn.onclick = () => handleCheck(step);
+            
+            // Re-inicialitzar el contingut específic de l'activitat
+            if (step.querySelector('.quiz-options')) initializeQuiz(step);
+            if (step.querySelector('.drop-zone, .drop-zone-vocab')) {
+                initializeDragAndDrop(step);
+                // Reinicialitzar drag and drop per aquest pas específic
+                setupDragAndDropForStep(step);
+            }
         };
         
         const updateProgressBar = () => {
             const progress = activityState.totalSteps > 0 ? (activityState.currentStepIndex / activityState.totalSteps) * 100 : 0;
             document.getElementById('progress-bar').style.width = `${progress}%`;
-            document.getElementById('progress-text').textContent = `Pas ${activityState.currentStepIndex} / ${activityState.totalSteps}`;
+            document.getElementById('progress-text').textContent = `Pas ${activityState.currentStepIndex + 1} / ${activityState.totalSteps}`; // +1 per mostrar pas actual real
         };
 
         const goToNextStep = () => {
@@ -270,6 +303,7 @@
 
             if (activityState.currentStepIndex < activityState.totalSteps) {
                 steps[activityState.currentStepIndex].classList.remove('hidden');
+                resetActivityStep(steps[activityState.currentStepIndex]); // Reseteja el següent pas
             } else {
                 document.getElementById('progress-text').textContent = `Completat!`;
                 completionMessage.classList.remove('hidden');
@@ -277,6 +311,9 @@
         };
 
         const handleCheck = (step) => {
+            const currentResult = activityState.activityResults[activityState.currentStepIndex];
+            currentResult.attempts++; // Incrementa el contador d'intents
+
             let result = { correct: false, answer: "No s'ha respost" };
             if (step.querySelector('.quiz-options')) result = checkQuiz(step);
             if (step.querySelector('.drop-zone, .drop-zone-vocab')) result = checkDragAndDrop(step);
@@ -285,38 +322,113 @@
             const checkBtn = step.querySelector('.check-btn');
             const skipBtn = step.querySelector('.skip-btn');
             
-            saveResult(step, result.answer, result.correct);
+            saveResult(step, result.answer, result.correct); // Guarda l'últim intent
 
             if (result.correct) {
                 feedbackMsg.textContent = 'Molt bé! Resposta correcta.';
                 feedbackMsg.className = 'feedback-msg font-medium h-6 text-green-600';
-                checkBtn.disabled = true;
+                
+                // Ocultar el botó verificar i skip
+                checkBtn.classList.add('hidden');
                 skipBtn.classList.add('hidden');
-                setTimeout(goToNextStep, 1500);
+                
+                // Crear el botó "Següent activitat" si no existeix
+                let nextBtn = step.querySelector('.next-correct-btn');
+                if (!nextBtn) {
+                    nextBtn = document.createElement('button');
+                    nextBtn.className = 'next-correct-btn bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700 transition';
+                    nextBtn.textContent = 'Següent activitat';
+                    checkBtn.parentNode.insertBefore(nextBtn, feedbackMsg);
+                    
+                    nextBtn.addEventListener('click', () => {
+                        goToNextStep();
+                    });
+                }
             } else {
-                feedbackMsg.textContent = 'Hi ha alguns errors. Torna a intentar-ho o salta l\'activitat.';
+                feedbackMsg.textContent = 'Hi ha alguns errors. Revisa les respostes marcades en vermell.';
                 feedbackMsg.className = 'feedback-msg font-medium h-6 text-red-600';
-                skipBtn.classList.remove('hidden');
+                
+                // Ocultar el botó verificar i mostrar els dos nous botons
+                checkBtn.classList.add('hidden');
+                skipBtn.classList.add('hidden');
+                
+                // Crear els nous botons si no existeixen
+                let retryBtn = step.querySelector('.retry-btn');
+                let nextBtn = step.querySelector('.next-btn');
+                
+                if (!retryBtn) {
+                    retryBtn = document.createElement('button');
+                    retryBtn.className = 'retry-btn bg-yellow-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-yellow-600 transition mr-4';
+                    retryBtn.textContent = 'Tornar-ho a intentar';
+                    checkBtn.parentNode.insertBefore(retryBtn, feedbackMsg);
+                    
+                    retryBtn.addEventListener('click', () => {
+                        resetActivityStep(step);
+                        retryBtn.remove();
+                        nextBtn.remove();
+                    });
+                }
+                
+                if (!nextBtn) {
+                    nextBtn = document.createElement('button');
+                    nextBtn.className = 'next-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition';
+                    nextBtn.textContent = 'Següent activitat';
+                    checkBtn.parentNode.insertBefore(nextBtn, feedbackMsg);
+                    
+                    nextBtn.addEventListener('click', () => {
+                        saveResult(step, result.answer, false); // Marca com incorrecte
+                        goToNextStep();
+                    });
+                }
             }
         };
         
         const handleSkip = (step) => {
+             const currentResult = activityState.activityResults[activityState.currentStepIndex];
+             currentResult.attempts++; // També incrementa si es salta
              saveResult(step, 'Saltat', false);
              goToNextStep();
         };
 
         const saveResult = (step, answer, isCorrect) => {
             const title = step.dataset.stepTitle || `Activitat ${activityState.currentStepIndex + 1}`;
-            activityState.activityResults[activityState.currentStepIndex] = { title, userAnswer: answer, isCorrect };
+            activityState.activityResults[activityState.currentStepIndex] = { 
+                title: title, 
+                userAnswer: answer, 
+                isCorrect: isCorrect,
+                attempts: activityState.activityResults[activityState.currentStepIndex].attempts // Manté el contador d'intents
+            };
         };
 
         const initializeDragAndDrop = (container) => {
+            // Torna tots els elements arrossegables al seu contenidor original
+            const wordsContainer = container.querySelector('.words-container');
+            const originalWords = []; // Per mantenir l'ordre original
+            
+            // Recollir tots els elements drag existents (tant dels drop zones com del words container)
             container.querySelectorAll('.drag-item, .drag-item-vocab').forEach(item => {
-                container.querySelector('.words-container').appendChild(item);
+                originalWords.push({
+                    element: item.cloneNode(true), // Clonar per evitar duplicats
+                    word: item.dataset.word,
+                    text: item.textContent.trim()
+                });
             });
+
+            // Neteja completament les drop zones
             container.querySelectorAll('.drop-zone, .drop-zone-vocab').forEach(zone => {
                 zone.innerHTML = '';
-                zone.classList.remove('correct-drop', 'incorrect-drop');
+                zone.classList.remove('correct-drop', 'incorrect-drop', 'highlight');
+            });
+            
+            // Neteja el contenidor de paraules
+            wordsContainer.innerHTML = '';
+            
+            // Afegeix els elements originals de nou al wordsContainer
+            originalWords.forEach(item => {
+                const newElement = item.element;
+                newElement.dataset.word = item.word;
+                newElement.textContent = item.text;
+                wordsContainer.appendChild(newElement);
             });
         };
         
@@ -328,7 +440,7 @@
                 zone.classList.remove('correct-drop', 'incorrect-drop');
                 const droppedItem = zone.querySelector('.drag-item, .drag-item-vocab');
                 const word = droppedItem ? droppedItem.textContent.trim() : 'Buit';
-                answers.push(word);
+                answers.push(`${zone.dataset.accept}: ${word}`); // Per al PDF, mostrar què s'esperava vs què es va posar
                 if (!droppedItem || droppedItem.dataset.word !== zone.dataset.accept) {
                     allCorrect = false;
                     zone.classList.add('incorrect-drop');
@@ -336,12 +448,25 @@
                     zone.classList.add('correct-drop');
                 }
             });
-            return { correct: allCorrect, answer: answers.join(', ') };
+            return { correct: allCorrect, answer: answers.join('; ') };
         };
 
         const initializeQuiz = (container) => {
             container.querySelectorAll('.quiz-option').forEach(option => {
                 option.classList.remove('selected', 'correct', 'incorrect');
+                // Reassignar event listeners per evitar duplicats
+                const newOption = option.cloneNode(true);
+                option.parentNode.replaceChild(newOption, option);
+            });
+            
+            // Reassignar event listeners després de clonar
+            container.querySelectorAll('.quiz-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    // Desselecciona totes les opcions
+                    container.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
+                    // Selecciona l'opció actual
+                    this.classList.add('selected');
+                });
             });
         };
         
@@ -352,10 +477,15 @@
             if (!selectedOption) return { correct: false, answer: "No s'ha respost" };
 
             const isCorrect = selectedOption.dataset.correct === 'true';
-            selectedOption.classList.add(isCorrect ? 'correct' : 'incorrect');
-            if (!isCorrect) {
+            
+            if (isCorrect) {
+                selectedOption.classList.add('correct');
+            } else {
+                selectedOption.classList.add('incorrect');
+                // Mostrar la resposta correcta si no s'ha encertat
                 step.querySelector('.quiz-option[data-correct="true"]').classList.add('correct');
             }
+            
             return { correct: isCorrect, answer: selectedOption.textContent.trim() };
         };
         
@@ -385,17 +515,31 @@
                 doc.setFont('helvetica', 'bold').text(`Activitat: ${result.title}`, 14, y);
                 y += 7;
                 doc.setFont('helvetica', 'normal');
-                const answerLines = doc.splitTextToSize(`La teva resposta: ${result.userAnswer}`, 180);
+                const answerLines = doc.splitTextToSize(`La teva resposta (últim intent): ${result.userAnswer}`, 180);
                 doc.text(answerLines, 14, y);
                 y += answerLines.length * 5 + 2;
 
+                let statusText = '';
+                let textColor = [0, 0, 0]; // Negre per defecte
+
                 if (result.isCorrect) {
-                    doc.setTextColor(34, 139, 34).text('Resultat: Correcte ✓', 14, y);
+                    statusText = 'Resultat: Correcte ✓';
+                    textColor = [34, 139, 34]; // Verd
                     correctAnswers++;
                 } else {
-                    doc.setTextColor(220, 20, 60).text(`Resultat: ${result.userAnswer === 'Saltat' ? 'Saltat' : 'Incorrecte'} ✗`, 14, y);
+                    if (result.userAnswer === 'Saltat') {
+                        statusText = 'Resultat: Saltat';
+                        textColor = [100, 100, 100]; // Gris
+                    } else {
+                        statusText = 'Resultat: Incorrecte ✗';
+                        textColor = [220, 20, 60]; // Vermell
+                    }
                 }
-                doc.setTextColor(0, 0, 0);
+                
+                doc.setTextColor(textColor[0], textColor[1], textColor[2]).text(statusText, 14, y);
+                
+                // Afegir el número d'intents
+                doc.setTextColor(0,0,0).text(`Intents: ${result.attempts}`, 196, y, { align: 'right' });
                 y += 10;
             });
             
@@ -415,44 +559,117 @@
         });
         startActivitiesBtn.addEventListener('click', startActivities);
 
+        // Aquests listeners han de ser delegats o re-assignats en cada 'resetActivityStep' per als botons dinàmics
         steps.forEach(step => {
-            step.querySelector('.check-btn')?.addEventListener('click', () => handleCheck(step));
+            // El listener per `check-btn` és dinàmic i es reassigna a `handleCheck` o `resetActivityStep`
+            step.querySelector('.check-btn')?.addEventListener('click', function() {
+                if (this.textContent === 'Verificar') {
+                    handleCheck(step);
+                } else if (this.textContent === 'Tornar a intentar-ho') {
+                    resetActivityStep(step);
+                    this.textContent = 'Verificar'; // Restaura el text
+                    this.classList.remove('bg-yellow-500', 'hover:bg-yellow-600');
+                    this.classList.add('bg-primary', 'hover:bg-opacity-90'); // Restaura classes originals
+                }
+            });
+
+            // Event listener per al botó Skip
             step.querySelector('.skip-btn')?.addEventListener('click', () => handleSkip(step));
-            step.querySelector('.quiz-options')?.addEventListener('click', (e) => {
-                if (e.target.classList.contains('quiz-option')) {
-                    step.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
-                    e.target.classList.add('selected');
-                }
-            });
-        });
-        
-        activitySet.querySelectorAll('.drag-item, .drag-item-vocab').forEach(item => {
-            item.addEventListener('dragstart', (e) => {
-                e.dataTransfer.setData('text/plain', item.dataset.word);
-                setTimeout(() => item.classList.add('opacity-50'), 0);
-            });
-            item.addEventListener('dragend', (e) => e.target.classList.remove('opacity-50'));
         });
 
-        activitySet.querySelectorAll('.drop-zone, .drop-zone-vocab').forEach(zone => {
-            zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.classList.add('highlight'); });
-            zone.addEventListener('dragleave', () => zone.classList.remove('highlight'));
-            zone.addEventListener('drop', (e) => {
-                e.preventDefault();
-                zone.classList.remove('highlight');
-                const draggedWord = e.dataTransfer.getData('text/plain');
-                const draggedEl = activitySet.querySelector(`.drag-item[data-word="${draggedWord}"], .drag-item-vocab[data-word="${draggedWord}"]`);
-                if (zone.children.length > 0) {
-                    const existingEl = zone.firstElementChild;
-                    const originalContainer = existingEl.closest('.activity-step').querySelector('.words-container');
-                    originalContainer.appendChild(existingEl);
+        // Funcionalitat de drag and drop
+        const setupDragAndDrop = () => {
+            steps.forEach(step => {
+                if (step.querySelector('.drop-zone, .drop-zone-vocab')) {
+                    setupDragAndDropForStep(step);
                 }
-                if (draggedEl) zone.appendChild(draggedEl);
             });
+        };
+
+        const setupDragAndDropForStep = (step) => {
+            // Neteja event listeners existents per evitar duplicats
+            step.querySelectorAll('.drag-item, .drag-item-vocab').forEach(item => {
+                // Clona l'element per eliminar tots els event listeners
+                const newItem = item.cloneNode(true);
+                item.parentNode.replaceChild(newItem, item);
+            });
+
+            step.querySelectorAll('.drag-item, .drag-item-vocab').forEach(item => {
+                item.addEventListener('dragstart', function(e) {
+                    e.dataTransfer.setData('text/plain', this.dataset.word);
+                    e.dataTransfer.setData('text/html', this.outerHTML);
+                    e.dataTransfer.effectAllowed = 'move';
+                    this.classList.add('opacity-50');
+                });
+
+                item.addEventListener('dragend', function() {
+                    this.classList.remove('opacity-50');
+                });
+            });
+
+            step.querySelectorAll('.drop-zone, .drop-zone-vocab').forEach(zone => {
+                // Clona per eliminar event listeners existents
+                const newZone = zone.cloneNode(true);
+                zone.parentNode.replaceChild(newZone, zone);
+            });
+
+            // Reassignar després de clonar
+            step.querySelectorAll('.drop-zone, .drop-zone-vocab').forEach(zone => {
+                zone.addEventListener('dragover', function(e) {
+                    e.preventDefault();
+                    e.dataTransfer.dropEffect = 'move';
+                    this.classList.add('highlight');
+                });
+
+                zone.addEventListener('dragleave', function() {
+                    this.classList.remove('highlight');
+                });
+
+                zone.addEventListener('drop', function(e) {
+                    e.preventDefault();
+                    this.classList.remove('highlight');
+                    
+                    const draggedWord = e.dataTransfer.getData('text/plain');
+                    const draggedHTML = e.dataTransfer.getData('text/html');
+                    
+                    // Si ja hi ha un element, l'envia de tornada al contenidor de paraules
+                    if (this.firstElementChild) {
+                        const wordsContainer = step.querySelector('.words-container');
+                        wordsContainer.appendChild(this.firstElementChild);
+                    }
+                    
+                    // Crear un nou element des del HTML arrossegat
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = draggedHTML;
+                    const newElement = tempDiv.firstElementChild;
+                    
+                    // Afegir el nou element a la zona de drop
+                    this.appendChild(newElement);
+                    
+                    // Eliminar l'element original del contenidor de paraules
+                    const originalElement = step.querySelector(`.words-container [data-word="${draggedWord}"]`);
+                    if (originalElement) {
+                        originalElement.remove();
+                    }
+                    
+                    // Reassignar drag events al nou element
+                    setupDragAndDropForStep(step);
+                });
+            });
+        };
+
+        // Event listeners per als botons finals
+        document.getElementById('download-pdf-btn')?.addEventListener('click', generatePDF);
+        document.getElementById('restart-level-btn')?.addEventListener('click', () => {
+            completionMessage.classList.add('hidden');
+            mainActivityContent.classList.add('hidden');
+            nameInputContainer.classList.remove('hidden');
+            studentNameInput.value = '';
+            startActivitiesBtn.disabled = true;
         });
 
-        document.getElementById('download-pdf-btn').addEventListener('click', generatePDF);
-        document.getElementById('restart-level-btn').addEventListener('click', () => location.reload());
+        // Inicialitzar funcionalitat de drag and drop
+        setupDragAndDrop();
     }
 });
 </script>
