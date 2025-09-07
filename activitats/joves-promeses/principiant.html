@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="cat">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Activitats: Joves promeses (Principiant) - Afers Juvenils</title>
+  <!-- Poppins font, Tailwind CSS, custom styles, Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center"><div class="text-2xl font-bold text-primary">Afers Juvenils</div></div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="../../index.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Inici</a>
+                    <a href="../../entrevistes.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
+                    <a href="../../guia.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
+                    <a href="../../activitats.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium active">Activitats</a>
+                    <a href="../../tastet.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
+                    <a href="../../autora.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
+                </nav>
+                <div class="md:hidden"><button id="menu-toggle" class="text-gray-800 focus:outline-none"><i class="fas fa-bars text-xl"></i></button></div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg"><div class="px-4 py-3 space-y-3">
+            <a href="../../index.html" class="block text-gray-800 hover:text-gray-600 font-medium">Inici</a>
+            <a href="../../entrevistes.html" class="block text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
+            <a href="../../guia.html" class="block text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
+            <a href="../../activitats.html" class="block text-gray-800 hover:text-gray-600 font-medium">Activitats</a>
+            <a href="../../tastet.html" class="block text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
+            <a href="../../autora.html" class="block text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
+        </div></div>
+    </header>
+
+<main class="container mx-auto px-4 py-8">
+    <div id="activity-wrapper" 
+         data-story-title="Joves promeses" 
+         data-story-id="jovespromeses" 
+         data-level-text="Principiant">
+
+        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-6 gap-4">
+            <a href="../../activitats.html" class="flex items-center text-primary font-medium hover:text-accent transition"><i class="fas fa-arrow-left mr-2"></i> Tornar a la selecció d'activitats</a>
+            <div class="text-left sm:text-right">
+                <h1 id="activity-story-title" class="text-3xl font-bold text-primary">Joves promeses</h1>
+                <p id="activity-level" class="text-accent font-medium text-lg">Nivell: Principiant</p>
+            </div>
+        </div>
+
+        <div id="name-input-container" class="bg-white rounded-xl shadow-lg p-8 text-center">
+            <h3 class="text-2xl font-bold mb-4 text-primary">Abans de començar...</h3>
+            <p class="text-gray-700 mb-6">Si us plau, introdueix el teu nom i cognoms per poder generar el justificant al final.</p>
+            <input type="text" id="student-name" placeholder="El teu nom i cognoms" class="w-full max-w-md mx-auto p-3 border-2 border-gray-300 rounded-lg focus:border-accent focus:outline-none transition">
+            <button id="start-activities-btn" class="mt-4 bg-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition disabled:bg-gray-400 disabled:cursor-not-allowed">Començar Activitats</button>
+        </div>
+
+        <div id="main-activity-content" class="hidden">
+            <div class="mb-8">
+                <div class="flex justify-between mb-1">
+                    <span class="text-base font-medium text-primary">Progrés</span>
+                    <span id="progress-text" class="text-sm font-medium text-primary">Pas 0 / 0</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5"><div id="progress-bar" class="bg-accent h-2.5 rounded-full" style="width: 0%"></div></div>
+            </div>
+
+            <div id="activity-jovespromeses-principiant" class="activity-set">
+
+                <!-- Activitat 1: Vocabulari col·loquial -->
+                <div class="activity-step" data-step-id="vocabulari" data-step-title="Vocabulari col·loquial">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 1: Vocabulari col·loquial</h4>
+                        <p class="text-gray-600 mb-6">El text utilitza expressions molt comunes entre els joves. Relaciona cada paraula amb el seu significat.</p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <div class="flex items-center bg-secondary/30 p-4 rounded-lg"><span class="drop-zone-vocab bg-white border-2 border-dashed border-gray-400 rounded-lg w-40 h-12 mr-4 flex-shrink-0 flex items-center justify-center" data-accept="acollonit"></span><p class="text-gray-700">Tenir por, estar espantat.</p></div>
+                                <div class="flex items-center bg-secondary/30 p-4 rounded-lg"><span class="drop-zone-vocab bg-white border-2 border-dashed border-gray-400 rounded-lg w-40 h-12 mr-4 flex-shrink-0 flex items-center justify-center" data-accept="conyas"></span><p class="text-gray-700">Una cosa molt avorrida o pesada.</p></div>
+                                <div class="flex items-center bg-secondary/30 p-4 rounded-lg"><span class="drop-zone-vocab bg-white border-2 border-dashed border-gray-400 rounded-lg w-40 h-12 mr-4 flex-shrink-0 flex items-center justify-center" data-accept="crack"></span><p class="text-gray-700">Algú que és molt bo en alguna cosa.</p></div>
+                                <div class="flex items-center bg-secondary/30 p-4 rounded-lg"><span class="drop-zone-vocab bg-white border-2 border-dashed border-gray-400 rounded-lg w-40 h-12 mr-4 flex-shrink-0 flex items-center justify-center" data-accept="xungu"></span><p class="text-gray-700">Difícil, complicat o de mala qualitat.</p></div>
+                            </div>
+                            <div class="words-container flex flex-col gap-4 justify-center items-center bg-gray-50 p-4 rounded-lg">
+                                <div class="drag-item-vocab bg-accent text-white font-medium px-4 py-2 rounded-lg shadow w-full text-center cursor-grab" draggable="true" data-word="crack">Crack</div>
+                                <div class="drag-item-vocab bg-accent text-white font-medium px-4 py-2 rounded-lg shadow w-full text-center cursor-grab" draggable="true" data-word="xungu">Xungo</div>
+                                <div class="drag-item-vocab bg-accent text-white font-medium px-4 py-2 rounded-lg shadow w-full text-center cursor-grab" draggable="true" data-word="acollonit">Acollonit</div>
+                                <div class="drag-item-vocab bg-accent text-white font-medium px-4 py-2 rounded-lg shadow w-full text-center cursor-grab" draggable="true" data-word="conyas">Conyàs</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Verificar</button><p class="feedback-msg font-medium h-6"></p></div>
+                    </div>
+                </div>
+                
+                <!-- Activitat 2: Qui és qui? -->
+                <div class="activity-step hidden" data-step-id="qui-es-qui" data-step-title="Qui és qui?">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 2: Qui és qui?</h4>
+                        <p class="text-gray-600 mb-6">Quin personatge té problemes i inseguretats a l'hora d'escriure el guió per a la classe?</p>
+                        <div class="space-y-4 quiz-options">
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">L'Eloi</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="true">L'Arnau</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">L'Aina</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">La Sònia</div>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Verificar</button><p class="feedback-msg font-medium h-6"></p></div>
+                    </div>
+                </div>
+
+                <!-- Activitat 3: Comprensió lectora -->
+                <div class="activity-step hidden" data-step-id="comprensio" data-step-title="Comprensió lectora">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 3: Comprensió lectora</h4>
+                        <p class="text-gray-600 mb-6">Què descobreix l'Aina quan va a veure la pel·lícula al cinema?</p>
+                        <div class="space-y-4 quiz-options">
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Que un dels actors és un company de la seva classe.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Que la pel·lícula és molt més avorrida del que esperava.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="true">Que la pel·lícula ha utilitzat les seves idees i diàlegs del càsting sense permís.</div>
+                             <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Que ha guanyat el concurs de guionistes i el seu nom surt als crèdits.</div>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Verificar</button><p class="feedback-msg font-medium h-6"></p></div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div id="completion-message" class="hidden text-center bg-green-100 border-l-4 border-green-500 text-green-700 p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold mb-2">Enhorabona!</h3>
+                <p class="text-lg mb-4">Has completat totes les activitats. Ja pots descarregar el teu justificant.</p>
+                <div class="flex justify-center gap-4">
+                    <button id="download-pdf-btn" class="bg-accent text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition"><i class="fas fa-file-pdf mr-2"></i>Descarregar PDF</button>
+                    <button id="restart-level-btn" class="bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Tornar a començar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="bg-primary text-white py-8">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0"><div class="text-2xl font-bold text-secondary mb-2">Afers Juvenils</div><p class="text-gray-400">© 2025 Maria Dolors Añón. Tots els drets reservats.</p></div>
+            <div class="flex space-x-6">
+                <a href="https://www.instagram.com/anondolors" target="_blank" class="text-gray-400 hover:text-accent"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="https://www.facebook.com/dolors.anon" target="_blank" class="text-gray-400 hover:text-accent"><i class="fab fa-facebook text-xl"></i></a>
+                <a href="mailto:manon@xtec.cat" class="text-gray-400 hover:text-accent"><i class="fas fa-envelope text-xl"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+// SCRIPT COMPLET (IDÈNTIC ALS ANTERIORS, NO CAL MODIFICAR)
+document.addEventListener('DOMContentLoaded', function() {
+    const activityWrapper = document.getElementById('activity-wrapper');
+    if (!activityWrapper) return;
+    let activityState = { userName: '', storyId: activityWrapper.dataset.storyId, storyTitle: activityWrapper.dataset.storyTitle, levelText: activityWrapper.dataset.levelText, currentStepIndex: 0, totalSteps: 0, activityResults: [] };
+    let draggedItem = null;
+    const nameInputContainer = document.getElementById('name-input-container');
+    const mainActivityContent = document.getElementById('main-activity-content');
+    const completionMessage = document.getElementById('completion-message');
+    const studentNameInput = document.getElementById('student-name');
+    const startActivitiesBtn = document.getElementById('start-activities-btn');
+    const activitySet = activityWrapper.querySelector('.activity-set');
+    const steps = Array.from(activitySet.querySelectorAll('.activity-step'));
+    const startActivities = () => { activityState.userName = studentNameInput.value.trim(); if (!activityState.userName) return; nameInputContainer.classList.add('hidden'); mainActivityContent.classList.remove('hidden'); initializeActivitySet(); };
+    const initializeActivitySet = () => { activityState.currentStepIndex = 0; activityState.totalSteps = steps.length; activityState.activityResults = Array.from({ length: steps.length }, () => ({ title: '', userAnswer: "No s'ha respost", isCorrect: false, attempts: 0 })); steps.forEach((step, index) => { step.classList.toggle('hidden', index !== 0); resetActivityStep(step); }); updateProgressBar(); };
+    const updateProgressBar = () => { const progress = activityState.totalSteps > 0 ? (activityState.currentStepIndex / activityState.totalSteps) * 100 : 0; document.getElementById('progress-bar').style.width = `${progress}%`; const currentStepForDisplay = activityState.currentStepIndex < activityState.totalSteps ? activityState.currentStepIndex + 1 : activityState.totalSteps; document.getElementById('progress-text').textContent = `Pas ${currentStepForDisplay} / ${activityState.totalSteps}`; };
+    const goToNextStep = () => { if (activityState.currentStepIndex < activityState.totalSteps) { steps[activityState.currentStepIndex].classList.add('hidden'); } activityState.currentStepIndex++; updateProgressBar(); if (activityState.currentStepIndex < activityState.totalSteps) { const nextStep = steps[activityState.currentStepIndex]; resetActivityStep(nextStep); nextStep.classList.remove('hidden'); } else { document.getElementById('progress-text').textContent = `Completat!`; completionMessage.classList.remove('hidden'); } };
+    const resetActivityStep = (step) => { const feedbackMsg = step.querySelector('.feedback-msg'); let checkBtn = step.querySelector('.check-btn'); feedbackMsg.textContent = ''; feedbackMsg.className = 'feedback-msg font-medium h-6'; if (checkBtn) { checkBtn.textContent = 'Verificar'; checkBtn.classList.remove('hidden'); checkBtn.disabled = false; } step.querySelector('.retry-btn')?.remove(); step.querySelector('.next-btn')?.remove(); step.querySelector('.next-correct-btn')?.remove(); if (checkBtn) { const newCheck = checkBtn.cloneNode(true); checkBtn.parentNode.replaceChild(newCheck, checkBtn); newCheck.addEventListener('click', () => handleCheck(step)); } if (step.querySelector('.drop-zone, .drop-zone-vocab')) { const wordsContainer = step.querySelector('.words-container'); step.querySelectorAll('.drag-item, .drag-item-vocab').forEach(p => wordsContainer.appendChild(p)); step.querySelectorAll('.drop-zone, .drop-zone-vocab').forEach(z => { z.innerHTML = ''; z.classList.remove('correct-drop', 'incorrect-drop'); }); } if (step.querySelector('.quiz-options')) { step.querySelectorAll('.quiz-option').forEach(option => { const newOption = option.cloneNode(true); option.parentNode.replaceChild(newOption, option); newOption.classList.remove('selected', 'correct', 'incorrect'); newOption.addEventListener('click', () => { step.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected')); newOption.classList.add('selected'); }); }); } };
+    const handleCheck = (step) => { const currentResult = activityState.activityResults[activityState.currentStepIndex]; currentResult.attempts++; let result = { correct: false, answer: "No s'ha respost" }; if (step.querySelector('.drop-zone, .drop-zone-vocab')) result = checkDragAndDrop(step); else if (step.querySelector('.quiz-options')) result = checkQuiz(step); saveResult(step, result.answer, result.correct); const feedbackMsg = step.querySelector('.feedback-msg'); const checkBtn = step.querySelector('.check-btn'); if (result.correct) { feedbackMsg.textContent = 'Molt bé! Resposta correcta.'; feedbackMsg.className = 'feedback-msg font-medium h-6 text-green-600'; checkBtn.classList.add('hidden'); let nextBtn = step.querySelector('.next-correct-btn'); if (!nextBtn) { nextBtn = document.createElement('button'); nextBtn.className = 'next-correct-btn bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700 transition'; checkBtn.parentNode.insertBefore(nextBtn, feedbackMsg); } const isLastStep = activityState.currentStepIndex === activityState.totalSteps - 1; nextBtn.textContent = isLastStep ? 'Acabar nivell' : 'Següent activitat'; nextBtn.onclick = goToNextStep; } else { feedbackMsg.textContent = 'Hi ha alguns errors. Torna-ho a intentar.'; feedbackMsg.className = 'feedback-msg font-medium h-6 text-red-600'; checkBtn.classList.add('hidden'); let retryBtn = step.querySelector('.retry-btn'); if (!retryBtn) { retryBtn = document.createElement('button'); retryBtn.className = 'retry-btn bg-yellow-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-yellow-600 transition mr-4'; retryBtn.textContent = 'Tornar-ho a intentar'; checkBtn.parentNode.insertBefore(retryBtn, feedbackMsg); retryBtn.addEventListener('click', () => resetActivityStep(step)); } let nextBtn = step.querySelector('.next-btn'); if (!nextBtn) { nextBtn = document.createElement('button'); nextBtn.className = 'next-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition'; nextBtn.textContent = 'Següent activitat'; checkBtn.parentNode.insertBefore(nextBtn, feedbackMsg); nextBtn.addEventListener('click', goToNextStep); } } };
+    const saveResult = (step, answer, isCorrect) => { const title = step.dataset.stepTitle || `Activitat ${activityState.currentStepIndex + 1}`; const currentResult = activityState.activityResults[activityState.currentStepIndex]; if (currentResult) { currentResult.title = title; currentResult.userAnswer = answer; currentResult.isCorrect = isCorrect; } };
+    const checkDragAndDrop = (step) => { let allCorrect = true; step.querySelectorAll('.drop-zone, .drop-zone-vocab').forEach(zone => { zone.classList.remove('correct-drop', 'incorrect-drop'); const droppedItem = zone.querySelector('.drag-item, .drag-item-vocab'); if (!droppedItem || droppedItem.dataset.word !== zone.dataset.accept) { allCorrect = false; zone.classList.add('incorrect-drop'); } else { zone.classList.add('correct-drop'); } }); return { correct: allCorrect, answer: getStudentAnswerReadable(step) }; };
+    const checkQuiz = (step) => { const selectedOption = step.querySelector('.quiz-option.selected'); if (!selectedOption) return { correct: false, answer: "No s'ha respost" }; const isCorrect = selectedOption.dataset.correct === 'true'; step.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('correct', 'incorrect')); selectedOption.classList.add(isCorrect ? 'correct' : 'incorrect'); return { correct: isCorrect, answer: selectedOption.textContent.trim() }; };
+    const generatePDF = () => { const { jsPDF } = window.jspdf; const doc = new jsPDF({ unit: 'mm', format: 'a4' }); const today = new Date().toLocaleDateString('ca-ES'); const marginX = 14; const contentWidth = 180; let y = 20; doc.setFont('helvetica', 'bold').setFontSize(20).text("Justificant d'Activitats - Afers Juvenils", 105, y, { align: 'center' }); y += 12; doc.setFont('helvetica', 'normal').setFontSize(12); doc.text(`Alumne/a: ${activityState.userName}`, marginX, y); doc.text(`Data: ${today}`, 210 - marginX, y, { align: 'right' }); y += 7; doc.text(`Relat: ${activityState.storyTitle}`, marginX, y); y += 7; doc.text(`Nivell: ${activityState.levelText}`, marginX, y); y += 8; doc.line(marginX, y, 210 - marginX, y); y += 6; let correctAnswers = 0; activityState.activityResults.forEach((result, idx) => { const ensureSpace = (needed = 10) => { if (y + needed > 287) { doc.addPage(); y = 20; } }; ensureSpace(14); const step = steps[idx]; doc.setFont('helvetica', 'bold').setFontSize(13).text(`Activitat ${idx + 1}: ${result.title}`, marginX, y); y += 6; doc.setFont('helvetica', 'bold').setFontSize(11).text('Enunciat:', marginX, y); y += 5; doc.setFont('helvetica', 'normal'); const enuncLines = doc.splitTextToSize(getActivityEnunciat(step), contentWidth); enuncLines.forEach(line => { ensureSpace(6); doc.text(line, marginX, y); y += 5; }); y += 2; doc.setFont('helvetica', 'bold').text('Resposta de l’alumne:', marginX, y); y += 5; doc.setFont('helvetica', 'normal'); const ansLines = doc.splitTextToSize(result.userAnswer, contentWidth); ansLines.forEach(line => { ensureSpace(6); doc.text(line, marginX, y); y += 5; }); y += 2; let statusText = '', color = [0,0,0]; if (result.isCorrect) { statusText = 'Resultat: Correcte ✓'; color = [34, 139, 34]; correctAnswers++; } else { statusText = 'Resultat: Incorrecte ✗'; color = [220, 20, 60]; } ensureSpace(10); doc.setTextColor(color[0], color[1], color[2]).text(statusText, marginX, y); doc.setTextColor(0,0,0); doc.text(`Intents: ${result.attempts}`, 210 - marginX, y, { align: 'right' }); y += 7; doc.setDrawColor(200).line(marginX, y, 210 - marginX, y); y += 6; }); const score = Math.round((correctAnswers / activityState.totalSteps) * 100); if (y + 12 > 287) { doc.addPage(); y = 20; } doc.setFont('helvetica', 'bold').setFontSize(14).text(`Puntuació Final: ${score}% (${correctAnswers} de ${activityState.totalSteps} correctes)`, 105, y, { align: 'center' }); const fileName = `Justificant_${activityState.userName.replace(/ /g, '_')}_${activityState.storyId}_principiant.pdf`; doc.save(fileName); };
+    function getActivityEnunciat(step) { const mainQuestion = step.querySelector('h4 + p')?.innerText?.trim() || ''; if (step.querySelector('.quiz-options')) { const options = Array.from(step.querySelectorAll('.quiz-option')).map((opt, i) => `${String.fromCharCode(65 + i)}) ${opt.innerText.trim()}`); return [mainQuestion, ...options].join('\n'); } if (step.querySelector('.drop-zone-vocab')) { const lines = []; step.querySelectorAll('.flex.items-center.bg-secondary\\/30').forEach(row => { lines.push(`[____] — ${row.querySelector('p')?.innerText?.trim() || ''}`); }); return `${mainQuestion}\n${lines.join('\n')}`; } return mainQuestion; }
+    function getStudentAnswerReadable(step) { if (step.querySelector('.drop-zone-vocab')) { const lines = []; step.querySelectorAll('.flex.items-center.bg-secondary\\/30').forEach(row => { const chosen = row.querySelector('.drag-item-vocab')?.innerText?.trim() || '—'; lines.push(`[${chosen}] — ${row.querySelector('p')?.innerText?.trim() || ''}`); }); return lines.join('\n'); } if (step.querySelector('.quiz-options')) { const selected = step.querySelector('.quiz-option.selected, .quiz-option.correct, .quiz-option.incorrect'); return selected ? selected.innerText.trim() : 'No s’ha respost'; } return "No s'ha pogut determinar la resposta."; }
+    studentNameInput.addEventListener('input', () => startActivitiesBtn.disabled = studentNameInput.value.trim() === '');
+    startActivitiesBtn.addEventListener('click', startActivities);
+    activitySet.addEventListener('dragstart', (e) => { if (e.target.matches('.drag-item, .drag-item-vocab')) { draggedItem = e.target; setTimeout(() => e.target.classList.add('opacity-50'), 0); } });
+    activitySet.addEventListener('dragend', () => { if (draggedItem) { draggedItem.classList.remove('opacity-50'); draggedItem = null; } });
+    activitySet.addEventListener('dragover', (e) => { e.preventDefault(); const dropZone = e.target.closest('.drop-zone, .drop-zone-vocab'); if (dropZone) dropZone.classList.add('highlight'); });
+    activitySet.addEventListener('dragleave', (e) => { e.target.closest('.drop-zone, .drop-zone-vocab')?.classList.remove('highlight'); });
+    activitySet.addEventListener('drop', (e) => { e.preventDefault(); const dropZone = e.target.closest('.drop-zone, .drop-zone-vocab'); if (dropZone && draggedItem) { dropZone.classList.remove('highlight'); if (dropZone.children.length > 0) { draggedItem.closest('.activity-step').querySelector('.words-container').appendChild(dropZone.firstElementChild); } dropZone.appendChild(draggedItem); } });
+    document.getElementById('download-pdf-btn').addEventListener('click', generatePDF);
+    document.getElementById('restart-level-btn').addEventListener('click', () => location.reload());
+});
+</script>
+</body>
+</html>
