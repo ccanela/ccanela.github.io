@@ -227,7 +227,8 @@
             // Defineix quins enllaços estan actius
             const activeLinks = {
                 'nouvinguda': ['principiant', 'mitja', 'avancat'], 
-                'graduacio': [] // Cap nivell actiu per a aquest relat encara
+                'graduacio': ['principiant', 'mitja', 'avancat'] 
+                // Afegeix més relats i els seus nivells disponibles aquí
             };
 
             const availableLevels = activeLinks[storyId] || [];
