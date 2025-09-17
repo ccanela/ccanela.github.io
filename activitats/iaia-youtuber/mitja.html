@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="cat">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Activitats: Iaia, jo vull ser youtuber (Mitjà) - Afers Juvenils</title>
+  <!-- Poppins font, Tailwind CSS, custom styles, Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center"><div class="text-2xl font-bold text-primary">Afers Juvenils</div></div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="../../index.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Inici</a>
+                    <a href="../../entrevistes.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
+                    <a href="../../guia.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
+                    <a href="../../activitats.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium active">Activitats</a>
+                    <a href="../../tastet.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
+                    <a href="../../autora.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
+                </nav>
+                <div class="md:hidden"><button id="menu-toggle" class="text-gray-800 focus:outline-none"><i class="fas fa-bars text-xl"></i></button></div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg"><div class="px-4 py-3 space-y-3">
+            <a href="../../index.html" class="block text-gray-800 hover:text-gray-600 font-medium">Inici</a>
+            <a href="../../entrevistes.html" class="block text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
+            <a href="../../guia.html" class="block text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
+            <a href="../../activitats.html" class="block text-gray-800 hover:text-gray-600 font-medium">Activitats</a>
+            <a href="../../tastet.html" class="block text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
+            <a href="../../autora.html" class="block text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
+        </div></div>
+    </header>
+
+<main class="container mx-auto px-4 py-8">
+    <div id="activity-wrapper" 
+         data-story-title="Iaia, jo vull ser youtuber" 
+         data-story-id="youtuber" 
+         data-level-text="Mitjà">
+
+        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-6 gap-4">
+            <a href="../../activitats.html" class="flex items-center text-primary font-medium hover:text-accent transition"><i class="fas fa-arrow-left mr-2"></i> Tornar a la selecció d'activitats</a>
+            <div class="text-left sm:text-right">
+                <h1 id="activity-story-title" class="text-3xl font-bold text-primary">Iaia, jo vull ser youtuber</h1>
+                <p id="activity-level" class="text-accent font-medium text-lg">Nivell: Mitjà</p>
+            </div>
+        </div>
+
+        <div id="name-input-container" class="bg-white rounded-xl shadow-lg p-8 text-center">
+            <h3 class="text-2xl font-bold mb-4 text-primary">Abans de començar...</h3>
+            <p class="text-gray-700 mb-6">Si us plau, introdueix el teu nom i cognoms per poder generar el justificant al final.</p>
+            <input type="text" id="student-name" placeholder="El teu nom i cognoms" class="w-full max-w-md mx-auto p-3 border-2 border-gray-300 rounded-lg focus:border-accent focus:outline-none transition">
+            <button id="start-activities-btn" class="mt-4 bg-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition disabled:bg-gray-400 disabled:cursor-not-allowed">Començar Activitats</button>
+        </div>
+
+        <div id="main-activity-content" class="hidden">
+            <div class="mb-8">
+                <div class="flex justify-between mb-1">
+                    <span class="text-base font-medium text-primary">Progrés</span>
+                    <span id="progress-text" class="text-sm font-medium text-primary">Pas 0 / 0</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5"><div id="progress-bar" class="bg-accent h-2.5 rounded-full" style="width: 0%"></div></div>
+            </div>
+
+            <div id="activity-youtuber-mitja" class="activity-set">
+
+                <!-- Activitat 1: Estructura Narrativa -->
+                <div class="activity-step" data-step-id="estructura" data-step-title="Estructura Narrativa">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 1: Estructura Narrativa</h4>
+                        <p class="text-gray-600 mb-6">El relat comença al final de la història (al plató de TV) i després utilitza una tècnica narrativa per explicar el que va passar abans. Com es diu aquesta tècnica?</p>
+                        <div class="space-y-4 quiz-options">
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Final obert</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Narració lineal</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="true">Flashback (retrospecció)</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Monòleg interior</div>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Verificar</button><p class="feedback-msg font-medium h-6"></p></div>
+                    </div>
+                </div>
+
+                <!-- Activitat 2: L'evolució del Pol -->
+                <div class="activity-step hidden" data-step-id="evolucio" data-step-title="L'evolució del Pol">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 2: L'evolució del Pol</h4>
+                        <p class="text-gray-600 mb-6">L'actitud del Pol canvia al llarg del relat. Ordena aquestes fases de la seva evolució.</p>
+                        <div class="sortable-list space-y-3" data-correct-order="1,2,3,4">
+                            <div class="sortable-item bg-secondary/30 p-4 rounded-lg cursor-grab flex items-center" draggable="true" data-id="2"><i class="fas fa-grip-vertical mr-4 text-gray-400"></i>Accepta a contracor ajudar la seva iaia amb un vídeo de ganxet.</div>
+                            <div class="sortable-item bg-secondary/30 p-4 rounded-lg cursor-grab flex items-center" draggable="true" data-id="4"><i class="fas fa-grip-vertical mr-4 text-gray-400"></i>Reconeix la importància de la col·laboració i se sent orgullós del projecte conjunt.</div>
+                            <div class="sortable-item bg-secondary/30 p-4 rounded-lg cursor-grab flex items-center" draggable="true" data-id="1"><i class="fas fa-grip-vertical mr-4 text-gray-400"></i>Està desmotivat a l'institut i només pensa a fer-se youtuber per guanyar diners.</div>
+                            <div class="sortable-item bg-secondary/30 p-4 rounded-lg cursor-grab flex items-center" draggable="true" data-id="3"><i class="fas fa-grip-vertical mr-4 text-gray-400"></i>S'implica de veritat en el projecte per ajudar la iaia quan la veu trista per l'accident.</div>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Verificar</button><p class="feedback-msg font-medium h-6"></p></div>
+                    </div>
+                </div>
+
+                <!-- Activitat 3: Motivacions -->
+                <div class="activity-step hidden" data-step-id="motivacions" data-step-title="Les motivacions del Pol">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 3: Les motivacions del Pol</h4>
+                        <p class="text-gray-600 mb-6">Al principi, la principal motivació del Pol per ser youtuber és guanyar diners. Tanmateix, quan proposa fer les classes en streaming, el text diu: "sap que en el fons no tot és amor cap a la iaia". Quina és l'altra motivació que té en aquell moment?</p>
+                        <div class="space-y-4 quiz-options">
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Vol demostrar a la seva mare que és responsable.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="true">El canal de la iaia començava a tenir èxit i ja havia rebut ofertes de publicitat.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">El director del casal li ha promès una recompensa si continua amb el projecte.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Vol impressionar els seus companys de l'institut.</div>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Verificar</button><p class="feedback-msg font-medium h-6"></p></div>
+                    </div>
+                </div>
+
+                <!-- Activitat 4: Anàlisi de la relació -->
+                <div class="activity-step hidden" data-step-id="relacio" data-step-title="Anàlisi de la relació iaia-net">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 4: Anàlisi de la relació iaia-net</h4>
+                        <p class="text-gray-600 mb-6">Com canvia la relació entre el Pol i la seva iaia Paula al llarg del conte?</p>
+                        <div class="space-y-4 quiz-options">
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">La relació empitjora perquè la iaia s'instal·la a la seva habitació i li treu espai.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">La relació no canvia, sempre han estat molt units i han compartit aficions.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="true">Passen d'una relació distant (on el Pol veu la iaia com una molèstia) a una de col·laboració i afecte mutu gràcies al projecte comú.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">El Pol utilitza la seva iaia per aconseguir fama i després l'abandona.</div>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Verificar</button><p class="feedback-msg font-medium h-6"></p></div>
+                    </div>
+                </div>
+
+                <!-- Activitat 5: Reflexió personal -->
+                <div class="activity-step hidden" data-step-id="reflexio" data-step-title="Reflexió sobre l'èxit">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 5: Reflexió sobre l'èxit</h4>
+                        <p class="text-gray-600 mb-6">El Pol buscava l'èxit d'una manera, però el troba d'una altra totalment inesperada. Quina creus que és la lliçó principal que aprèn sobre el que significa "tenir èxit"?</p>
+                        <textarea class="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-accent focus:outline-none transition" rows="8" placeholder="Escriu aquí la teva reflexió..."></textarea>
+                        <p class="text-xs text-gray-500 mt-2">Aquesta resposta és oberta i es desarà al teu justificant.</p>
+                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Desar i continuar</button><p class="feedback-msg font-medium h-6"></p></div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div id="completion-message" class="hidden text-center bg-green-100 border-l-4 border-green-500 text-green-700 p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold mb-2">Enhorabona!</h3>
+                <p class="text-lg mb-4">Has completat totes les activitats. Ja pots descarregar el teu justificant.</p>
+                <div class="flex justify-center gap-4">
+                    <button id="download-pdf-btn" class="bg-accent text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition"><i class="fas fa-file-pdf mr-2"></i>Descarregar PDF</button>
+                    <button id="restart-level-btn" class="bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Tornar a començar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="bg-primary text-white py-8">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0"><div class="text-2xl font-bold text-secondary mb-2">Afers Juvenils</div><p class="text-gray-400">© 2025 Maria Dolors Añón. Tots els drets reservats.</p></div>
+            <div class="flex space-x-6">
+                <a href="https://www.instagram.com/anondolors" target="_blank" class="text-gray-400 hover:text-accent"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="https://www.facebook.com/dolors.anon" target="_blank" class="text-gray-400 hover:text-accent"><i class="fab fa-facebook text-xl"></i></a>
+                <a href="mailto:manon@xtec.cat" class="text-gray-400 hover:text-accent"><i class="fas fa-envelope text-xl"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>
