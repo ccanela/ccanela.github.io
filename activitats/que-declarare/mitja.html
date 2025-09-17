@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="cat">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Activitats: Què declararé? (Mitjà) - Afers Juvenils</title>
+  <!-- Poppins font, Tailwind CSS, custom styles, Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center"><div class="text-2xl font-bold text-primary">Afers Juvenils</div></div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="../../index.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Inici</a>
+                    <a href="../../entrevistes.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
+                    <a href="../../guia.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
+                    <a href="../../activitats.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium active">Activitats</a>
+                    <a href="../../tastet.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
+                    <a href="../../autora.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
+                </nav>
+                <div class="md:hidden"><button id="menu-toggle" class="text-gray-800 focus:outline-none"><i class="fas fa-bars text-xl"></i></button></div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg"><div class="px-4 py-3 space-y-3">
+            <a href="../../index.html" class="block text-gray-800 hover:text-gray-600 font-medium">Inici</a>
+            <a href="../../entrevistes.html" class="block text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
+            <a href="../../guia.html" class="block text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
+            <a href="../../tastet.html" class="block text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
+            <a href="../../autora.html" class="block text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
+        </div></div>
+    </header>
+
+<main class="container mx-auto px-4 py-8">
+    <div id="activity-wrapper" 
+         data-story-title="Què declararé?" 
+         data-story-id="quedeclarare" 
+         data-level-text="Mitjà">
+
+        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-6 gap-4">
+            <a href="../../activitats.html" class="flex items-center text-primary font-medium hover:text-accent transition"><i class="fas fa-arrow-left mr-2"></i> Tornar a la selecció d'activitats</a>
+            <div class="text-left sm:text-right">
+                <h1 id="activity-story-title" class="text-3xl font-bold text-primary">Què declararé?</h1>
+                <p id="activity-level" class="text-accent font-medium text-lg">Nivell: Mitjà</p>
+            </div>
+        </div>
+
+        <div id="name-input-container" class="bg-white rounded-xl shadow-lg p-8 text-center">
+            <h3 class="text-2xl font-bold mb-4 text-primary">Abans de començar...</h3>
+            <p class="text-gray-700 mb-6">Si us plau, introdueix el teu nom i cognoms per poder generar el justificant al final.</p>
+            <input type="text" id="student-name" placeholder="El teu nom i cognoms" class="w-full max-w-md mx-auto p-3 border-2 border-gray-300 rounded-lg focus:border-accent focus:outline-none transition">
+            <button id="start-activities-btn" class="mt-4 bg-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition disabled:bg-gray-400 disabled:cursor-not-allowed">Començar Activitats</button>
+        </div>
+
+        <div id="main-activity-content" class="hidden">
+            <div class="mb-8">
+                <div class="flex justify-between mb-1">
+                    <span class="text-base font-medium text-primary">Progrés</span>
+                    <span id="progress-text" class="text-sm font-medium text-primary">Pas 0 / 0</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5"><div id="progress-bar" class="bg-accent h-2.5 rounded-full" style="width: 0%"></div></div>
+            </div>
+
+            <div id="activity-quedeclarare-mitja" class="activity-set">
+
+                <!-- Activitat 1: Reconstruint la història -->
+                <div class="activity-step" data-step-id="ordenar-fets" data-step-title="Reconstruint la història">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 1: Reconstruint la història</h4>
+                        <p class="text-gray-600 mb-6">El relat no està ordenat cronològicament. Ordena els fets de la vida de la família des del més antic al més recent.</p>
+                        <div class="sortable-list space-y-3" data-correct-order="1,2,3,4,5">
+                            <div class="sortable-item bg-secondary/30 p-4 rounded-lg cursor-grab flex items-center" draggable="true" data-id="2"><i class="fas fa-grip-vertical mr-4 text-gray-400"></i>L'Albert neix i la mare sent una gran alegria.</div>
+                            <div class="sortable-item bg-secondary/30 p-4 rounded-lg cursor-grab flex items-center" draggable="true" data-id="4"><i class="fas fa-grip-vertical mr-4 text-gray-400"></i>L'Albert comença a robar i a ser agressiu per aconseguir diners.</div>
+                            <div class="sortable-item bg-secondary/30 p-4 rounded-lg cursor-grab flex items-center" draggable="true" data-id="1"><i class="fas fa-grip-vertical mr-4 text-gray-400"></i>La parella se sotmet a tractaments de fertilitat per poder tenir un fill.</div>
+                            <div class="sortable-item bg-secondary/30 p-4 rounded-lg cursor-grab flex items-center" draggable="true" data-id="5"><i class="fas fa-grip-vertical mr-4 text-gray-400"></i>La mare apunyala l'Albert durant un atac violent.</div>
+                            <div class="sortable-item bg-secondary/30 p-4 rounded-lg cursor-grab flex items-center" draggable="true" data-id="3"><i class="fas fa-grip-vertical mr-4 text-gray-400"></i>La comunicació entre mare i fill es trenca i el pare comença a evitar els conflictes.</div>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Verificar</button><p class="feedback-msg font-medium h-6"></p></div>
+                    </div>
+                </div>
+
+                <!-- Activitat 2: La figura del pare -->
+                <div class="activity-step hidden" data-step-id="pare" data-step-title="La figura del pare">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 2: La figura del pare</h4>
+                        <p class="text-gray-600 mb-6">Com descriu la narradora el comportament del seu marit, en Joan, davant els problemes?</p>
+                        <div class="space-y-4 quiz-options">
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Era autoritari i castigava l'Albert amb duresa.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="true">Evitava els conflictes, marxava de casa durant les discussions i la deixava sola.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Intentava parlar amb l'Albert per solucionar el problema de l'addicció.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Sempre donava suport a la seva dona i li feia costat.</div>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Verificar</button><p class="feedback-msg font-medium h-6"></p></div>
+                    </div>
+                </div>
+                
+                <!-- Activitat 3: El canvi de l'Albert -->
+                <div class="activity-step hidden" data-step-id="canvi-albert" data-step-title="El canvi de l'Albert">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 3: El canvi de l'Albert</h4>
+                        <p class="text-gray-600 mb-6">La mare recorda el seu fill de petit i el compara amb com era últimament. Relaciona cada etapa amb la seva descripció.</p>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="space-y-4 flex flex-col justify-around">
+                                <div class="flex items-center bg-secondary/30 p-4 rounded-lg"><span class="drop-zone-vocab bg-white border-2 border-dashed border-gray-400 rounded-lg w-32 h-20 mr-4 flex-shrink-0 flex items-center justify-center p-2" data-accept="infant"></span><p class="text-gray-700 font-bold">Quan era un infant</p></div>
+                                <div class="flex items-center bg-secondary/30 p-4 rounded-lg"><span class="drop-zone-vocab bg-white border-2 border-dashed border-gray-400 rounded-lg w-32 h-20 mr-4 flex-shrink-0 flex items-center justify-center p-2" data-accept="addicte"></span><p class="text-gray-700 font-bold">En els darrers temps</p></div>
+                            </div>
+                            <div class="words-container flex flex-col gap-4 justify-around items-center bg-gray-50 p-4 rounded-lg">
+                                <div class="drag-item-vocab bg-accent text-white font-medium p-3 rounded-lg shadow w-full text-center cursor-grab" draggable="true" data-word="addicte">"Impassible, seriós, distant [...] una mirada sorneguera i quan no, indiferent."</div>
+                                <div class="drag-item-vocab bg-accent text-white font-medium p-3 rounded-lg shadow w-full text-center cursor-grab" draggable="true" data-word="infant">"L'enyor d'un nen tendre i rialler. D'un nadó amb galtes molsudes."</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Verificar</button><p class="feedback-msg font-medium h-6"></p></div>
+                    </div>
+                </div>
+
+                <!-- Activitat 4: El sentiment dominant -->
+                <div class="activity-step hidden" data-step-id="sentiment" data-step-title="El sentiment dominant">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 4: El sentiment dominant</h4>
+                        <p class="text-gray-600 mb-6">La narradora diu: "Aquella por que sempre m'havia paralitzat, [...] sempre havia guanyat la partida, ara era més forta que mai." Aquesta por constant és un element clau. Què li impedia fer aquesta por?</p>
+                        <div class="space-y-4 quiz-options">
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Sortir de casa i relacionar-se amb altres persones.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="true">Abordar el problema de l'addicció del seu fill i comunicar-s'hi obertament.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Demanar ajuda econòmica a la seva família.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Separar-se del seu marit, en Joan.</div>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Verificar</button><p class="feedback-msg font-medium h-6"></p></div>
+                    </div>
+                </div>
+
+                <!-- Activitat 5: Reflexió personal -->
+                <div class="activity-step hidden" data-step-id="reflexio" data-step-title="Reflexió personal">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 5: Reflexió personal</h4>
+                        <p class="text-gray-600 mb-6">La protagonista diu que l'acte final va ser "un acte reflex". Creus que això la fa menys culpable? Per què sí o per què no? Explica breument la teva opinió.</p>
+                        <textarea class="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-accent focus:outline-none transition" rows="8" placeholder="Escriu aquí la teva reflexió..."></textarea>
+                        <p class="text-xs text-gray-500 mt-2">Aquesta resposta és oberta i es desarà al teu justificant.</p>
+                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Desar i continuar</button><p class="feedback-msg font-medium h-6"></p></div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div id="completion-message" class="hidden text-center bg-green-100 border-l-4 border-green-500 text-green-700 p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold mb-2">Enhorabona!</h3>
+                <p class="text-lg mb-4">Has completat totes les activitats. Ja pots descarregar el teu justificant.</p>
+                <div class="flex justify-center gap-4">
+                    <button id="download-pdf-btn" class="bg-accent text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition"><i class="fas fa-file-pdf mr-2"></i>Descarregar PDF</button>
+                    <button id="restart-level-btn" class="bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Tornar a començar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="bg-primary text-white py-8">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0"><div class="text-2xl font-bold text-secondary mb-2">Afers Juvenils</div><p class="text-gray-400">© 2025 Maria Dolors Añón. Tots els drets reservats.</p></div>
+            <div class="flex space-x-6">
+                <a href="https://www.instagram.com/anondolors" target="_blank" class="text-gray-400 hover:text-accent"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="https://www.facebook.com/dolors.anon" target="_blank" class="text-gray-400 hover:text-accent"><i class="fab fa-facebook text-xl"></i></a>
+                <a href="mailto:manon@xtec.cat" class="text-gray-400 hover:text-accent"><i class="fas fa-envelope text-xl"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>
