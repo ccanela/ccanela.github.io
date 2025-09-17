@@ -255,7 +255,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (y + 12 > 287) { doc.addPage(); y = 20; }
         doc.setFont('helvetica', 'bold').setFontSize(14).text(`Puntuació Final: ${score}% (${correctAnswers} de ${activityState.totalSteps} correctes)`, 105, y, { align: 'center' });
         
-        const fileName = `Justificant_${activityState.userName.replace(/ /g, '_')}_${activityState.storyId}.pdf`;
+        const sanitizedUserName = activityState.userName.replace(/ /g, '_');
+        const sanitizedLevel = activityState.levelText.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ /g, "");
+        const fileName = `${sanitizedUserName}_justificant_${activityState.storyId}_${sanitizedLevel}.pdf`;
         doc.save(fileName);
     };
 
