@@ -58,13 +58,9 @@
         </div>
     </header>
 
-
 <main class="container mx-auto px-4 py-8">
-    <!-- Pàgina d'Activitats Interactives -->
     <section id="activitats-index" class="page">
-        <h1 class="text-4xl font-bold mb-8 text-primary">
-            Activitats Interactives
-        </h1>
+        <h1 class="text-4xl font-bold mb-8 text-primary">Activitats Interactives</h1>
         <p class="text-gray-700 mb-8 text-lg">
             Descobreix les activitats interactives basades en els relats d'<i>Afers Juvenils</i>. 
             Aquestes activitats estan dissenyades per aprendre i millorar el català, 
@@ -75,31 +71,19 @@
             <h2 class="text-2xl font-bold mb-6 text-primary">Com funcionen les activitats?</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-secondary/30 p-4 rounded-lg">
-                    <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center mb-4">
-                        <span class="text-white font-bold text-xl">1</span>
-                    </div>
+                    <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center mb-4"><span class="text-white font-bold text-xl">1</span></div>
                     <h3 class="font-bold text-lg mb-2 text-primary">Tria un relat</h3>
-                    <p class="text-gray-700">
-                        Selecciona un dels dotze relats del llibre <i>Afers Juvenils</i> per començar.
-                    </p>
+                    <p class="text-gray-700">Selecciona un dels dotze relats del llibre <i>Afers Juvenils</i> per començar.</p>
                 </div>
                 <div class="bg-secondary/30 p-4 rounded-lg">
-                    <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center mb-4">
-                        <span class="text-white font-bold text-xl">2</span>
-                    </div>
+                    <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center mb-4"><span class="text-white font-bold text-xl">2</span></div>
                     <h3 class="font-bold text-lg mb-2 text-primary">Escull el nivell</h3>
-                    <p class="text-gray-700">
-                        Cada relat té activitats de tres nivells: principiant, mitjà i avançat.
-                    </p>
+                    <p class="text-gray-700">Cada relat té activitats de tres nivells: principiant, mitjà i avançat.</p>
                 </div>
                 <div class="bg-secondary/30 p-4 rounded-lg">
-                    <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center mb-4">
-                        <span class="text-white font-bold text-xl">3</span>
-                    </div>
+                    <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center mb-4"><span class="text-white font-bold text-xl">3</span></div>
                     <h3 class="font-bold text-lg mb-2 text-primary">Completa i justifica</h3>
-                    <p class="text-gray-700">
-                        Realitza els exercicis i descarrega el justificant en PDF per al teu professor/a.
-                    </p>
+                    <p class="text-gray-700">Realitza els exercicis i descarrega el justificant en PDF per al teu professor/a.</p>
                 </div>
             </div>
         </div>
@@ -108,181 +92,108 @@
         <div id="story-selection" class="mb-12">
             <h2 class="text-2xl font-bold mb-6 text-primary">Selecciona un relat</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <div class="story-card bg-white rounded-lg shadow-md p-4 border-2 border-transparent" data-story="nouvinguda">
+                
+                <a href="activitats/nivell.html?relat=nouvinguda" class="story-card flex flex-col bg-white rounded-lg shadow-md p-4 border-2 border-transparent cursor-pointer hover:border-accent transition-all">
                     <h3 class="font-bold text-lg mb-2 text-primary">La nouvinguda</h3>
-                    <p class="text-gray-600 text-sm mb-4">
-                        Un relat sobre integració, identitat i pertinença en un nou entorn.
-                    </p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs text-gray-500">Relat 1</span>
-                        <i class="fas fa-chevron-right text-accent"></i>
-                    </div>
-                </div>
-                
-                <!-- Afegeix més 'story-card' aquí per a la resta de relats quan estiguin disponibles -->
-                 <div class="story-card bg-white rounded-lg shadow-md p-4 border-2 border-transparent" data-story="graduacio">
-                    <h3 class="font-bold text-lg mb-2 text-primary">La graduació</h3>
-                    <p class="text-gray-600 text-sm mb-4">
-                        Un moment de transició i reflexió sobre el passat i el futur.
-                    </p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs text-gray-500">Relat 2</span>
-                        <i class="fas fa-chevron-right text-accent"></i>
-                    </div>
-                </div>
-                
-                <div class="story-card bg-gray-100 rounded-lg p-4 border-2 border-dashed border-gray-300 text-center text-gray-500">
-                    <h3 class="font-bold text-lg mb-2">Properament</h3>
-                    <p class="text-sm">Més activitats per a altres relats estaran disponibles aviat.</p>
-                </div>
-            </div>
-        </div>
+                    <p class="text-gray-600 text-sm mb-4">Un relat sobre integració, assetjament i la cerca de la pròpia identitat.</p>
+                    <div class="flex justify-between items-center mt-auto pt-2"><span class="text-xs text-gray-500">Relat 1</span><i class="fas fa-chevron-right text-accent"></i></div>
+                </a>
 
-        <!-- Secció de selecció de nivell (s'amaga i es mostra amb JS) -->
-        <div id="level-selection" class="hidden mb-12">
-            <div class="flex justify-between items-center mb-6">
-                <button id="back-to-stories" class="flex items-center text-primary font-medium hover:text-accent transition">
-                    <i class="fas fa-arrow-left mr-2"></i> Tornar als relats
-                </button>
-                <h2 id="selected-story-title" class="text-2xl font-bold text-primary"></h2>
-            </div>
-            
-            <p id="selected-story-desc" class="text-gray-700 mb-8"></p>
-            
-            <h3 class="text-xl font-bold mb-4 text-primary">Tria un nivell</h3>
-            <!-- Contenidor dels nivells que es generarà amb JS -->
-            <div id="level-buttons-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- ELS BOTONS DE NIVELL ES GENERARAN AQUÍ -->
+                <a href="activitats/nivell.html?relat=graduacio" class="story-card flex flex-col bg-white rounded-lg shadow-md p-4 border-2 border-transparent cursor-pointer hover:border-accent transition-all">
+                    <h3 class="font-bold text-lg mb-2 text-primary">La graduació</h3>
+                    <p class="text-gray-600 text-sm mb-4">Un moment de transició i reflexió sobre les expectatives i la realitat.</p>
+                    <div class="flex justify-between items-center mt-auto pt-2"><span class="text-xs text-gray-500">Relat 2</span><i class="fas fa-chevron-right text-accent"></i></div>
+                </a>
+
+                <a href="activitats/nivell.html?relat=joves-promeses" class="story-card flex flex-col bg-white rounded-lg shadow-md p-4 border-2 border-transparent cursor-pointer hover:border-accent transition-all">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Joves promeses</h3>
+                    <p class="text-gray-600 text-sm mb-4">L'amistat, la creativitat i la lluita per un somni en el món del teatre.</p>
+                    <div class="flex justify-between items-center mt-auto pt-2"><span class="text-xs text-gray-500">Relat 3</span><i class="fas fa-chevron-right text-accent"></i></div>
+                </a>
+
+                <a href="activitats/nivell.html?relat=una-altra-ronda" class="story-card flex flex-col bg-white rounded-lg shadow-md p-4 border-2 border-transparent cursor-pointer hover:border-accent transition-all">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Una altra ronda?</h3>
+                    <p class="text-gray-600 text-sm mb-4">Les conseqüències d'una nit de festa i les decisions equivocades.</p>
+                    <div class="flex justify-between items-center mt-auto pt-2"><span class="text-xs text-gray-500">Relat 4</span><i class="fas fa-chevron-right text-accent"></i></div>
+                </a>
+
+                <a href="activitats/nivell.html?relat=que-declarare" class="story-card flex flex-col bg-white rounded-lg shadow-md p-4 border-2 border-transparent cursor-pointer hover:border-accent transition-all">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Què declararé?</h3>
+                    <p class="text-gray-600 text-sm mb-4">Un drama familiar intens sobre la culpa i les decisions desesperades.</p>
+                    <div class="flex justify-between items-center mt-auto pt-2"><span class="text-xs text-gray-500">Relat 5</span><i class="fas fa-chevron-right text-accent"></i></div>
+                </a>
+
+                <a href="activitats/nivell.html?relat=iaia-youtuber" class="story-card flex flex-col bg-white rounded-lg shadow-md p-4 border-2 border-transparent cursor-pointer hover:border-accent transition-all">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Iaia, jo vull ser youtuber</h3>
+                    <p class="text-gray-600 text-sm mb-4">Una història sobre somnis, tecnologia i vincles intergeneracionals.</p>
+                    <div class="flex justify-between items-center mt-auto pt-2"><span class="text-xs text-gray-500">Relat 6</span><i class="fas fa-chevron-right text-accent"></i></div>
+                </a>
+
+                <a href="activitats/nivell.html?relat=mirall-singular" class="story-card flex flex-col bg-white rounded-lg shadow-md p-4 border-2 border-transparent cursor-pointer hover:border-accent transition-all">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Un mirall singular</h3>
+                    <p class="text-gray-600 text-sm mb-4">L'autoestima i la percepció d'un mateix a través d'un regal misteriós.</p>
+                    <div class="flex justify-between items-center mt-auto pt-2"><span class="text-xs text-gray-500">Relat 7</span><i class="fas fa-chevron-right text-accent"></i></div>
+                </a>
+
+                <a href="activitats/nivell.html?relat=jocs-perillosos" class="story-card flex flex-col bg-white rounded-lg shadow-md p-4 border-2 border-transparent cursor-pointer hover:border-accent transition-all">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Jocs perillosos</h3>
+                    <p class="text-gray-600 text-sm mb-4">Quan la frontera entre el món virtual i la realitat es desdibuixa.</p>
+                    <div class="flex justify-between items-center mt-auto pt-2"><span class="text-xs text-gray-500">Relat 8</span><i class="fas fa-chevron-right text-accent"></i></div>
+                </a>
+
+                <a href="activitats/nivell.html?relat=futur-hipotecat" class="story-card flex flex-col bg-white rounded-lg shadow-md p-4 border-2 border-transparent cursor-pointer hover:border-accent transition-all">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Un futur hipotecat</h3>
+                    <p class="text-gray-600 text-sm mb-4">Les conseqüències irreversibles de l'abús de substàncies a l'adolescència.</p>
+                    <div class="flex justify-between items-center mt-auto pt-2"><span class="text-xs text-gray-500">Relat 9</span><i class="fas fa-chevron-right text-accent"></i></div>
+                </a>
+
+                <a href="activitats/nivell.html?relat=estima-mare" class="story-card flex flex-col bg-white rounded-lg shadow-md p-4 border-2 border-transparent cursor-pointer hover:border-accent transition-all">
+                    <h3 class="font-bold text-lg mb-2 text-primary">De tant que t'estima la mare...</h3>
+                    <p class="text-gray-600 text-sm mb-4">Una exploració de l'amor sobreprotector i la necessitat de trobar la pròpia veu.</p>
+                    <div class="flex justify-between items-center mt-auto pt-2"><span class="text-xs text-gray-500">Relat 10</span><i class="fas fa-chevron-right text-accent"></i></div>
+                </a>
+
+                <a href="activitats/nivell.html?relat=paradisos-xarxa" class="story-card flex flex-col bg-white rounded-lg shadow-md p-4 border-2 border-transparent cursor-pointer hover:border-accent transition-all">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Paradisos a la xarxa</h3>
+                    <p class="text-gray-600 text-sm mb-4">Les aparences a les xarxes socials amaguen realitats molt més complexes.</p>
+                    <div class="flex justify-between items-center mt-auto pt-2"><span class="text-xs text-gray-500">Relat 11</span><i class="fas fa-chevron-right text-accent"></i></div>
+                </a>
+
+                <a href="activitats/nivell.html?relat=fugitiva" class="story-card flex flex-col bg-white rounded-lg shadow-md p-4 border-2 border-transparent cursor-pointer hover:border-accent transition-all">
+                    <h3 class="font-bold text-lg mb-2 text-primary">Fugitiva</h3>
+                    <p class="text-gray-600 text-sm mb-4">La fugida d'una adolescent i la desesperació d'una família que la busca.</p>
+                    <div class="flex justify-between items-center mt-auto pt-2"><span class="text-xs text-gray-500">Relat 12</span><i class="fas fa-chevron-right text-accent"></i></div>
+                </a>
+
             </div>
         </div>
     </section>
 </main>
 
-<footer class="bg-primary text-white py-8">
-    <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-6 md:mb-0">
-                <div class="text-2xl font-bold text-secondary mb-2">Afers Juvenils</div>
-                <p class="text-gray-400">© 2025 Maria Dolors Añón. Tots els drets reservats.</p>
+    <footer class="bg-primary text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="text-2xl font-bold text-secondary mb-2">Afers Juvenils</div>
+                    <p class="text-gray-400">© 2025 Maria Dolors Añón. Tots els drets reservats.</p>
                 </div>
                 <div class="flex space-x-6">
-                <a href="https://www.instagram.com/anondolors" target="_blank" class="text-gray-400 hover:text-accent">
-                    <i class="fab fa-instagram text-xl"></i>
-                </a>
-                <a href="https://www.facebook.com/dolors.anon" target="_blank" class="text-gray-400 hover:text-accent">
-                    <i class="fab fa-facebook text-xl"></i>
-                </a>
-                <a href="mailto:info@afersjuvenils.cat" class="text-gray-400 hover:text-accent">
-                    <i class="fas fa-envelope text-xl"></i>
-                </a>
+                    <a href="https://www.instagram.com/anondolors" target="_blank" class="text-gray-400 hover:text-accent"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="https://www.facebook.com/dolors.anon" target="_blank" class="text-gray-400 hover:text-accent"><i class="fab fa-facebook text-xl"></i></a>
+                    <a href="mailto:info@afersjuvenils.cat" class="text-gray-400 hover:text-accent"><i class="fas fa-envelope text-xl"></i></a>
                 </div>
-
+            </div>
         </div>
-    </div>
-</footer>
-<!-- El teu script personalitzat -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-    
-    // --- FUNCIONALITAT GLOBAL ---
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (menuToggle && mobileMenu) {
-        menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    }
+    </footer>
 
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('header nav a.nav-link, #mobile-menu a').forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-
-    // --- LÒGICA PER A LA PÀGINA D'ÍNDEX D'ACTIVITATS ---
-    const activitatsIndexPage = document.getElementById('activitats-index');
-    if (activitatsIndexPage) {
-        const storySelection = document.getElementById('story-selection');
-        const levelSelection = document.getElementById('level-selection');
-        const storyCards = document.querySelectorAll('.story-card[data-story]');
-        const levelButtonsContainer = document.getElementById('level-buttons-container');
-
-        const showView = (viewToShow) => {
-            storySelection.classList.toggle('hidden', viewToShow !== storySelection);
-            levelSelection.classList.toggle('hidden', viewToShow !== levelSelection);
-        };
-
-        const generateLevelButtons = (storyId) => {
-            // Neteja els botons anteriors
-            levelButtonsContainer.innerHTML = '';
-
-            // Defineix els nivells disponibles. Pots ampliar això en el futur.
-            const levels = [
-                { id: 'principiant', name: 'Principiant', stars: 1, desc: "Activitats bàsiques de vocabulari i comprensió lectora. Ideal per a estudiants que s'inicien en l'aprenentatge del català." },
-                { id: 'mitja', name: 'Mitjà', stars: 2, desc: "Activitats de nivell intermedi amb exercicis de gramàtica, comprensió i expressió escrita." },
-                { id: 'avancat', name: 'Avançat', stars: 3, desc: "Activitats complexes d'anàlisi literària, reflexió crítica i creació de textos." }
-            ];
-
-            // Defineix quins enllaços estan actius
-            const activeLinks = {
-                'nouvinguda': ['principiant', 'mitja', 'avancat'], 
-                'graduacio': ['principiant', 'mitja', 'avancat'] 
-                // Afegeix més relats i els seus nivells disponibles aquí
-            };
-
-            const availableLevels = activeLinks[storyId] || [];
-
-            levels.forEach(level => {
-                const isAvailable = availableLevels.includes(level.id);
-                const href = isAvailable ? `activitats/${storyId}/${level.id}.html` : '#';
-                const cursorClass = isAvailable ? 'cursor-pointer' : 'cursor-not-allowed';
-                const hoverClass = isAvailable ? 'hover:border-accent' : '';
-                const disabledClasses = !isAvailable ? 'opacity-50 bg-gray-100' : 'bg-white';
-
-                const starsHtml = Array(3).fill(0).map((_, i) => 
-                    `<i class="fas fa-star ${i < level.stars ? 'text-accent' : 'text-gray-300'}"></i>`
-                ).join('');
-
-                const buttonHtml = `
-                    <a href="${href}" class="level-btn block p-6 rounded-lg shadow-md border-2 border-transparent ${cursorClass} ${hoverClass} ${disabledClasses} transition-all duration-300">
-                        <div class="flex justify-between items-center mb-4">
-                            <h4 class="font-bold text-lg text-primary">${level.name}</h4>
-                            <div class="flex">${starsHtml}</div>
-                        </div>
-                        <p class="text-gray-600 mb-4">${level.desc}</p>
-                        <div class="flex justify-end">
-                            <i class="fas fa-chevron-right ${isAvailable ? 'text-accent' : 'text-gray-400'}"></i>
-                        </div>
-                    </a>
-                `;
-                levelButtonsContainer.innerHTML += buttonHtml;
-            });
-        };
-
-        storyCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const storyId = card.dataset.story;
-                document.getElementById('selected-story-title').textContent = card.querySelector('h3').textContent.trim();
-                document.getElementById('selected-story-desc').textContent = card.querySelector('p').textContent.trim();
-                
-                generateLevelButtons(storyId);
-                showView(levelSelection);
-            });
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            }
         });
-
-        document.getElementById('back-to-stories').addEventListener('click', () => {
-            showView(storySelection);
-        });
-
-        // Estat inicial
-        showView(storySelection);
-    }
-});
-</script>
+    </script>
 </body>
 </html>
-
-
-<!-- --- TOTES LES ACTIVITATS --- -->
- <!-- encara estar a afers_old-->

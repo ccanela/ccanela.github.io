@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="cat">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pàgina no trobada - Afers Juvenils</title>
+  <link rel="icon" type="image/png" href="/images/icon.png" /> <!-- Camí absolut des de l'arrel -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/style.css" /> <!-- Camí absolut des de l'arrel -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body class="flex flex-col min-h-screen">
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center"><div class="text-2xl font-bold text-primary">Afers Juvenils</div></div>
+                <nav class="hidden md:flex space-x-8">
+                    <!-- ATENCIÓ: Aquests enllaços han de ser absoluts o relatius a l'arrel del teu lloc. -->
+                    <!-- Canvia "el-teu-repo" pel nom del teu repositori a GitHub si cal. -->
+                    <a href="/" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Inici</a>
+                    <a href="/entrevistes.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
+                    <a href="/guia.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
+                    <a href="/activitats.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium active">Activitats</a>
+                    <a href="/tastet.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
+                    <a href="/autora.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
+                </nav>
+                <div class="md:hidden"><button id="menu-toggle" class="text-gray-800 focus:outline-none"><i class="fas fa-bars text-xl"></i></button></div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg"><div class="px-4 py-3 space-y-3"><a href="/" class="block text-gray-800 hover:text-gray-600 font-medium">Inici</a><a href="/entrevistes.html" class="block text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a><a href="/guia.html" class="block text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a><a href="/activitats.html" class="block text-gray-800 hover:text-gray-600 font-medium">Activitats</a><a href="/tastet.html" class="block text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a><a href="/autora.html" class="block text-gray-800 hover:text-gray-600 font-medium">L'Autora</a></div></div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-8 flex items-center justify-center">
+        <div class="text-center">
+            <h1 class="text-8xl font-bold text-primary">404</h1>
+            <h2 class="text-3xl font-semibold text-gray-800 mt-4">Pàgina no trobada</h2>
+            <p class="text-gray-600 mt-2 text-lg">Ho sentim, sembla que la pàgina que busques no existeix o ha estat moguda.</p>
+            <div class="mt-8">
+                <a href="/" class="bg-accent text-black font-bold py-3 px-6 rounded-lg hover:bg-accent/90 transition-colors duration-300 shadow-lg">
+                    <i class="fas fa-home mr-2"></i> Torna a l'inici
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-primary text-white py-8">
+        <div class="container mx-auto px-4"><div class="flex flex-col md:flex-row justify-between items-center"><div class="mb-6 md:mb-0"><div class="text-2xl font-bold text-secondary mb-2">Afers Juvenils</div><p class="text-gray-400">© 2025 Maria Dolors Añón. Tots els drets reservats.</p></div><div class="flex space-x-6"><a href="https://www.instagram.com/anondolors" target="_blank" class="text-gray-400 hover:text-accent"><i class="fab fa-instagram text-xl"></i></a><a href="https://www.facebook.com/dolors.anon" target="_blank" class="text-gray-400 hover:text-accent"><i class="fab fa-facebook text-xl"></i></a><a href="mailto:info@afersjuvenils.cat" class="text-gray-400 hover:text-accent"><i class="fas fa-envelope text-xl"></i></a></div></div></div>
+    </footer>
+    <script>document.addEventListener('DOMContentLoaded',function(){const e=document.getElementById('menu-toggle'),t=document.getElementById('mobile-menu');e&&t&&e.addEventListener('click',()=>t.classList.toggle('hidden'))});</script>
+</body>
+</html>
