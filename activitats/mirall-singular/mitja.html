@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Activitats: Una altra ronda? (Mitjà) - Afers Juvenils</title>
+  <title>Activitats: Un mirall singular (Mitjà) - Afers Juvenils</title>
   <link rel="icon" type="image/png" href="../../images/icon.png" />
   <!-- Poppins font, Tailwind CSS, custom styles, Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -31,7 +31,7 @@
             <a href="../../index.html" class="block text-gray-800 hover:text-gray-600 font-medium">Inici</a>
             <a href="../../entrevistes.html" class="block text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
             <a href="../../guia.html" class="block text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
-            <a href="../../activitats.html" class="block text-gray-800 hover:text-gray-600 font-medium">Activitats</a>
+            <a href="../../activitats.html" class="block text-gray-800 hover:text-gray-600 font-medium active">Activitats</a>
             <a href="../../tastet.html" class="block text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
             <a href="../../autora.html" class="block text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
         </div></div>
@@ -39,14 +39,14 @@
 
 <main class="container mx-auto px-4 py-8">
     <div id="activity-wrapper" 
-         data-story-title="Una altra ronda?" 
-         data-story-id="unaaltraronda" 
+         data-story-title="Un mirall singular" 
+         data-story-id="mirallsingular" 
          data-level-text="Mitjà">
 
         <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-6 gap-4">
             <a href="../../activitats.html" class="flex items-center text-primary font-medium hover:text-accent transition"><i class="fas fa-arrow-left mr-2"></i> Tornar a la selecció d'activitats</a>
             <div class="text-left sm:text-right">
-                <h1 id="activity-story-title" class="text-3xl font-bold text-primary">Una altra ronda?</h1>
+                <h1 id="activity-story-title" class="text-3xl font-bold text-primary">Un mirall singular</h1>
                 <p id="activity-level" class="text-accent font-medium text-lg">Nivell: Mitjà</p>
             </div>
         </div>
@@ -67,70 +67,71 @@
                 <div class="w-full bg-gray-200 rounded-full h-2.5"><div id="progress-bar" class="bg-accent h-2.5 rounded-full" style="width: 0%"></div></div>
             </div>
 
-            <div id="activity-unaaltraronda-mitja" class="activity-set">
+            <div id="activity-mirallsingular-mitja" class="activity-set">
 
-                <!-- Activitat 1: Cronologia dels fets -->
-                <div class="activity-step" data-step-id="ordenar-fets" data-step-title="Cronologia dels fets">
+                <!-- Activitat 1: Mapa d'emocions -->
+                <div class="activity-step" data-step-id="mapa-emocions" data-step-title="Mapa d'emocions de l'Anna">
                     <div class="bg-white rounded-xl shadow-lg p-8">
-                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 1: Cronologia dels fets</h4>
-                        <p class="text-gray-600 mb-6">Ordena els esdeveniments principals de la història de manera cronològica.</p>
-                        <div class="sortable-list space-y-3" data-correct-order="1,2,3,4,5">
-                            <div class="sortable-item bg-secondary/30 p-4 rounded-lg cursor-grab flex items-center" draggable="true" data-id="2"><i class="fas fa-grip-vertical mr-4 text-gray-400"></i>Un grup de joves ciclistes, incloent en Damià i la Magda, surten de ruta.</div>
-                            <div class="sortable-item bg-secondary/30 p-4 rounded-lg cursor-grab flex items-center" draggable="true" data-id="4"><i class="fas fa-grip-vertical mr-4 text-gray-400"></i>Els serveis d'emergència arriben al lloc de l'accident per atendre les víctimes.</div>
-                            <div class="sortable-item bg-secondary/30 p-4 rounded-lg cursor-grab flex items-center" draggable="true" data-id="1"><i class="fas fa-grip-vertical mr-4 text-gray-400"></i>L'Enric passa la nit bevent al bar i surt molt borratxo cap al seu cotxe nou.</div>
-                            <div class="sortable-item bg-secondary/30 p-4 rounded-lg cursor-grab flex items-center" draggable="true" data-id="5"><i class="fas fa-grip-vertical mr-4 text-gray-400"></i>Dos homes grans comenten la notícia de l'accident al bar l'endemà al matí.</div>
-                            <div class="sortable-item bg-secondary/30 p-4 rounded-lg cursor-grab flex items-center" draggable="true" data-id="3"><i class="fas fa-grip-vertical mr-4 text-gray-400"></i>L'Enric atropella en Damià i la Magda amb el cotxe i fuig sense ajudar-los.</div>
-                        </div>
-                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Verificar</button><p class="feedback-msg font-medium h-6"></p></div>
-                    </div>
-                </div>
-
-                <!-- Activitat 2: Connectant perspectives -->
-                <div class="activity-step hidden" data-step-id="perspectives" data-step-title="Connectant perspectives">
-                    <div class="bg-white rounded-xl shadow-lg p-8">
-                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 2: Connectant perspectives</h4>
-                        <p class="text-gray-600 mb-6">El relat es construeix amb diferents punts de vista. Relaciona cada narrador amb el que observa o sap.</p>
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 1: Mapa d'emocions de l'Anna</h4>
+                        <p class="text-gray-600 mb-6">L'Anna passa per molts estats d'ànim. Relaciona cada situació amb l'emoció que li provoca.</p>
                         <div class="grid md:grid-cols-2 gap-8">
                             <div class="space-y-4 flex flex-col justify-around">
-                                <div class="flex items-center bg-secondary/30 p-4 rounded-lg"><span class="drop-zone-vocab bg-white border-2 border-dashed border-gray-400 rounded-lg w-48 h-16 mr-4 flex-shrink-0 flex items-center justify-center p-2" data-accept="amic_enric"></span><p class="text-gray-700">Observa l'Enric bevent al bar i intentant lligar.</p></div>
-                                <div class="flex items-center bg-secondary/30 p-4 rounded-lg"><span class="drop-zone-vocab bg-white border-2 border-dashed border-gray-400 rounded-lg w-48 h-16 mr-4 flex-shrink-0 flex items-center justify-center p-2" data-accept="ciclista"></span><p class="text-gray-700">Parla sobre el seu futur laboral i veu en Damià i la Magda pedalant junts.</p></div>
-                                <div class="flex items-center bg-secondary/30 p-4 rounded-lg"><span class="drop-zone-vocab bg-white border-2 border-dashed border-gray-400 rounded-lg w-48 h-16 mr-4 flex-shrink-0 flex items-center justify-center p-2" data-accept="sanitari"></span><p class="text-gray-700">Explica la gravetat de l'accident i coneixia una de les víctimes.</p></div>
+                                <div class="flex items-center bg-secondary/30 p-4 rounded-lg"><span class="drop-zone-vocab bg-white border-2 border-dashed border-gray-400 rounded-lg w-40 h-16 mr-4 flex-shrink-0 flex items-center justify-center p-2" data-accept="angoixa"></span><p class="text-gray-700">Abans de la festa d'aniversari.</p></div>
+                                <div class="flex items-center bg-secondary/30 p-4 rounded-lg"><span class="drop-zone-vocab bg-white border-2 border-dashed border-gray-400 rounded-lg w-40 h-16 mr-4 flex-shrink-0 flex items-center justify-center p-2" data-accept="vergonya"></span><p class="text-gray-700">Quan la mare la critica davant dels amics.</p></div>
+                                <div class="flex items-center bg-secondary/30 p-4 rounded-lg"><span class="drop-zone-vocab bg-white border-2 border-dashed border-gray-400 rounded-lg w-40 h-16 mr-4 flex-shrink-0 flex items-center justify-center p-2" data-accept="terror"></span><p class="text-gray-700">Quan sent la veu del mirall per primer cop.</p></div>
+                                <div class="flex items-center bg-secondary/30 p-4 rounded-lg"><span class="drop-zone-vocab bg-white border-2 border-dashed border-gray-400 rounded-lg w-40 h-16 mr-4 flex-shrink-0 flex items-center justify-center p-2" data-accept="alleujament"></span><p class="text-gray-700">Quan parla al mirall i aquest no respon.</p></div>
                             </div>
                             <div class="words-container flex flex-col gap-4 justify-around items-center bg-gray-50 p-4 rounded-lg">
-                                <div class="drag-item-vocab bg-accent text-white font-medium p-3 rounded-lg shadow w-full text-center cursor-grab" draggable="true" data-word="ciclista">Un dels ciclistes del grup</div>
-                                <div class="drag-item-vocab bg-accent text-white font-medium p-3 rounded-lg shadow w-full text-center cursor-grab" draggable="true" data-word="sanitari">Un treballador d'emergències</div>
-                                <div class="drag-item-vocab bg-accent text-white font-medium p-3 rounded-lg shadow w-full text-center cursor-grab" draggable="true" data-word="amic_enric">Un amic de l'Enric al bar</div>
+                                <div class="drag-item-vocab bg-accent text-white font-medium p-3 rounded-lg shadow w-full text-center cursor-grab" draggable="true" data-word="vergonya">Vergonya i tristesa</div>
+                                <div class="drag-item-vocab bg-accent text-white font-medium p-3 rounded-lg shadow w-full text-center cursor-grab" draggable="true" data-word="alleujament">Alleujament</div>
+                                <div class="drag-item-vocab bg-accent text-white font-medium p-3 rounded-lg shadow w-full text-center cursor-grab" draggable="true" data-word="angoixa">Il·lusió i neguit</div>
+                                <div class="drag-item-vocab bg-accent text-white font-medium p-3 rounded-lg shadow w-full text-center cursor-grab" draggable="true" data-word="terror">Esglai i terror</div>
                             </div>
-                        </div>
-                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Verificar</button><p class="feedback-msg font-medium h-6"></p></div>
-                    </div>
-                </div>
-                
-                <!-- Activitat 3: Comprensió detallada -->
-                <div class="activity-step hidden" data-step-id="comprensio" data-step-title="Comprensió detallada">
-                    <div class="bg-white rounded-xl shadow-lg p-8">
-                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 3: Comprensió detallada</h4>
-                        <p class="text-gray-600 mb-6">Per què el treballador de l'ambulància es veu especialment afectat per l'accident?</p>
-                        <div class="space-y-4 quiz-options">
-                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="true">Perquè coneixia en Damià de l'institut.</div>
-                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Perquè era el seu primer dia de feina.</div>
-                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Perquè és amic de l'Enric, el conductor.</div>
-                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Perquè la Magda és la seva veïna.</div>
                         </div>
                         <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Verificar</button><p class="feedback-msg font-medium h-6"></p></div>
                     </div>
                 </div>
 
-                <!-- Activitat 4: Estil narratiu -->
-                <div class="activity-step hidden" data-step-id="estil" data-step-title="Estil narratiu">
+                <!-- Activitat 2: La veu del mirall -->
+                <div class="activity-step hidden" data-step-id="veu-mirall" data-step-title="Què és la veu del mirall?">
                     <div class="bg-white rounded-xl shadow-lg p-8">
-                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 4: Estil narratiu</h4>
-                        <p class="text-gray-600 mb-6">El relat utilitza la tècnica del monòleg interior, on llegim els pensaments directes dels personatges. Quin fragment és l'exemple més clar d'aquesta tècnica?</p>
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 2: Què és la veu del mirall?</h4>
+                        <p class="text-gray-600 mb-6">El mirall diu que és "el teu altre jo". Tenint en compte el que li diu a l'Anna ("lletja", "tonta"), què representa realment aquesta veu?</p>
                         <div class="space-y-4 quiz-options">
-                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">"Tu sí que matines, Tonet! Et deu passar com a mi que sembla que em creixin les punxes al llit."</div>
-                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="true">"El veus, l’Enric? Allà tot sol a la barra del bar. M’hi he fixat quan baixava del cotxe. [...] A qui deu esperar?"</div>
-                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">"S’ha donat a la fuga, però es veu que ja saben qui és. Es diu Enric."</div>
-                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">"Que no et trobes bé, que t’has impressionat massa. No et cal dir-ho, perquè fas molt mala cara."</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">És un fantasma que viu dins del mirall i vol fer-li mal.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="true">Representa la veu interior negativa de l'Anna, les seves pròpies inseguretats i l'autocrítica destructiva, possiblement influenciada per les crítiques de la seva mare.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">És una broma cruel dels seus amics, que han amagat un dispositiu electrònic al mirall.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">És la veu de la seva consciència que intenta ajudar-la a millorar.</div>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Verificar</button><p class="feedback-msg font-medium h-6"></p></div>
+                    </div>
+                </div>
+
+                <!-- Activitat 3: El paper de la mare -->
+                <div class="activity-step hidden" data-step-id="mare" data-step-title="El paper de la mare">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 3: El paper de la mare</h4>
+                        <p class="text-gray-600 mb-6">El comportament de la mare és molt crític amb l'Anna. Quina d'aquestes frases reflecteix millor la seva actitud?</p>
+                        <div class="space-y-4 quiz-options">
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">"Un regal gran per a una gran amiga."</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">"Cal afrontar els problemes, Anna."</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="true">"Tal com fa les coses l'Anna, sempre de pressa i corrents, no pot sortir res bé."</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">"Anna, què tens? Fas mala cara. Que no et trobes bé?"</div>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Verificar</button><p class="feedback-msg font-medium h-6"></p></div>
+                    </div>
+                </div>
+
+                <!-- Activitat 4: Símbols del relat -->
+                <div class="activity-step hidden" data-step-id="simbols" data-step-title="Símbols del relat">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 4: Símbols del relat</h4>
+                        <p class="text-gray-600 mb-6">Al final, l'Anna torna a l'habitació a buscar el diari perquè diu que "serà el meu consol". Què simbolitza el diari per a ella en contrast amb el mirall?</p>
+                        <div class="space-y-4 quiz-options">
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">El diari és un simple quadern per apuntar els deures de l'institut.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="true">El diari és un espai segur i privat on pot expressar-se lliurement i sense ser jutjada, al contrari que el mirall, que s'ha convertit en una font de judici i turment.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Simbolitza l'obligació d'escriure que li va imposar el seu amic Pep.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Representa la seva por a enfrontar-se a la realitat, preferint amagar-se en la fantasia.</div>
                         </div>
                         <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Verificar</button><p class="feedback-msg font-medium h-6"></p></div>
                     </div>
@@ -140,8 +141,8 @@
                 <div class="activity-step hidden" data-step-id="reflexio" data-step-title="Reflexió personal">
                     <div class="bg-white rounded-xl shadow-lg p-8">
                         <h4 class="text-xl font-bold mb-1 text-primary">Activitat 5: Reflexió personal</h4>
-                        <p class="text-gray-600 mb-6">Després de llegir totes les parts, qui creus que té més responsabilitat en el que ha passat? L'Enric, per beure i conduir, o també els seus amics o l'entorn per no aturar-lo? Explica breument la teva opinió.</p>
-                        <textarea class="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-accent focus:outline-none transition" rows="8" placeholder="Escriu aquí la teva reflexió..."></textarea>
+                        <p class="text-gray-600 mb-6">Al final, la mare diu que ingressen l'Anna "pel seu bé". Creus que aquesta és la millor solució per a l'Anna? Què creus que necessitaria ella realment per millorar?</p>
+                        <textarea class="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-accent focus:outline-none transition" rows="8" placeholder="Escriu la teva reflexió aquí..."></textarea>
                         <p class="text-xs text-gray-500 mt-2">Aquesta resposta és oberta i es desarà al teu justificant.</p>
                         <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Desar i continuar</button><p class="feedback-msg font-medium h-6"></p></div>
                     </div>

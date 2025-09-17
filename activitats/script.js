@@ -103,11 +103,14 @@ document.addEventListener('DOMContentLoaded', function() {
             newCheck.addEventListener('click', () => handleCheck(step));
         }
 
-        // Reset Drag & Drop
-        if (step.querySelector('.drop-zone-vocab')) {
+        // Reset Drag & Drop (single item) and Classification (multi-item)
+        if (step.querySelector('.drop-zone-vocab, .drop-zone-classify')) {
             const wordsContainer = step.querySelector('.words-container');
-            step.querySelectorAll('.drag-item-vocab').forEach(p => wordsContainer.appendChild(p));
-            step.querySelectorAll('.drop-zone-vocab').forEach(z => {
+            step.querySelectorAll('.drag-item-vocab').forEach(p => {
+                wordsContainer.appendChild(p);
+                p.classList.remove('correct-order', 'incorrect-order');
+            });
+            step.querySelectorAll('.drop-zone-vocab, .drop-zone-classify').forEach(z => {
                 z.innerHTML = '';
                 z.classList.remove('correct-drop', 'incorrect-drop');
             });
@@ -123,14 +126,20 @@ document.addEventListener('DOMContentLoaded', function() {
             step.querySelector('textarea').value = '';
         }
         // Reset Quiz (single and multi)
-        step.querySelectorAll('.multi-quiz-group, .quiz-options').forEach(container => {
+        step.querySelectorAll('.quiz-options').forEach(container => {
+            const isMultipleChoice = container.classList.contains('multiple-choice');
             container.querySelectorAll('.quiz-option').forEach(option => {
                 const newOption = option.cloneNode(true);
                 option.parentNode.replaceChild(newOption, option);
                 newOption.classList.remove('selected', 'correct', 'incorrect');
                 newOption.addEventListener('click', () => {
-                    container.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
-                    newOption.classList.add('selected');
+                    if (isMultipleChoice) {
+                        newOption.classList.toggle('selected');
+                    } else {
+                        const scope = newOption.closest('.multi-quiz-group') || step;
+                        scope.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+                        newOption.classList.add('selected');
+                    }
                 });
             });
         });
@@ -141,7 +150,9 @@ document.addEventListener('DOMContentLoaded', function() {
         currentResult.attempts++;
         let result = { correct: false, answer: "No s'ha respost", isTextarea: false };
 
-        if (step.querySelector('.multi-quiz-group')) result = checkMultiQuiz(step);
+        if (step.querySelector('.quiz-options.multiple-choice')) result = checkMultipleChoiceQuiz(step);
+        else if (step.querySelector('.drop-zone-classify')) result = checkClassification(step);
+        else if (step.querySelector('.multi-quiz-group')) result = checkMultiQuiz(step);
         else if (step.querySelector('.sortable-list')) result = checkSortableList(step);
         else if (step.querySelector('.drop-zone-vocab')) result = checkDragAndDrop(step);
         else if (step.querySelector('.quiz-options')) result = checkQuiz(step);
@@ -202,10 +213,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- CHECKERS ---
     const checkDragAndDrop = (step) => { let allCorrect = true; step.querySelectorAll('.drop-zone-vocab').forEach(zone => { zone.classList.remove('correct-drop', 'incorrect-drop'); const droppedItem = zone.querySelector('.drag-item-vocab'); if (!droppedItem || droppedItem.dataset.word !== zone.dataset.accept) { allCorrect = false; zone.classList.add('incorrect-drop'); } else { zone.classList.add('correct-drop'); } }); return { correct: allCorrect, answer: getStudentAnswerReadable(step) }; };
-    const checkSortableList = (step) => { const list = step.querySelector('.sortable-list'); const correctOrder = list.dataset.correctOrder.split(','); const currentItems = Array.from(list.querySelectorAll('.sortable-item')); let isCorrect = true; currentItems.forEach((item, index) => { item.classList.remove('correct-order', 'incorrect-order'); if (item.dataset.id !== correctOrder[index]) { isCorrect = false; item.classList.add('incorrect-order'); } else { item.classList.add('correct-order'); } }); return { correct: isCorrect, answer: getStudentAnswerReadable(step) }; };
+    const checkSortableList = (step) => { const list = step.querySelector('.sortable-list'); const correctOrder = list.dataset.correctOrder.split(','); const currentItems = Array.from(list.querySelectorAll('.sortable-item')); let isCorrect = true; currentItems.forEach((item, index) => { item.classList.remove('correct-order', 'incorrect-drop'); if (item.dataset.id !== correctOrder[index]) { isCorrect = false; item.classList.add('incorrect-order'); } else { item.classList.add('correct-order'); } }); return { correct: isCorrect, answer: getStudentAnswerReadable(step) }; };
     const checkQuiz = (step) => { const selectedOption = step.querySelector('.quiz-option.selected'); if (!selectedOption) return { correct: false, answer: "No s'ha respost" }; const isCorrect = selectedOption.dataset.correct === 'true'; step.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('correct', 'incorrect')); selectedOption.classList.add(isCorrect ? 'correct' : 'incorrect'); return { correct: isCorrect, answer: selectedOption.textContent.trim() }; };
     const checkMultiQuiz = (step) => { let allCorrect = true; step.querySelectorAll('.multi-quiz-group').forEach(group => { const selectedOption = group.querySelector('.quiz-option.selected'); group.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('correct', 'incorrect')); if (!selectedOption || selectedOption.dataset.correct !== 'true') { allCorrect = false; if(selectedOption) selectedOption.classList.add('incorrect'); } else { selectedOption.classList.add('correct'); } }); return { correct: allCorrect, answer: getStudentAnswerReadable(step) }; };
     const checkTextarea = (step) => { const answer = step.querySelector('textarea').value.trim(); if (answer.length > 20) { return { correct: true, answer: answer, isTextarea: true }; } else { step.querySelector('.feedback-msg').textContent = 'Cal escriure una resposta més elaborada.'; step.querySelector('.feedback-msg').className = 'feedback-msg font-medium h-6 text-red-600'; return { correct: false, answer: 'Resposta massa curta', isTextarea: true }; } };
+    const checkClassification = (step) => { let allCorrect = true; const wordsContainer = step.querySelector('.words-container'); if (wordsContainer.children.length > 0) { allCorrect = false; Array.from(wordsContainer.children).forEach(item => item.classList.add('incorrect-order'));} step.querySelectorAll('.drop-zone-classify').forEach(zone => { const expectedCategory = zone.dataset.accept; Array.from(zone.children).forEach(item => { item.classList.remove('correct-order', 'incorrect-order'); if (item.dataset.category === expectedCategory) { item.classList.add('correct-order'); } else { item.classList.add('incorrect-order'); allCorrect = false; } }); }); return { correct: allCorrect, answer: getStudentAnswerReadable(step) }; };
+
+    // NOU CHECKER PER A SELECCIÓ MÚLTIPLE
+    const checkMultipleChoiceQuiz = (step) => {
+        let allCorrect = true;
+        const options = step.querySelectorAll('.quiz-option');
+        const selectedOptions = step.querySelectorAll('.quiz-option.selected');
+        const correctOptions = step.querySelectorAll('.quiz-option[data-correct="true"]');
+
+        if (selectedOptions.length !== correctOptions.length) {
+            allCorrect = false;
+        }
+
+        options.forEach(opt => {
+            opt.classList.remove('correct', 'incorrect');
+            const isSelected = opt.classList.contains('selected');
+            const shouldBeSelected = opt.dataset.correct === 'true';
+            
+            if (isSelected && shouldBeSelected) {
+                opt.classList.add('correct');
+            } else if (isSelected && !shouldBeSelected) {
+                opt.classList.add('incorrect');
+                allCorrect = false;
+            } else if (!isSelected && shouldBeSelected) {
+                allCorrect = false;
+            }
+        });
+
+        return { correct: allCorrect, answer: getStudentAnswerReadable(step) };
+    };
 
     // --- PDF & HELPERS ---
     const generatePDF = () => {
@@ -263,17 +304,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function getActivityEnunciat(step) {
         const mainQuestion = step.querySelector('h4 + p')?.innerText?.trim() || '';
-        if (step.querySelector('.multi-quiz-group')) { const parts = [mainQuestion]; step.querySelectorAll('.multi-quiz-group').forEach(group => { const claim = group.querySelector('p.font-bold')?.innerText?.trim(); parts.push(`\n${claim}`); group.querySelectorAll('.quiz-option').forEach((opt, i) => { parts.push(`${String.fromCharCode(97 + i)}) ${opt.innerText.trim()}`); }); }); return parts.join('\n'); }
+        if (step.querySelector('.multi-quiz-group')) { const parts = [mainQuestion]; step.querySelectorAll('.multi-quiz-group').forEach(group => { const claim = group.querySelector('p:first-child')?.innerText?.trim(); parts.push(`\n${claim}`); }); return parts.join('\n'); }
         if (step.querySelector('.quiz-options')) { const options = Array.from(step.querySelectorAll('.quiz-option')).map((opt, i) => `${String.fromCharCode(65 + i)}) ${opt.innerText.trim()}`); return [mainQuestion, ...options].join('\n'); }
-        if (step.querySelector('.drop-zone-vocab')) { const lines = []; step.querySelectorAll('.flex.items-center.bg-secondary\\/30').forEach(row => { lines.push(`[____] — ${row.querySelector('p')?.innerText?.trim() || ''}`); }); return `${mainQuestion}\n${lines.join('\n')}`; }
+        if (step.querySelector('.drop-zone-vocab')) { const lines = []; step.querySelectorAll('.flex.items-center.bg-secondary\\/30, .grid > div > div').forEach(row => { const text = row.querySelector('p')?.innerText?.trim() || row.dataset.accept; lines.push(`[____] — ${text}`); }); return `${mainQuestion}\n${lines.join('\n')}`; }
+        if (step.querySelector('.drop-zone-classify')) { return mainQuestion; }
+        if (step.querySelector('p.text-lg.leading-loose')) { const clone = step.querySelector('p.text-lg.leading-loose').cloneNode(true); clone.querySelectorAll('.drop-zone').forEach(z => { z.textContent = '____'; }); return `${mainQuestion}\n\n${clone.innerText.trim()}`; }
         return mainQuestion;
     }
 
     function getStudentAnswerReadable(step) {
-        if (step.querySelector('.multi-quiz-group')) { const answers = []; step.querySelectorAll('.multi-quiz-group').forEach(group => { const claim = group.querySelector('p.font-bold')?.innerText?.trim(); const selected = group.querySelector('.quiz-option.selected'); answers.push(`${claim}\nResposta: ${selected ? selected.innerText.trim() : 'No seleccionat'}`); }); return answers.join('\n\n');}
-        if (step.querySelector('.drop-zone-vocab')) { const lines = []; step.querySelectorAll('.flex.items-center.bg-secondary\\/30').forEach(row => { const chosen = row.querySelector('.drag-item-vocab')?.innerText?.trim() || '—'; lines.push(`[${chosen}] — ${row.querySelector('p')?.innerText?.trim() || ''}`); }); return lines.join('\n'); }
+        if (step.querySelector('.drop-zone-classify')) { const answers = []; step.querySelectorAll('.drop-zone-classify').forEach(zone => { const categoryTitle = zone.querySelector('p')?.innerText || zone.dataset.accept; answers.push(`\n[Categoria: ${categoryTitle}]`); const items = Array.from(zone.querySelectorAll('.drag-item-vocab')); if (items.length > 0) { items.forEach(item => answers.push(`- "${item.innerText.trim()}"`)); } else { answers.push("- (Buit)"); } }); return answers.join('\n');}
+        if (step.querySelector('.multi-quiz-group')) { const answers = []; step.querySelectorAll('.multi-quiz-group').forEach(group => { const claim = group.querySelector('p:first-child')?.innerText?.trim(); const selected = group.querySelector('.quiz-option.selected'); answers.push(`${claim}\n  ↳ Resposta: ${selected ? selected.innerText.trim() : 'No seleccionat'}`); }); return answers.join('\n\n');}
+        if (step.querySelector('.drop-zone-vocab')) { const lines = []; step.querySelectorAll('.drop-zone-vocab').forEach(zone => { const parentText = zone.closest('div').querySelector('p')?.innerText.trim() || zone.dataset.accept; const chosen = zone.querySelector('.drag-item-vocab')?.innerText?.trim() || '—'; if (step.querySelector('p.text-lg.leading-loose')) { return; } lines.push(`[${chosen}] — ${parentText}`); }); if (step.querySelector('p.text-lg.leading-loose')) { const clone = step.querySelector('p.text-lg.leading-loose').cloneNode(true); clone.querySelectorAll('.drop-zone').forEach(z => { const chosen = z.querySelector('.drag-item'); z.textContent = chosen ? `"${chosen.innerText.trim()}"` : '—'; }); return clone.innerText.trim(); } return lines.join('\n'); }
         if (step.querySelector('.sortable-list')) { const items = step.querySelectorAll('.sortable-list .sortable-item'); return Array.from(items).map((item, index) => `${index + 1}. ${item.innerText.trim()}`).join('\n'); }
-        if (step.querySelector('.quiz-options')) { const selected = step.querySelector('.quiz-option.selected, .quiz-option.correct, .quiz-option.incorrect'); return selected ? selected.innerText.trim() : 'No s’ha respost'; }
+        if (step.querySelector('.quiz-options')) { const selected = step.querySelectorAll('.quiz-option.selected'); if (selected.length > 0) { return Array.from(selected).map(s => s.textContent.trim()).join(', '); } return 'No s’ha respost'; }
         if (step.querySelector('textarea')) { return step.querySelector('textarea').value.trim() || 'No s’ha respost'; }
         return "No s'ha pogut determinar la resposta.";
     }
@@ -282,11 +326,11 @@ document.addEventListener('DOMContentLoaded', function() {
     studentNameInput.addEventListener('input', () => startActivitiesBtn.disabled = studentNameInput.value.trim() === '');
     startActivitiesBtn.addEventListener('click', startActivities);
     
-    activitySet.addEventListener('dragstart', (e) => { if (e.target.matches('.drag-item-vocab, .sortable-item')) { draggedItem = e.target; setTimeout(() => e.target.classList.add('opacity-50'), 0); } });
+    activitySet.addEventListener('dragstart', (e) => { if (e.target.matches('.drag-item-vocab, .sortable-item, .drag-item')) { draggedItem = e.target; setTimeout(() => e.target.classList.add('opacity-50'), 0); } });
     activitySet.addEventListener('dragend', () => { if(draggedItem) { draggedItem.classList.remove('opacity-50'); draggedItem = null; } });
-    activitySet.addEventListener('dragover', (e) => { e.preventDefault(); const target = e.target.closest('.drop-zone-vocab, .sortable-item'); if (!target || !draggedItem) return; target.classList.add('highlight'); if (target.matches('.sortable-item')) { const container = target.parentElement; const afterElement = getDragAfterElement(container, e.clientY); if (afterElement == null) container.appendChild(draggedItem); else container.insertBefore(draggedItem, afterElement); } });
-    activitySet.addEventListener('dragleave', (e) => { e.target.closest('.drop-zone-vocab, .sortable-item')?.classList.remove('highlight'); });
-    activitySet.addEventListener('drop', (e) => { e.preventDefault(); e.target.closest('.highlight')?.classList.remove('highlight'); const dropZone = e.target.closest('.drop-zone-vocab'); if(dropZone && draggedItem && draggedItem.matches('.drag-item-vocab')) { if (dropZone.children.length > 0) { draggedItem.closest('.activity-step').querySelector('.words-container').appendChild(dropZone.firstElementChild); } dropZone.appendChild(draggedItem); } });
+    activitySet.addEventListener('dragover', (e) => { e.preventDefault(); const target = e.target.closest('.drop-zone-vocab, .sortable-item, .drop-zone-classify, .drop-zone'); if (!target || !draggedItem) return; target.classList.add('highlight'); if (target.matches('.sortable-item')) { const container = target.parentElement; const afterElement = getDragAfterElement(container, e.clientY); if (afterElement == null) container.appendChild(draggedItem); else container.insertBefore(draggedItem, afterElement); } });
+    activitySet.addEventListener('dragleave', (e) => { e.target.closest('.drop-zone-vocab, .sortable-item, .drop-zone-classify, .drop-zone')?.classList.remove('highlight'); });
+    activitySet.addEventListener('drop', (e) => { e.preventDefault(); const dropZone = e.target.closest('.drop-zone-vocab, .drop-zone-classify, .drop-zone'); if (dropZone && draggedItem) { dropZone.classList.remove('highlight'); if (dropZone.matches('.drop-zone-classify')) { dropZone.appendChild(draggedItem); } else { if (dropZone.children.length > 0) { draggedItem.closest('.activity-step').querySelector('.words-container').appendChild(dropZone.firstElementChild); } dropZone.appendChild(draggedItem); } } });
     function getDragAfterElement(container, y) { const draggableElements = [...container.querySelectorAll('.sortable-item:not(.opacity-50)')]; return draggableElements.reduce((closest, child) => { const box = child.getBoundingClientRect(); const offset = y - box.top - box.height / 2; if (offset < 0 && offset > closest.offset) { return { offset: offset, element: child }; } else { return closest; } }, { offset: Number.NEGATIVE_INFINITY }).element; }
 
     document.getElementById('download-pdf-btn').addEventListener('click', generatePDF);
