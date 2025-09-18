@@ -36,6 +36,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const activitySet = activityWrapper.querySelector('.activity-set');
     const steps = Array.from(activitySet.querySelectorAll('.activity-step'));
 
+    // --- DICCIONARI DE TEXTOS INICIALS PER A TEXTAREAS ---
+    const initialTextareas = {
+        'guio-textarea': "ESCENA 1. CONSULTA PSICÒLEG - INTERIOR - DIA\n\n" +
+                         "PSICÒLEG\n" +
+                         "Hola, Marc. Seu, si us plau. Com et trobes?\n\n" +
+                         "MARC\n" +
+                         "(Mirant a terra) ...",
+        'dialeg-textarea': "TON\n" +
+                           "Remei, has tornat a mirar el mòbil? Ha dit alguna cosa?\n\n" +
+                           "REMEI\n" +
+                           "Res, ni un missatge. Aquesta nena... Després de tot el que he fet per ella. És culpa d'aquella psicòloga, li va ficar ocells al cap.\n\n" +
+                           "TON\n" +
+                           "..."
+    };
+
     const startActivities = () => {
         activityState.userName = studentNameInput.value.trim();
         if (!activityState.userName) return;
@@ -103,29 +118,50 @@ document.addEventListener('DOMContentLoaded', function() {
             newCheck.addEventListener('click', () => handleCheck(step));
         }
 
-        // Reset Drag & Drop (single item) and Classification (multi-item)
+        // Reset various activity types
         if (step.querySelector('.drop-zone-vocab, .drop-zone-classify')) {
             const wordsContainer = step.querySelector('.words-container');
-            step.querySelectorAll('.drag-item-vocab').forEach(p => {
-                wordsContainer.appendChild(p);
-                p.classList.remove('correct-order', 'incorrect-order');
-            });
-            step.querySelectorAll('.drop-zone-vocab, .drop-zone-classify').forEach(z => {
-                z.innerHTML = '';
-                z.classList.remove('correct-drop', 'incorrect-drop');
-            });
+            step.querySelectorAll('.drag-item-vocab').forEach(p => { wordsContainer.appendChild(p); p.classList.remove('correct-order', 'incorrect-order'); });
+            step.querySelectorAll('.drop-zone-vocab, .drop-zone-classify').forEach(z => { z.innerHTML = ''; z.classList.remove('correct-drop', 'incorrect-drop'); });
         }
-        // Reset Sortable List
         if (step.querySelector('.sortable-list')) {
             const list = step.querySelector('.sortable-list');
             if (list.dataset.originalHtml) list.innerHTML = list.dataset.originalHtml;
             list.querySelectorAll('.sortable-item').forEach(item => item.classList.remove('correct-order', 'incorrect-order'));
         }
-        // Reset Text Area
-        if (step.querySelector('textarea')) {
-            step.querySelector('textarea').value = '';
-        }
-        // Reset Quiz (single and multi)
+        
+        // --- NOU I MILLORAT SISTEMA PER A TEXTAREAS ---
+        step.querySelectorAll('textarea').forEach(textarea => {
+            textarea.value = ''; // Sempre es buida primer
+            textarea.classList.remove('placeholder-active'); // Treu la classe gris per defecte
+
+            const id = textarea.id;
+            const placeholderText = initialTextareas[id];
+
+            if (placeholderText) {
+                textarea.value = placeholderText;
+                textarea.classList.add('placeholder-active');
+
+                // Neteja listeners antics clonant l'element
+                const newTextarea = textarea.cloneNode(true);
+                textarea.parentNode.replaceChild(newTextarea, textarea);
+                
+                newTextarea.addEventListener('focus', function() {
+                    if (newTextarea.classList.contains('placeholder-active')) {
+                        newTextarea.value = '';
+                        newTextarea.classList.remove('placeholder-active');
+                    }
+                });
+                newTextarea.addEventListener('blur', function() {
+                    if (newTextarea.value.trim() === '') {
+                        newTextarea.value = placeholderText;
+                        newTextarea.classList.add('placeholder-active');
+                    }
+                });
+            }
+        });
+        // --- FINAL DEL NOU BLOC ---
+        
         step.querySelectorAll('.quiz-options').forEach(container => {
             const isMultipleChoice = container.classList.contains('multiple-choice');
             container.querySelectorAll('.quiz-option').forEach(option => {

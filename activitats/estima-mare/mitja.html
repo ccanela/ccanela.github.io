@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="cat">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Activitats: De tant que t’estima la mare… (Mitjà) - Afers Juvenils</title>
+  <link rel="icon" type="image/png" href="../../images/icon.png" />
+  <!-- Poppins font, Tailwind CSS, custom styles, Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center"><div class="text-2xl font-bold text-primary">Afers Juvenils</div></div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="../../index.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Inici</a>
+                    <a href="../../entrevistes.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
+                    <a href="../../guia.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
+                    <a href="../../activitats.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium active">Activitats</a>
+                    <a href="../../tastet.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
+                    <a href="../../autora.html" class="nav-link text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
+                </nav>
+                <div class="md:hidden"><button id="menu-toggle" class="text-gray-800 focus:outline-none"><i class="fas fa-bars text-xl"></i></button></div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg"><div class="px-4 py-3 space-y-3">
+            <a href="../../index.html" class="block text-gray-800 hover:text-gray-600 font-medium">Inici</a>
+            <a href="../../entrevistes.html" class="block text-gray-800 hover:text-gray-600 font-medium">Entrevistes</a>
+            <a href="../../guia.html" class="block text-gray-800 hover:text-gray-600 font-medium">Guia Didàctica</a>
+            <a href="../../activitats.html" class="block text-gray-800 hover:text-gray-600 font-medium">Activitats</a>
+            <a href="../../tastet.html" class="block text-gray-800 hover:text-gray-600 font-medium">Un Tastet</a>
+            <a href="../../autora.html" class="block text-gray-800 hover:text-gray-600 font-medium">L'Autora</a>
+        </div></div>
+    </header>
+
+<main class="container mx-auto px-4 py-8">
+    <div id="activity-wrapper" 
+         data-story-title="De tant que t’estima la mare…" 
+         data-story-id="mareestima" 
+         data-level-text="Mitjà">
+
+        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-6 gap-4">
+            <a href="../../activitats.html" class="flex items-center text-primary font-medium hover:text-accent transition"><i class="fas fa-arrow-left mr-2"></i> Tornar a la selecció d'activitats</a>
+            <div class="text-left sm:text-right">
+                <h1 id="activity-story-title" class="text-3xl font-bold text-primary">De tant que t’estima la mare…</h1>
+                <p id="activity-level" class="text-accent font-medium text-lg">Nivell: Mitjà</p>
+            </div>
+        </div>
+
+        <div id="name-input-container" class="bg-white rounded-xl shadow-lg p-8 text-center">
+            <h3 class="text-2xl font-bold mb-4 text-primary">Abans de començar...</h3>
+            <p class="text-gray-700 mb-6">Si us plau, introdueix el teu nom i cognoms per poder generar el justificant al final.</p>
+            <input type="text" id="student-name" placeholder="El teu nom i cognoms" class="w-full max-w-md mx-auto p-3 border-2 border-gray-300 rounded-lg focus:border-accent focus:outline-none transition">
+            <button id="start-activities-btn" class="mt-4 bg-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition disabled:bg-gray-400 disabled:cursor-not-allowed">Començar Activitats</button>
+        </div>
+
+        <div id="main-activity-content" class="hidden">
+            <div class="mb-8">
+                <div class="flex justify-between mb-1">
+                    <span class="text-base font-medium text-primary">Progrés</span>
+                    <span id="progress-text" class="text-sm font-medium text-primary">Pas 0 / 0</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5"><div id="progress-bar" class="bg-accent h-2.5 rounded-full" style="width: 0%"></div></div>
+            </div>
+
+            <div id="activity-mareestima-mitja" class="activity-set">
+
+                <!-- Activitat 1: El punt de vista dels altres -->
+                <div class="activity-step" data-step-id="punt-de-vista" data-step-title="El punt de vista dels altres">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 1: El punt de vista dels altres</h4>
+                        <p class="text-gray-600 mb-6">El relat no només ens mostra la visió de l'Emma. Què pensen els altres personatges sobre la seva situació? Tria la resposta correcta per a cada grup.</p>
+                        <div class="space-y-6">
+                            <div class="multi-quiz-group">
+                                <p class="mb-2 font-medium">1. Les professores (Montserrat i Esperança):</p>
+                                <div class="space-y-2 quiz-options">
+                                    <div class="quiz-option border-2 border-gray-200 p-3 rounded-lg cursor-pointer" data-correct="true">Consideren que la mare és molt pesada i que interfereix massa.</div>
+                                    <div class="quiz-option border-2 border-gray-200 p-3 rounded-lg cursor-pointer" data-correct="false">Pensen que l'Emma és una alumna excel·lent i no entenen les queixes.</div>
+                                </div>
+                            </div>
+                            <div class="multi-quiz-group">
+                                <p class="mb-2 font-medium">2. Les companyes (Abril i Ona):</p>
+                                <div class="space-y-2 quiz-options">
+                                    <div class="quiz-option border-2 border-gray-200 p-3 rounded-lg cursor-pointer" data-correct="false">Totes dues pensen que l'Emma està molt malalta i l'han d'ajudar.</div>
+                                    <div class="quiz-option border-2 border-gray-200 p-3 rounded-lg cursor-pointer" data-correct="true">Una pensa que l'Emma fingeix i que la seva mare és un "plom", mentre que l'altra demana més paciència.</div>
+                                </div>
+                            </div>
+                            <div class="multi-quiz-group">
+                                <p class="mb-2 font-medium">3. La doctora d'urgències:</p>
+                                <div class="space-y-2 quiz-options">
+                                    <div class="quiz-option border-2 border-gray-200 p-3 rounded-lg cursor-pointer" data-correct="true">Creu que el problema de l'Emma no és físic, sinó psicològic (somatització), i recomana un especialista.</div>
+                                    <div class="quiz-option border-2 border-gray-200 p-3 rounded-lg cursor-pointer" data-correct="false">Confirma que l'Emma té una malaltia greu de l'estómac.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Verificar</button><p class="feedback-msg font-medium h-6"></p></div>
+                    </div>
+                </div>
+
+                <!-- Activitat 2: Què és "somatitzar"? -->
+                <div class="activity-step hidden" data-step-id="somatitzar" data-step-title="Què és 'somatitzar'?">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 2: Què és "somatitzar"?</h4>
+                        <p class="text-gray-600 mb-6">La doctora suggereix que l'Emma pot estar "somatitzant". Aquesta paraula significa transformar problemes psicològics (estrès, angoixa) en símptomes físics reals. Quina escena del relat és el millor exemple d'això?</p>
+                        <div class="space-y-4 quiz-options">
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Quan l'Emma juga amb el seu titella a l'habitació.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="true">Quan sent la seva mare planejar-li el futur i, immediatament després, sent una "fiblada a l'estómac".</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Quan rep el correu de la professora de català amb la nota de la redacció.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Quan la mare li demana que acabi de fer els deures de matemàtiques.</div>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Verificar</button><p class="feedback-msg font-medium h-6"></p></div>
+                    </div>
+                </div>
+
+                <!-- Activitat 3: El Teatre de Titelles -->
+                <div class="activity-step hidden" data-step-id="titelles" data-step-title="El Teatre de Titelles">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 3: El Teatre de Titelles</h4>
+                        <p class="text-gray-600 mb-6">Al principi, l'Emma dibuixa un teatre de titelles. Al final, li diu a la seva mare: "no vull ser més el vostre titella". Què significa aquesta metàfora?</p>
+                        <textarea class="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-accent focus:outline-none transition" rows="6" placeholder="Significa que l'Emma se sent..."></textarea>
+                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Desar i continuar</button><p class="feedback-msg font-medium h-6"></p></div>
+                    </div>
+                </div>
+
+                <!-- Activitat 4: Accions i reaccions -->
+                <div class="activity-step hidden" data-step-id="accions" data-step-title="Accions i reaccions">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 4: Accions i reaccions</h4>
+                        <p class="text-gray-600 mb-6">L'Emma es desmaia durant l'examen de matemàtiques. Per què?</p>
+                        <div class="space-y-4 quiz-options">
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Perquè no havia esmorzat i estava molt dèbil.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="true">Perquè no sabia fer els exercicis (els havia fet la seva mare) i la pressió de ser descoberta li va provocar una crisi d'angoixa.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Perquè el professor, Andreu, era massa estricte i la va espantar.</div>
+                            <div class="quiz-option border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-accent" data-correct="false">Perquè els seus problemes d'estómac van empitjorar de cop.</div>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Verificar</button><p class="feedback-msg font-medium h-6"></p></div>
+                    </div>
+                </div>
+
+                <!-- Activitat 5: El punt de vista de la mare -->
+                <div class="activity-step hidden" data-step-id="mare" data-step-title="El punt de vista de la mare">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h4 class="text-xl font-bold mb-1 text-primary">Activitat 5: El punt de vista de la mare</h4>
+                        <p class="text-gray-600 mb-6">La mare de l'Emma creu que l'ajuda molt, però el seu amor "fa mal". Explica amb les teves paraules per què la seva manera d'ajudar és perjudicial per a l'Emma.</p>
+                        <textarea class="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-accent focus:outline-none transition" rows="8" placeholder="La seva ajuda és perjudicial perquè..."></textarea>
+                        <p class="text-xs text-gray-500 mt-2">Aquesta resposta és oberta i es desarà al teu justificant.</p>
+                        <div class="flex items-center gap-4 mt-6"><button class="check-btn bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Desar i continuar</button><p class="feedback-msg font-medium h-6"></p></div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div id="completion-message" class="hidden text-center bg-green-100 border-l-4 border-green-500 text-green-700 p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold mb-2">Enhorabona!</h3>
+                <p class="text-lg mb-4">Has completat totes les activitats. Ja pots descarregar el teu justificant.</p>
+                <div class="flex justify-center gap-4">
+                    <button id="download-pdf-btn" class="bg-accent text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition"><i class="fas fa-file-pdf mr-2"></i>Descarregar PDF</button>
+                    <button id="restart-level-btn" class="bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition">Tornar a començar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="bg-primary text-white py-8">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0"><div class="text-2xl font-bold text-secondary mb-2">Afers Juvenils</div><p class="text-gray-400">© 2025 Maria Dolors Añón. Tots els drets reservats.</p></div>
+            <div class="flex space-x-6">
+                <a href="https://www.instagram.com/anondolors" target="_blank" class="text-gray-400 hover:text-accent"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="https://www.facebook.com/dolors.anon" target="_blank" class="text-gray-400 hover:text-accent"><i class="fab fa-facebook text-xl"></i></a>
+                <a href="mailto:manon@xtec.cat" class="text-gray-400 hover:text-accent"><i class="fas fa-envelope text-xl"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>
