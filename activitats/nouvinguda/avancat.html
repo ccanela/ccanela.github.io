@@ -98,37 +98,43 @@
                         
                         <!-- Línia de temps -->
                         <div class="relative py-8 px-4">
-                            <div class="absolute left-0 top-1/2 w-full h-0.5 bg-gray-400"></div>
-                            <div class="relative flex justify-between">
+                            <!-- Línia HORITZONTAL per a pantalles grans (lg i superiors) -->
+                            <div class="absolute left-0 top-1/2 w-full h-0.5 bg-gray-400 hidden lg:block"></div>
+                            <!-- Línia VERTICAL per a pantalles petites (mòbil) -->
+                            <div class="absolute top-0 left-4 lg:left-1/2 w-0.5 h-full bg-gray-400 block lg:hidden"></div>
+
+                            <!-- Contenidor de les fites -->
+                            <div class="relative flex flex-col lg:flex-row justify-between space-y-12 lg:space-y-0">
+                                
                                 <!-- Fita 1 -->
-                                <div class="flex flex-col items-center w-1/5">
-                                    <div class="w-4 h-4 bg-primary rounded-full z-10"></div>
-                                    <h5 class="font-bold text-center mt-2">Arribada a l'institut</h5>
-                                    <div class="drop-zone-timeline mt-2 bg-white border-2 border-dashed border-gray-400 rounded-lg w-full h-20 flex items-center justify-center p-2" data-accept="felicitat"></div>
+                                <div class="flex flex-col items-center w-full lg:w-1/5 text-center">
+                                    <div class="w-4 h-4 bg-primary rounded-full z-10 shrink-0"></div>
+                                    <h5 class="font-bold mt-2">Arribada a l'institut</h5>
+                                    <div class="drop-zone-timeline mt-2 bg-white border-2 border-dashed border-gray-400 rounded-lg w-48 sm:w-56 h-20 flex items-center justify-center p-2" data-accept="felicitat"></div>
                                 </div>
                                 <!-- Fita 2 -->
-                                <div class="flex flex-col items-center w-1/5">
-                                    <div class="w-4 h-4 bg-primary rounded-full z-10"></div>
-                                    <h5 class="font-bold text-center mt-2">Declaració del Raül</h5>
-                                    <div class="drop-zone-timeline mt-2 bg-white border-2 border-dashed border-gray-400 rounded-lg w-full h-20 flex items-center justify-center p-2" data-accept="sorpresa"></div>
+                                <div class="flex flex-col items-center w-full lg:w-1/5 text-center">
+                                    <div class="w-4 h-4 bg-primary rounded-full z-10 shrink-0"></div>
+                                    <h5 class="font-bold mt-2">Declaració del Raül</h5>
+                                    <div class="drop-zone-timeline mt-2 bg-white border-2 border-dashed border-gray-400 rounded-lg w-48 sm:w-56 h-20 flex items-center justify-center p-2" data-accept="sorpresa"></div>
                                 </div>
                                 <!-- Fita 3 -->
-                                <div class="flex flex-col items-center w-1/5">
-                                    <div class="w-4 h-4 bg-primary rounded-full z-10"></div>
-                                    <h5 class="font-bold text-center mt-2">Li fan el buit</h5>
-                                    <div class="drop-zone-timeline mt-2 bg-white border-2 border-dashed border-gray-400 rounded-lg w-full h-20 flex items-center justify-center p-2" data-accept="tristesa"></div>
+                                <div class="flex flex-col items-center w-full lg:w-1/5 text-center">
+                                    <div class="w-4 h-4 bg-primary rounded-full z-10 shrink-0"></div>
+                                    <h5 class="font-bold mt-2">Li fan el buit</h5>
+                                    <div class="drop-zone-timeline mt-2 bg-white border-2 border-dashed border-gray-400 rounded-lg w-48 sm:w-56 h-20 flex items-center justify-center p-2" data-accept="tristesa"></div>
                                 </div>
                                 <!-- Fita 4 -->
-                                <div class="flex flex-col items-center w-1/5">
-                                    <div class="w-4 h-4 bg-primary rounded-full z-10"></div>
-                                    <h5 class="font-bold text-center mt-2">Torna disfressada</h5>
-                                    <div class="drop-zone-timeline mt-2 bg-white border-2 border-dashed border-gray-400 rounded-lg w-full h-20 flex items-center justify-center p-2" data-accept="valentia"></div>
+                                <div class="flex flex-col items-center w-full lg:w-1/5 text-center">
+                                    <div class="w-4 h-4 bg-primary rounded-full z-10 shrink-0"></div>
+                                    <h5 class="font-bold mt-2">Torna disfressada</h5>
+                                    <div class="drop-zone-timeline mt-2 bg-white border-2 border-dashed border-gray-400 rounded-lg w-48 sm:w-56 h-20 flex items-center justify-center p-2" data-accept="valentia"></div>
                                 </div>
                                 <!-- Fita 5 -->
-                                <div class="flex flex-col items-center w-1/5">
-                                    <div class="w-4 h-4 bg-primary rounded-full z-10"></div>
-                                    <h5 class="font-bold text-center mt-2">Arribada de la mare</h5>
-                                    <div class="drop-zone-timeline mt-2 bg-white border-2 border-dashed border-gray-400 rounded-lg w-full h-20 flex items-center justify-center p-2" data-accept="alleugeriment"></div>
+                                <div class="flex flex-col items-center w-full lg:w-1/5 text-center">
+                                    <div class="w-4 h-4 bg-primary rounded-full z-10 shrink-0"></div>
+                                    <h5 class="font-bold mt-2">Arribada de la mare</h5>
+                                    <div class="drop-zone-timeline mt-2 bg-white border-2 border-dashed border-gray-400 rounded-lg w-48 sm:w-56 h-20 flex items-center justify-center p-2" data-accept="alleugeriment"></div>
                                 </div>
                             </div>
                         </div>
