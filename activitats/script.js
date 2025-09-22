@@ -27,9 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
         activityResults: []
     };
     
-    // NOTA: La variable 'draggedItem' ja no és necessària amb Sortable.js
-    // let draggedItem = null; 
-
     const nameInputContainer = document.getElementById('name-input-container');
     const mainActivityContent = document.getElementById('main-activity-content');
     const completionMessage = document.getElementById('completion-message');
@@ -60,51 +57,54 @@ document.addEventListener('DOMContentLoaded', function() {
             resetActivityStep(step);
         });
         
-        // NOVA FUNCIÓ per inicialitzar totes les instàncies de Sortable.js
         initializeSortableJS();
-
         updateProgressBar();
     };
     
     /**
-     * NOVA FUNCIÓ: Inicialitza Sortable.js per a totes les activitats de drag-and-drop.
-     * Aquesta funció substitueix tots els 'event listeners' manuals de drag-and-drop.
-     * Funciona tant amb ratolí com en dispositius tàctils.
+     * VERSIÓ MILLORADA: Inicialitza Sortable.js per a TOTES les activitats d'arrossegar.
+     * Ara detecta automàticament els contenidors i les zones d'arrossegament de cada activitat.
      */
     const initializeSortableJS = () => {
         steps.forEach((step, index) => {
-            // Cas 1: Línia de temps (com a 'La nouvinguda - Avançat')
-            const timelineContainer = step.querySelector('.words-container-timeline');
-            const timelineDropZones = step.querySelectorAll('.drop-zone-timeline');
-            if (timelineContainer && timelineDropZones.length > 0) {
-                const groupName = `timeline-group-${index}`;
-                
-                // Contenidor d'origen
-                new Sortable(timelineContainer, {
-                    group: groupName,
-                    animation: 150,
-                    ghostClass: 'sortable-ghost'
+            const groupName = `dnd-group-${index}`;
+
+            // Troba tots els contenidors d'origen i zones de destinació dins de l'activitat actual
+            const originContainers = step.querySelectorAll('.words-container, .words-container-timeline');
+            const dropZones = step.querySelectorAll('.drop-zone, .drop-zone-vocab, .drop-zone-timeline');
+
+            // --- Gestiona activitats d'arrossegar i deixar anar (un sol element per zona) ---
+            if (originContainers.length > 0 && dropZones.length > 0) {
+                // Inicialitza tots els contenidors d'origen
+                originContainers.forEach(container => {
+                    new Sortable(container, {
+                        group: groupName,
+                        animation: 150,
+                        ghostClass: 'sortable-ghost'
+                    });
                 });
 
-                // Zones de destinació (només admeten un element)
-                timelineDropZones.forEach(zone => {
+                // Inicialitza totes les zones de destinació amb la lògica per acceptar només un element
+                dropZones.forEach(zone => {
                     new Sortable(zone, {
                         group: groupName,
                         animation: 150,
                         ghostClass: 'sortable-ghost',
                         onAdd: function (evt) {
                             // Si s'afegeix un element i ja n'hi ha un altre, el vell torna a l'origen.
-                            if (zone.children.length > 1) {
-                                const oldItem = (evt.item === zone.children[0]) ? zone.children[1] : zone.children[0];
-                                timelineContainer.appendChild(oldItem);
+                            if (evt.to.children.length > 1) {
+                                const origin = step.querySelector('.words-container, .words-container-timeline');
+                                if (origin) {
+                                    const oldItem = (evt.item === evt.to.children[0]) ? evt.to.children[1] : evt.to.children[0];
+                                    origin.appendChild(oldItem);
+                                }
                             }
                         }
                     });
                 });
             }
 
-            // Afegeix aquí altres tipus d'activitats d'arrossegar si cal (ex: classificació, etc.)
-            // Cas 2: Llista per ordenar
+            // --- Gestiona activitats de llista per ordenar ---
             const sortableList = step.querySelector('.sortable-list');
             if (sortableList) {
                 new Sortable(sortableList, {
@@ -158,41 +158,30 @@ document.addEventListener('DOMContentLoaded', function() {
             checkBtn.parentNode.replaceChild(newCheck, checkBtn);
             newCheck.addEventListener('click', () => handleCheck(step));
         }
-
-        // Reset per a la línia de temps (drag & drop)
-        const timelineContainer = step.querySelector('.words-container-timeline');
-        if (timelineContainer) {
-            step.querySelectorAll('.drag-item-timeline').forEach(item => {
-                timelineContainer.appendChild(item);
+        
+        // Reset genèric per a totes les activitats d'arrossegar
+        const originContainer = step.querySelector('.words-container, .words-container-timeline');
+        if (originContainer) {
+            const items = step.querySelectorAll('.drag-item, .drag-item-vocab, .drag-item-timeline');
+            items.forEach(item => {
+                item.classList.remove('correct-order', 'incorrect-order');
+                originContainer.appendChild(item);
             });
-            step.querySelectorAll('.drop-zone-timeline').forEach(zone => {
+            const dropZones = step.querySelectorAll('.drop-zone, .drop-zone-vocab, .drop-zone-timeline');
+            dropZones.forEach(zone => {
                 zone.innerHTML = '';
+                zone.classList.remove('correct-drop', 'incorrect-drop');
             });
         }
         
-        // Reset Drag & Drop (single item) and Classification (multi-item)
-        if (step.querySelector('.drop-zone-vocab, .drop-zone-classify')) {
-            const wordsContainer = step.querySelector('.words-container');
-            step.querySelectorAll('.drag-item-vocab').forEach(p => {
-                wordsContainer.appendChild(p);
-                p.classList.remove('correct-order', 'incorrect-order');
-            });
-            step.querySelectorAll('.drop-zone-vocab, .drop-zone-classify').forEach(z => {
-                z.innerHTML = '';
-                z.classList.remove('correct-drop', 'incorrect-drop');
-            });
-        }
-        // Reset Sortable List
         if (step.querySelector('.sortable-list')) {
             const list = step.querySelector('.sortable-list');
             if (list.dataset.originalHtml) list.innerHTML = list.dataset.originalHtml;
             list.querySelectorAll('.sortable-item').forEach(item => item.classList.remove('correct-order', 'incorrect-order'));
         }
-        // Reset Text Area
         if (step.querySelector('textarea')) {
             step.querySelector('textarea').value = '';
         }
-        // Reset Quiz (single and multi)
         step.querySelectorAll('.quiz-options').forEach(container => {
             const isMultipleChoice = container.classList.contains('multiple-choice');
             container.querySelectorAll('.quiz-option').forEach(option => {
@@ -217,12 +206,13 @@ document.addEventListener('DOMContentLoaded', function() {
         currentResult.attempts++;
         let result = { correct: false, answer: "No s'ha respost", isTextarea: false };
 
-        if (step.querySelector('.drop-zone-timeline')) result = checkTimeline(step); // NOU CHECKER ESPECÍFIC
+        if (step.querySelector('.drop-zone-timeline')) result = checkDragAndDropGeneric(step, '.drop-zone-timeline', '.drag-item-timeline');
+        else if (step.querySelector('.drop-zone-vocab')) result = checkDragAndDropGeneric(step, '.drop-zone-vocab', '.drag-item-vocab');
+        else if (step.querySelector('.drop-zone')) result = checkDragAndDropGeneric(step, '.drop-zone', '.drag-item');
         else if (step.querySelector('.quiz-options.multiple-choice')) result = checkMultipleChoiceQuiz(step);
         else if (step.querySelector('.drop-zone-classify')) result = checkClassification(step);
         else if (step.querySelector('.multi-quiz-group')) result = checkMultiQuiz(step);
         else if (step.querySelector('.sortable-list')) result = checkSortableList(step);
-        else if (step.querySelector('.drop-zone-vocab')) result = checkDragAndDrop(step);
         else if (step.querySelector('.quiz-options')) result = checkQuiz(step);
         else if (step.querySelector('textarea')) result = checkTextarea(step);
 
@@ -280,11 +270,11 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // --- CHECKERS ---
-    const checkTimeline = (step) => {
+    const checkDragAndDropGeneric = (step, zoneSelector, itemSelector) => {
         let allCorrect = true;
-        step.querySelectorAll('.drop-zone-timeline').forEach(zone => {
+        step.querySelectorAll(zoneSelector).forEach(zone => {
             zone.classList.remove('correct-drop', 'incorrect-drop');
-            const droppedItem = zone.querySelector('.drag-item-timeline');
+            const droppedItem = zone.querySelector(itemSelector);
             if (!droppedItem || droppedItem.dataset.word !== zone.dataset.accept) {
                 allCorrect = false;
                 zone.classList.add('incorrect-drop');
@@ -295,7 +285,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return { correct: allCorrect, answer: getStudentAnswerReadable(step) };
     };
 
-    const checkDragAndDrop = (step) => { let allCorrect = true; step.querySelectorAll('.drop-zone-vocab').forEach(zone => { zone.classList.remove('correct-drop', 'incorrect-drop'); const droppedItem = zone.querySelector('.drag-item-vocab'); if (!droppedItem || droppedItem.dataset.word !== zone.dataset.accept) { allCorrect = false; zone.classList.add('incorrect-drop'); } else { zone.classList.add('correct-drop'); } }); return { correct: allCorrect, answer: getStudentAnswerReadable(step) }; };
     const checkSortableList = (step) => { const list = step.querySelector('.sortable-list'); const correctOrder = list.dataset.correctOrder.split(','); const currentItems = Array.from(list.querySelectorAll('.sortable-item')); let isCorrect = true; currentItems.forEach((item, index) => { item.classList.remove('correct-order', 'incorrect-drop'); if (item.dataset.id !== correctOrder[index]) { isCorrect = false; item.classList.add('incorrect-order'); } else { item.classList.add('correct-order'); } }); return { correct: isCorrect, answer: getStudentAnswerReadable(step) }; };
     const checkQuiz = (step) => { const selectedOption = step.querySelector('.quiz-option.selected'); if (!selectedOption) return { correct: false, answer: "No s'ha respost" }; const isCorrect = selectedOption.dataset.correct === 'true'; step.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('correct', 'incorrect')); selectedOption.classList.add(isCorrect ? 'correct' : 'incorrect'); return { correct: isCorrect, answer: selectedOption.textContent.trim() }; };
     const checkMultiQuiz = (step) => { let allCorrect = true; step.querySelectorAll('.multi-quiz-group').forEach(group => { const selectedOption = group.querySelector('.quiz-option.selected'); group.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('correct', 'incorrect')); if (!selectedOption || selectedOption.dataset.correct !== 'true') { allCorrect = false; if(selectedOption) selectedOption.classList.add('incorrect'); } else { selectedOption.classList.add('correct'); } }); return { correct: allCorrect, answer: getStudentAnswerReadable(step) }; };
@@ -368,6 +357,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function getStudentAnswerReadable(step) {
+        if (step.querySelector('p.text-lg.leading-loose')) {
+            const clone = step.querySelector('p.text-lg.leading-loose').cloneNode(true);
+            clone.querySelectorAll('.drop-zone').forEach(z => {
+                const chosen = z.querySelector('.drag-item');
+                z.textContent = chosen ? `"${chosen.innerText.trim()}"` : '____';
+            });
+            return clone.innerText.trim();
+        }
         if (step.querySelector('.drop-zone-timeline')) {
             const answers = [];
             step.querySelectorAll('.flex-col.items-center').forEach(milestone => {
@@ -381,7 +378,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         if (step.querySelector('.drop-zone-classify')) { const answers = []; step.querySelectorAll('.drop-zone-classify').forEach(zone => { const categoryTitle = zone.querySelector('p')?.innerText || zone.dataset.accept; answers.push(`\n[Categoria: ${categoryTitle}]`); const items = Array.from(zone.querySelectorAll('.drag-item-vocab')); if (items.length > 0) { items.forEach(item => answers.push(`- "${item.innerText.trim()}"`)); } else { answers.push("- (Buit)"); } }); return answers.join('\n');}
         if (step.querySelector('.multi-quiz-group')) { const answers = []; step.querySelectorAll('.multi-quiz-group').forEach(group => { const claim = group.querySelector('p:first-child')?.innerText?.trim(); const selected = group.querySelector('.quiz-option.selected'); answers.push(`${claim}\n  ↳ Resposta: ${selected ? selected.innerText.trim() : 'No seleccionat'}`); }); return answers.join('\n\n');}
-        if (step.querySelector('.drop-zone-vocab')) { const lines = []; step.querySelectorAll('.drop-zone-vocab').forEach(zone => { const parentText = zone.closest('div').querySelector('p')?.innerText.trim() || zone.dataset.accept; const chosen = zone.querySelector('.drag-item-vocab')?.innerText?.trim() || '—'; if (step.querySelector('p.text-lg.leading-loose')) { return; } lines.push(`[${chosen}] — ${parentText}`); }); if (step.querySelector('p.text-lg.leading-loose')) { const clone = step.querySelector('p.text-lg.leading-loose').cloneNode(true); clone.querySelectorAll('.drop-zone').forEach(z => { const chosen = z.querySelector('.drag-item'); z.textContent = chosen ? `"${chosen.innerText.trim()}"` : '—'; }); return clone.innerText.trim(); } return lines.join('\n'); }
+        if (step.querySelector('.drop-zone-vocab')) { const lines = []; step.querySelectorAll('.drop-zone-vocab').forEach(zone => { const parentText = zone.closest('div').querySelector('p')?.innerText.trim() || zone.dataset.accept; const chosen = zone.querySelector('.drag-item-vocab')?.innerText?.trim() || '—'; if (step.querySelector('p.text-lg.leading-loose')) { return; } lines.push(`[${chosen}] — ${parentText}`); }); return lines.join('\n'); }
         if (step.querySelector('.sortable-list')) { const items = step.querySelectorAll('.sortable-list .sortable-item'); return Array.from(items).map((item, index) => `${index + 1}. ${item.innerText.trim()}`).join('\n'); }
         if (step.querySelector('.quiz-options')) { const selected = step.querySelectorAll('.quiz-option.selected'); if (selected.length > 0) { return Array.from(selected).map(s => s.textContent.trim()).join(', '); } return 'No s’ha respost'; }
         if (step.querySelector('textarea')) { return step.querySelector('textarea').value.trim() || 'No s’ha respost'; }
@@ -391,9 +388,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- EVENT LISTENERS ---
     studentNameInput.addEventListener('input', () => startActivitiesBtn.disabled = studentNameInput.value.trim() === '');
     startActivitiesBtn.addEventListener('click', startActivities);
-    
-    // S'HAN ELIMINAT ELS 'EVENT LISTENERS' DE DRAG & DROP MANUALS.
-    // Sortable.js s'encarrega ara de tot.
     
     document.getElementById('download-pdf-btn').addEventListener('click', generatePDF);
     document.getElementById('restart-level-btn').addEventListener('click', () => location.reload());
